@@ -7,7 +7,7 @@
 <meta name="description" content="Camarote da revista Duas Rodas no MotoGP™ Brasil 2027. De 02 a 04 de abril, em Goiânia, com open bar, open food premium e vista exclusiva do autódromo.">
 <!-- Prévia para aprovação: fora do Google. Ao ir para o endereço definitivo, trocar por "index, follow, max-image-preview:large" e acrescentar link rel="canonical" -->
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#141414">
+<meta name="theme-color" content="#0b0b0b">
 <meta name="format-detection" content="telephone=no">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
@@ -21,8 +21,8 @@
 <meta property="og:url" content="https://contato-lab.github.io/lp-2rodas-club/">
 <meta property="og:image" content="https://contato-lab.github.io/lp-2rodas-club/img/og-2rodas-club.jpg">
 <meta name="twitter:image" content="https://contato-lab.github.io/lp-2rodas-club/img/og-2rodas-club.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23141414'/%3E%3Cpath d='M14 50 26 14h8L22 50zM30 50 42 14h8L38 50z' fill='%23f2b46a'/%3E%3C/svg%3E">
-<link rel="preload" href="img/logo-2rodasclub-vertical.png" as="image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23000'/%3E%3Cpath d='M14 50 26 14h8L22 50zM30 50 42 14h8L38 50z' fill='%23e8201f'/%3E%3C/svg%3E">
+<link rel="preload" href="img/logo-2rodasclub.png" as="image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;0,800;1,500;1,800;1,900&display=swap" rel="stylesheet">
@@ -38,11 +38,15 @@
 <style>
 /* ═══════════ TOKENS (identidade 2Rodas Club: grafite + âmbar + branco) ═══════════ */
 :root{
-  --bg:#141414; --bg-2:#1b1b1c; --surface:#222223; --elev:#2c2c2d;
+  --bg:#0b0b0b; --bg-2:#121212; --surface:#181818; --elev:#222222;
   --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.18);
   --text:#f4f2ee; --muted:#dad7d1; --dim:#bdbab4;
-  --amber:#f2b46a; --amber-hi:#ffca7f; --amber-deep:#cf904a;
-  --amber-grad:linear-gradient(100deg,#cf904a 0%,#f2b46a 32%,#ffca7f 55%,#d89b55 100%);
+  --acc:#e8201f; --acc-hi:#ff4038; --acc-deep:#c40a0a;
+  --acc-grad:linear-gradient(100deg,#e0140f 0%,#ff3a33 40%,#ff6a5f 60%,#e8201f 100%);
+  --btn-grad:linear-gradient(100deg,#c80707 0%,#e8201f 55%,#d40d0b 100%);
+  --stripes-dark:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='180'><g fill='%23ffffff' fill-opacity='0.035'><path d='M-300 60h26l30 -60h-26z'/><path d='M0 60h26l30 -60h-26z'/><path d='M-236 60h14l30 -60h-14z'/><path d='M64 60h14l30 -60h-14z'/><path d='M-182 60h40l30 -60h-40z'/><path d='M118 60h40l30 -60h-40z'/><path d='M-104 60h18l30 -60h-18z'/><path d='M196 60h18l30 -60h-18z'/><path d='M-50 60h30l30 -60h-30z'/><path d='M250 60h30l30 -60h-30z'/><path d='M-270 120h18l30 -60h-18z'/><path d='M30 120h18l30 -60h-18z'/><path d='M-212 120h34l30 -60h-34z'/><path d='M88 120h34l30 -60h-34z'/><path d='M-140 120h12l30 -60h-12z'/><path d='M160 120h12l30 -60h-12z'/><path d='M-95 120h26l30 -60h-26z'/><path d='M205 120h26l30 -60h-26z'/><path d='M-32 120h16l30 -60h-16z'/><path d='M268 120h16l30 -60h-16z'/><path d='M-290 180h34l30 -60h-34z'/><path d='M10 180h34l30 -60h-34z'/><path d='M-222 180h12l30 -60h-12z'/><path d='M78 180h12l30 -60h-12z'/><path d='M-170 180h22l30 -60h-22z'/><path d='M130 180h22l30 -60h-22z'/><path d='M-120 180h38l30 -60h-38z'/><path d='M180 180h38l30 -60h-38z'/><path d='M-56 180h14l30 -60h-14z'/><path d='M244 180h14l30 -60h-14z'/></g></svg>");
+  --stripes-red:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='180'><g fill='%23e8201f' fill-opacity='0.5'><path d='M-300 60h26l30 -60h-26z'/><path d='M0 60h26l30 -60h-26z'/><path d='M-236 60h14l30 -60h-14z'/><path d='M64 60h14l30 -60h-14z'/><path d='M-182 60h40l30 -60h-40z'/><path d='M118 60h40l30 -60h-40z'/><path d='M-104 60h18l30 -60h-18z'/><path d='M196 60h18l30 -60h-18z'/><path d='M-50 60h30l30 -60h-30z'/><path d='M250 60h30l30 -60h-30z'/><path d='M-270 120h18l30 -60h-18z'/><path d='M30 120h18l30 -60h-18z'/><path d='M-212 120h34l30 -60h-34z'/><path d='M88 120h34l30 -60h-34z'/><path d='M-140 120h12l30 -60h-12z'/><path d='M160 120h12l30 -60h-12z'/><path d='M-95 120h26l30 -60h-26z'/><path d='M205 120h26l30 -60h-26z'/><path d='M-32 120h16l30 -60h-16z'/><path d='M268 120h16l30 -60h-16z'/><path d='M-290 180h34l30 -60h-34z'/><path d='M10 180h34l30 -60h-34z'/><path d='M-222 180h12l30 -60h-12z'/><path d='M78 180h12l30 -60h-12z'/><path d='M-170 180h22l30 -60h-22z'/><path d='M130 180h22l30 -60h-22z'/><path d='M-120 180h38l30 -60h-38z'/><path d='M180 180h38l30 -60h-38z'/><path d='M-56 180h14l30 -60h-14z'/><path d='M244 180h14l30 -60h-14z'/></g></svg>");
+  --stripes-white:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='180'><g fill='%23ffffff' fill-opacity='0.16'><path d='M-300 60h26l30 -60h-26z'/><path d='M0 60h26l30 -60h-26z'/><path d='M-236 60h14l30 -60h-14z'/><path d='M64 60h14l30 -60h-14z'/><path d='M-182 60h40l30 -60h-40z'/><path d='M118 60h40l30 -60h-40z'/><path d='M-104 60h18l30 -60h-18z'/><path d='M196 60h18l30 -60h-18z'/><path d='M-50 60h30l30 -60h-30z'/><path d='M250 60h30l30 -60h-30z'/><path d='M-270 120h18l30 -60h-18z'/><path d='M30 120h18l30 -60h-18z'/><path d='M-212 120h34l30 -60h-34z'/><path d='M88 120h34l30 -60h-34z'/><path d='M-140 120h12l30 -60h-12z'/><path d='M160 120h12l30 -60h-12z'/><path d='M-95 120h26l30 -60h-26z'/><path d='M205 120h26l30 -60h-26z'/><path d='M-32 120h16l30 -60h-16z'/><path d='M268 120h16l30 -60h-16z'/><path d='M-290 180h34l30 -60h-34z'/><path d='M10 180h34l30 -60h-34z'/><path d='M-222 180h12l30 -60h-12z'/><path d='M78 180h12l30 -60h-12z'/><path d='M-170 180h22l30 -60h-22z'/><path d='M130 180h22l30 -60h-22z'/><path d='M-120 180h38l30 -60h-38z'/><path d='M180 180h38l30 -60h-38z'/><path d='M-56 180h14l30 -60h-14z'/><path d='M244 180h14l30 -60h-14z'/></g></svg>");
   --red:#ff2a1a;
   --f-display:"Montserrat",system-ui,sans-serif;
   --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
@@ -61,14 +65,14 @@ h1,h2,h3{text-wrap:balance}
 p,li,figcaption{text-wrap:pretty}
 address{font-style:normal}
 .sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-.skip{position:fixed;left:16px;top:-90px;z-index:200;padding:12px 18px;border-radius:10px;background:var(--amber-hi);color:#171310;font-weight:800;transition:top .2s}
+.skip{position:fixed;left:16px;top:-90px;z-index:200;padding:12px 18px;border-radius:10px;background:var(--acc);color:#fff;font-weight:800;transition:top .2s}
 .skip:focus{top:16px}
 h1,h2,h3,p{margin:0}
-::selection{background:var(--amber);color:#141414}
-:focus-visible{outline:2px solid var(--amber-hi);outline-offset:3px;border-radius:4px}
+::selection{background:var(--acc);color:#fff}
+:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px;border-radius:4px}
 .container{width:100%;max-width:1320px;margin:0 auto;padding:0 var(--pad)}
 .mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
-.amber{background:var(--amber-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.acc{background:var(--acc-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 strong{font-weight:800}
 
 /* ═══════════ CAMADAS FIXAS ═══════════ */
@@ -79,11 +83,11 @@ strong{font-weight:800}
 @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-2%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
 #smooth-wrapper{position:relative;z-index:2}
 .lapbar{position:fixed;left:0;top:0;right:0;height:3px;z-index:60;pointer-events:none}
-.lapbar i{display:block;height:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--amber-grad)}
+.lapbar i{display:block;height:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--acc-grad)}
 
 /* ═══════════ LARGADA (loading) ═══════════ */
 .boot{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:
-  radial-gradient(ellipse at 50% 42%,rgba(242,180,106,.10),transparent 60%),#0d0d0d;
+  radial-gradient(ellipse at 50% 42%,rgba(232,32,31,.10),transparent 60%),#0d0d0d;
   clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
 .boot__inner{display:grid;gap:34px;justify-items:center;padding:24px}
 .lights{display:flex;gap:clamp(10px,2.2vw,22px);padding:16px clamp(14px,2.4vw,26px);border-radius:18px;background:#070707;border:1px solid #1e1e1e;box-shadow:0 30px 80px rgba(0,0,0,.6)}
@@ -98,12 +102,12 @@ strong{font-weight:800}
 html.is-loading .nav{opacity:0}
 .nav.is-stuck{background:rgba(20,20,20,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
 .nav__inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
-.logo{height:40px;width:auto;display:block}
+.logo{height:48px;width:auto;display:block}
 .boot__logo{width:clamp(170px,26vw,250px);height:auto}
 .nav__links{display:flex;gap:30px}
 .nav__links a{position:relative;color:var(--muted);transition:color .25s}
 .nav__links a:hover{color:var(--text)}
-.nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:var(--amber);transform:scaleX(0);transform-origin:0 50%;transition:transform .35s var(--ease)}
+.nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:var(--acc);transform:scaleX(0);transform-origin:0 50%;transition:transform .35s var(--ease)}
 .nav__links a:hover::after{transform:scaleX(1)}
 .nav__right{display:flex;align-items:center;gap:12px}
 .burger{display:none;width:44px;height:44px;border:1px solid var(--line-2);border-radius:10px;place-items:center}
@@ -115,12 +119,12 @@ html.is-loading .nav{opacity:0}
 
 /* ═══════════ BOTÕES ═══════════ */
 .btn{position:relative;display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;overflow:hidden;isolation:isolate;transition:transform .2s var(--ease),box-shadow .3s}
-.btn--primary{background:var(--amber-grad);color:#171310;box-shadow:0 10px 40px -10px rgba(242,180,106,.6)}
+.btn--primary{background:var(--btn-grad);color:#fff;box-shadow:0 10px 40px -10px rgba(232,32,31,.6)}
 .btn--primary::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s var(--ease)}
 .btn--primary:hover::before{transform:translateX(120%)}
-.btn--primary:hover{box-shadow:0 14px 50px -8px rgba(242,180,106,.8)}
+.btn--primary:hover{box-shadow:0 14px 50px -8px rgba(232,32,31,.8)}
 .btn--ghost{border:1px solid var(--line-2);color:var(--text)}
-.btn--ghost:hover{border-color:var(--amber);color:var(--amber-hi)}
+.btn--ghost:hover{border-color:var(--acc);color:var(--acc-hi)}
 .btn--sm{min-height:42px;padding:0 18px;font-size:12px}
 .btn:active{transform:scale(.97)}
 .btn svg{width:16px;height:16px;flex:none;transition:transform .3s var(--ease)}
@@ -128,15 +132,15 @@ html.is-loading .nav{opacity:0}
 
 /* ═══════════ BARRAS DIAGONAIS DA MARCA ═══════════ */
 .slashes{display:flex;gap:7px;align-items:stretch;height:14px}
-.slashes i{display:block;width:5px;background:var(--amber);transform:skewX(-28deg);transform-origin:50% 100%}
+.slashes i{display:block;width:5px;background:var(--acc);transform:skewX(-28deg);transform-origin:50% 100%}
 .slashes i:nth-child(n+4){width:13px}
 .slashes i:nth-child(2){margin-left:8px}.slashes i:nth-child(4){margin-left:8px}
 .bands{position:absolute;inset:0;pointer-events:none;opacity:.5;
   background:repeating-linear-gradient(118deg,transparent 0 120px,rgba(255,255,255,.022) 120px 240px)}
 
 /* ═══════════ HERO ═══════════ */
-.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 0;overflow:hidden}
-.hero__glow{position:absolute;right:-10%;bottom:-20%;width:90vw;height:90vw;max-width:1300px;max-height:1300px;border-radius:50%;background:radial-gradient(circle,rgba(242,180,106,.16),transparent 62%);pointer-events:none}
+.hero{position:relative;min-height:100svh;background:var(--stripes-dark);display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 0;overflow:hidden}
+.hero__glow{position:absolute;right:-10%;bottom:-20%;width:90vw;height:90vw;max-width:1300px;max-height:1300px;border-radius:50%;background:radial-gradient(circle,rgba(232,32,31,.16),transparent 62%);pointer-events:none}
 .hero__map{position:absolute;right:1.5vw;top:54%;z-index:1;width:min(56vw,900px,calc(98.5vw - max(0px,(100vw - 1320px)/2) - 5vw - 484px));transform:translateY(-50%)}
 .hero__map canvas{display:block;width:100%;aspect-ratio:16/10;cursor:grab;touch-action:pan-y;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
 .hero__map canvas.is-drag,.maquete canvas.is-drag{cursor:grabbing}
@@ -145,18 +149,18 @@ html.is-loading .nav{opacity:0}
 .trk-base{fill:none;stroke:rgba(255,255,255,.16);stroke-width:9;stroke-linejoin:round}
 .trk-edge{fill:none;stroke:rgba(255,255,255,.6);stroke-width:2.2;stroke-linejoin:round}
 .trk-pit{fill:none;stroke:rgba(255,255,255,.22);stroke-width:1.4;stroke-dasharray:5 6}
-.trk-glow{fill:none;stroke:var(--amber);stroke-width:16;stroke-linecap:round;opacity:.22}
-.trk-comet{fill:none;stroke:var(--amber-hi);stroke-width:6;stroke-linecap:round}
+.trk-glow{fill:none;stroke:var(--acc);stroke-width:16;stroke-linecap:round;opacity:.22}
+.trk-comet{fill:none;stroke:var(--acc-hi);stroke-width:6;stroke-linecap:round}
 .trk-dot{fill:#fff}
-.trk-club{fill:var(--amber-hi);stroke:#fff3dc;stroke-width:1}
-.trk-pulse{fill:none;stroke:var(--amber-hi);stroke-width:2.5;transform-box:fill-box;transform-origin:center;animation:trkPulse 2.2s ease-out infinite}
+.trk-club{fill:var(--acc-hi);stroke:#ffd9d6;stroke-width:1}
+.trk-pulse{fill:none;stroke:var(--acc-hi);stroke-width:2.5;transform-box:fill-box;transform-origin:center;animation:trkPulse 2.2s ease-out infinite}
 @keyframes trkPulse{0%{transform:scale(.4);opacity:.95}100%{transform:scale(2.8);opacity:0}}
-.trk-label{font-family:var(--f-mono);font-size:19px;letter-spacing:.18em;fill:var(--amber-hi)}
-.trk-tick{stroke:var(--amber);stroke-width:2}
+.trk-label{font-family:var(--f-mono);font-size:19px;letter-spacing:.18em;fill:var(--acc-hi)}
+.trk-tick{stroke:var(--acc);stroke-width:2}
 .hero__content{position:relative;z-index:2;pointer-events:none}
 .hero__content a,.hero__content button{pointer-events:auto}
-.hero__kicker{display:flex;align-items:center;gap:14px;color:var(--amber-hi);margin-bottom:22px;font-weight:500;line-height:1.5}
-.hero__kicker::before{content:"";flex:none;width:34px;height:2px;background:var(--amber)}
+.hero__kicker{display:flex;align-items:center;gap:14px;color:var(--acc-hi);margin-bottom:22px;font-weight:500;line-height:1.5}
+.hero__kicker::before{content:"";flex:none;width:34px;height:2px;background:var(--acc)}
 .hero h1{font-weight:300;text-transform:uppercase;line-height:.94;letter-spacing:-.02em;font-size:clamp(40px,6.2vw,100px)}
 .hero h1 .line{display:block;overflow:hidden;padding:.06em 0 .04em}
 .hero h1 .line > span{display:block;will-change:transform}
@@ -174,11 +178,11 @@ html.is-loading .nav{opacity:0}
 .cd span{display:block;margin-top:5px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase}
 .hud{position:absolute;right:var(--pad);top:104px;z-index:2;pointer-events:none;display:grid;gap:6px;justify-items:end;color:var(--muted)}
 .hud b{color:var(--text);font-weight:500}
-.hud__dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--amber);margin-right:8px;animation:pulse 1.4s infinite}
+.hud__dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--acc);margin-right:8px;animation:pulse 1.4s infinite}
 @keyframes pulse{50%{opacity:.25}}
 
 /* ═══════════ MARQUEE ═══════════ */
-.marquee{position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--amber-grad);color:#171310}
+.marquee{position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--stripes-white),#e8201f;color:#fff}
 .marquee__track{display:flex;gap:0;width:max-content;will-change:transform}
 .marquee__item{display:flex;align-items:center;gap:26px;padding:15px 13px;font-weight:800;font-size:15px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
 .marquee__item::after{content:"///";font-style:italic;font-weight:900;opacity:.55}
@@ -186,7 +190,7 @@ html.is-loading .nav{opacity:0}
 /* ═══════════ SEÇÕES ═══════════ */
 .section{position:relative;padding:clamp(84px,12vw,170px) 0}
 .section--surface{background:linear-gradient(180deg,rgba(27,27,28,.92),rgba(27,27,28,.82))}
-.section__label{display:flex;align-items:center;gap:14px;color:var(--amber-hi);margin-bottom:26px}
+.section__label{display:flex;align-items:center;gap:14px;color:var(--acc-hi);margin-bottom:26px}
 .section__label b{font-weight:700;color:var(--dim)}
 .h2{font-weight:300;text-transform:uppercase;line-height:1.02;letter-spacing:-.02em;font-size:clamp(34px,5.6vw,84px);max-width:16ch}
 .h2 strong{display:inline}
@@ -197,8 +201,8 @@ html.is-loading .nav{opacity:0}
 /* camarote: checklist + monitor */
 .checklist{margin-top:44px;border-top:1px solid var(--line)}
 .checklist li{display:grid;grid-template-columns:54px 1fr;gap:10px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline;transition:background .3s,padding .3s var(--ease)}
-.checklist li:hover{background:linear-gradient(90deg,rgba(242,180,106,.08),transparent 70%);padding-left:12px}
-.checklist .n{color:var(--amber)}
+.checklist li:hover{background:linear-gradient(90deg,rgba(232,32,31,.08),transparent 70%);padding-left:12px}
+.checklist .n{color:var(--acc)}
 .checklist h3{font-size:clamp(17px,1.6vw,22px);font-weight:700;line-height:1.25}
 .checklist p{color:var(--muted);font-size:15px;margin-top:4px}
 .monitor{position:sticky;top:110px;border:1px solid var(--line-2);border-radius:18px;background:#0b0b0b;overflow:hidden;box-shadow:0 50px 120px -40px rgba(0,0,0,.9)}
@@ -207,25 +211,25 @@ html.is-loading .nav{opacity:0}
 .monitor__screen{position:relative;aspect-ratio:4/3;background:#060606}
 .monitor__screen canvas{position:absolute;inset:0;width:100%;height:100%}
 .monitor__screen::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px);pointer-events:none}
-.monitor__tag{position:absolute;left:16px;bottom:16px;z-index:2;padding:8px 12px;border-radius:8px;background:rgba(0,0,0,.6);border:1px dashed rgba(242,180,106,.6);color:var(--amber-hi);font-size:11px;backdrop-filter:blur(6px)}
-.sim{color:var(--amber-hi)}.sim::before{content:"●";margin-right:6px;animation:pulse 1.2s infinite}
+.monitor__tag{position:absolute;left:16px;bottom:16px;z-index:2;padding:8px 12px;border-radius:8px;background:rgba(0,0,0,.6);border:1px dashed rgba(232,32,31,.6);color:var(--acc-hi);font-size:11px;backdrop-filter:blur(6px)}
+.sim{color:var(--acc-hi)}.sim::before{content:"●";margin-right:6px;animation:pulse 1.2s infinite}
 
 /* experiências */
 .xp-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
 .xp-head .lead{margin:0;max-width:40ch}
 .xp-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:54px;perspective:1600px}
 .xp{position:relative;border-radius:22px;border:1px solid var(--line-2);background:linear-gradient(160deg,#262627,#1a1a1b);overflow:hidden;transform-style:preserve-3d;will-change:transform;--mx:50%;--my:0%}
-.xp::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:inherit;background:radial-gradient(520px circle at var(--mx) var(--my),rgba(242,180,106,.20),transparent 46%);opacity:0;transition:opacity .35s}
+.xp::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:inherit;background:radial-gradient(520px circle at var(--mx) var(--my),rgba(232,32,31,.20),transparent 46%);opacity:0;transition:opacity .35s}
 .xp:hover::before{opacity:1}
-.xp--lounge{border-color:rgba(242,180,106,.55);background:linear-gradient(160deg,#2b241d,#1a1817)}
+.xp--lounge{border-color:rgba(232,32,31,.55);background:linear-gradient(160deg,#2a1212,#141111)}
 .xp__media{position:relative;height:clamp(190px,22vw,280px);overflow:hidden;background:#111}
 .xp__media img{width:100%;height:108%;object-fit:cover;object-position:50% 20%;filter:grayscale(1) contrast(1.08);transform:scale(1.06)}
-.xp--lounge .xp__media{background:repeating-linear-gradient(118deg,rgba(242,180,106,.16) 0 34px,transparent 34px 96px),linear-gradient(120deg,#33261a,#16130f)}
-.xp__badge{position:absolute;left:clamp(20px,2.6vw,36px);bottom:26px;z-index:2;font-weight:800;font-style:italic;text-transform:uppercase;font-size:clamp(34px,5vw,74px);line-height:.85;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.2px rgba(255,202,127,.7)}
+.xp--lounge .xp__media{background:var(--stripes-red),linear-gradient(120deg,#3a0f0e,#110b0b)}
+.xp__badge{position:absolute;left:clamp(20px,2.6vw,36px);bottom:26px;z-index:2;font-weight:800;font-style:italic;text-transform:uppercase;font-size:clamp(34px,5vw,74px);line-height:.85;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.2px rgba(255,64,56,.7)}
 .xp__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0) 35%,rgba(26,26,27,.98))}
 .xp--lounge .xp__media::after{background:linear-gradient(180deg,rgba(26,24,23,0) 55%,rgba(27,24,22,.98))}
 .xp__tag{position:absolute;top:16px;left:16px;z-index:2;padding:7px 12px;border-radius:999px;background:rgba(0,0,0,.6);border:1px solid var(--line-2);font-size:11px;backdrop-filter:blur(6px)}
-.xp--lounge .xp__tag{background:var(--amber);color:#171310;border-color:transparent;font-weight:700}
+.xp--lounge .xp__tag{background:var(--acc);color:#fff;border-color:transparent;font-weight:700}
 .xp__body{position:relative;z-index:2;padding:6px clamp(20px,2.6vw,36px) clamp(24px,2.6vw,36px)}
 .xp__name{font-size:clamp(26px,3vw,42px);font-weight:800;text-transform:uppercase;line-height:1;letter-spacing:-.02em}
 .xp__name small{display:block;font-size:.42em;font-weight:500;font-style:italic;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
@@ -234,32 +238,32 @@ html.is-loading .nav{opacity:0}
 .xp__price{display:flex;align-items:baseline;gap:10px;margin:0}
 .xp__price span{font-family:var(--f-mono);color:var(--muted);font-size:15px}
 .xp__price b{font-family:var(--f-mono);font-weight:700;font-size:clamp(34px,4vw,54px);letter-spacing:-.04em;line-height:1}
-.xp__badge small{display:block;margin-top:12px;font-size:.27em;font-weight:500;letter-spacing:.1em;-webkit-text-stroke:0;color:var(--amber-hi)}
+.xp__badge small{display:block;margin-top:12px;font-size:.27em;font-weight:500;letter-spacing:.1em;-webkit-text-stroke:0;color:var(--acc-hi)}
 .compare{margin-top:22px;border:1px solid var(--line-2);border-radius:22px;overflow:hidden;background:rgba(0,0,0,.3)}
 .compare table{width:100%;border-collapse:collapse}
-.compare caption{caption-side:top;text-align:left;padding:22px clamp(16px,2.6vw,32px) 6px;color:var(--amber-hi)}
+.compare caption{caption-side:top;text-align:left;padding:22px clamp(16px,2.6vw,32px) 6px;color:var(--acc-hi)}
 .compare th,.compare td{padding:16px clamp(12px,2.6vw,32px);text-align:left;border-top:1px solid var(--line);vertical-align:middle}
 .compare thead th,.compare thead td{border-top:0}
 .compare thead th{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;line-height:1.25}
 .compare td,.compare thead th{width:23%}
 .compare tbody th{font-weight:500;font-size:15.5px;line-height:1.35;color:#f2efe9}
 .compare tbody th small{display:block;margin-top:3px;font-weight:400;font-size:13.5px;color:var(--muted)}
-.compare thead th:last-child,.compare td:last-child{background:rgba(242,180,106,.07)}
+.compare thead th:last-child,.compare td:last-child{background:rgba(232,32,31,.07)}
 .compare tbody tr{transition:background .25s}
 .compare tbody tr:hover{background:rgba(255,255,255,.035)}
-.ok{display:inline-block;width:9px;height:17px;margin:0 0 4px 6px;border:solid var(--amber-hi);border-width:0 3px 3px 0;transform:rotate(42deg)}
+.ok{display:inline-block;width:9px;height:17px;margin:0 0 4px 6px;border:solid var(--acc-hi);border-width:0 3px 3px 0;transform:rotate(42deg)}
 .no{color:var(--dim);font-size:14px}
 .compare__price th{font-weight:700!important;color:var(--text)!important}
 .compare__price td{font-family:var(--f-mono);font-weight:700;font-size:clamp(16px,1.8vw,22px);white-space:nowrap}
-.arq{position:relative;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(20px,4vw,56px);align-items:end;margin-top:22px;padding:clamp(22px,3vw,40px);border:1px solid rgba(242,180,106,.45);border-radius:22px;background:linear-gradient(160deg,#241f19,#171615);overflow:hidden}
-.arq::before{content:"";position:absolute;right:-40px;top:-40px;width:260px;height:260px;background:repeating-linear-gradient(118deg,rgba(242,180,106,.5) 0 10px,transparent 10px 26px);opacity:.12;pointer-events:none}
-.arq__k{color:var(--amber-hi)}
+.arq{position:relative;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(20px,4vw,56px);align-items:end;margin-top:22px;padding:clamp(22px,3vw,40px);border:1px solid rgba(232,32,31,.45);border-radius:22px;background:linear-gradient(160deg,#241f19,#171615);overflow:hidden}
+.arq::before{content:"";position:absolute;right:-40px;top:-40px;width:260px;height:260px;background:var(--stripes-red);opacity:.12;pointer-events:none}
+.arq__k{color:var(--acc-hi)}
 .arq__name{margin-top:10px;font-size:clamp(24px,2.8vw,38px);font-weight:300;text-transform:uppercase;line-height:1.05;letter-spacing:-.02em}
 .arq__name strong{display:block;font-weight:800}
 .arq__desc{margin-top:12px;color:#ebe8e2;font-size:16px;max-width:52ch}
 .arq__list{margin-top:18px;display:grid;gap:9px}
 .arq__list li{display:grid;grid-template-columns:20px 1fr;gap:8px;color:#efece6;font-size:15px;line-height:1.4}
-.arq__list li::before{content:"";width:9px;height:13px;margin-top:4px;background:var(--amber);transform:skewX(-24deg)}
+.arq__list li::before{content:"";width:9px;height:13px;margin-top:4px;background:var(--acc);transform:skewX(-24deg)}
 .arq__buy{position:relative;display:grid;gap:12px;justify-items:start}
 .arq__buy .btn{white-space:normal;max-width:100%;line-height:1.25;padding-top:12px;padding-bottom:12px}
 .arq__lote{color:var(--dim)}
@@ -267,13 +271,13 @@ html.is-loading .nav{opacity:0}
 
 /* diogo */
 .diogo{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(30px,6vw,90px);align-items:center}
-.diogo__photo{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:3/5;max-width:340px;justify-self:center;width:100%;border:1px solid rgba(242,180,106,.4)}
+.diogo__photo{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:3/5;max-width:340px;justify-self:center;width:100%;border:1px solid rgba(232,32,31,.4)}
 .diogo__photo img{width:108%;max-width:none;height:100%;object-fit:cover;object-position:30% 0}
-.diogo__photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,20,20,.9)),repeating-linear-gradient(118deg,transparent 0 70px,rgba(242,180,106,.06) 70px 140px)}
+.diogo__photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,20,20,.9)),var(--stripes-dark)}
 .diogo__cap{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;display:flex;justify-content:space-between;color:#f4f2ee;font-size:11px}
 .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin:36px 0 34px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .stat{background:var(--bg-2);padding:22px}
-.stat b{display:block;font-family:var(--f-mono);font-size:clamp(22px,2.4vw,32px);font-weight:700;line-height:1.1;color:var(--amber-hi)}
+.stat b{display:block;font-family:var(--f-mono);font-size:clamp(22px,2.4vw,32px);font-weight:700;line-height:1.1;color:var(--acc-hi)}
 .stat span{display:block;margin-top:8px;color:var(--muted);font-size:14.5px;line-height:1.4}
 
 /* três dias */
@@ -281,9 +285,9 @@ html.is-loading .nav{opacity:0}
 .day{position:relative;padding:clamp(22px,3vw,40px);border-right:1px solid var(--line-2);background:rgba(0,0,0,.25);overflow:hidden}
 .day:last-child{border-right:0}
 .day__n{font-weight:800;font-style:italic;font-size:clamp(70px,12vw,190px);line-height:.82;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.5);transition:color .4s,-webkit-text-stroke-color .4s}
-.day:hover .day__n{color:var(--amber);-webkit-text-stroke-color:var(--amber)}
-.day--race .day__n{-webkit-text-stroke-color:var(--amber-hi)}
-.day--race .day__m{color:var(--amber-hi)}
+.day:hover .day__n{color:var(--acc);-webkit-text-stroke-color:var(--acc)}
+.day--race .day__n{-webkit-text-stroke-color:var(--acc-hi)}
+.day--race .day__m{color:var(--acc-hi)}
 .day__w{margin-top:20px;font-weight:700;font-size:clamp(16px,1.6vw,22px);text-transform:uppercase}
 .day__m{color:var(--muted);margin-top:4px}
 .days-note{margin-top:20px;color:var(--dim);font-size:13.5px}
@@ -293,7 +297,7 @@ html.is-loading .nav{opacity:0}
 .h-head{margin-bottom:54px}
 .h-track{display:flex;gap:22px;padding:0 var(--pad);width:max-content;will-change:transform}
 .panel{position:relative;flex:none;width:min(78vw,470px);min-height:360px;padding:30px;border-radius:22px;border:1px solid var(--line-2);background:linear-gradient(165deg,#252526,#18181a);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
-.panel::after{content:"";position:absolute;right:-30px;top:-30px;width:170px;height:170px;background:repeating-linear-gradient(118deg,rgba(242,180,106,.5) 0 8px,transparent 8px 22px);opacity:.18;transform:skewX(-10deg)}
+.panel::after{content:"";position:absolute;right:-30px;top:-30px;width:170px;height:170px;background:var(--stripes-red);opacity:.18;transform:skewX(-10deg)}
 .panel__k{color:var(--dim)}
 .panel__big{font-weight:800;font-style:italic;text-transform:uppercase;font-size:clamp(46px,6.2vw,92px);line-height:.9;letter-spacing:-.04em}
 .panel__big small{font-size:.38em;font-style:normal;letter-spacing:.02em;margin-left:6px;color:var(--muted)}
@@ -302,11 +306,11 @@ html.is-loading .nav{opacity:0}
 /* local */
 .local{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:clamp(24px,5vw,80px);align-items:end}
 .local__info{padding-bottom:6px}
-.maquete{grid-column:1/-1;position:relative;margin:clamp(8px,2vw,24px) 0 0;border:1px solid var(--line-2);border-radius:22px;background:radial-gradient(ellipse at 50% 45%,#1d1a16,#0c0c0c 70%);overflow:hidden}
+.maquete{grid-column:1/-1;position:relative;margin:clamp(8px,2vw,24px) 0 0;border:1px solid var(--line-2);border-radius:22px;background:radial-gradient(ellipse at 50% 45%,#1d1515,#0a0a0a 70%);overflow:hidden}
 .maquete canvas{display:block;width:100%;aspect-ratio:2/1;cursor:grab;touch-action:pan-y;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
 .maquete__hint{position:absolute;right:18px;top:16px;color:var(--dim);font-size:10.5px;pointer-events:none}
-.maquete__key{position:absolute;left:18px;top:14px;display:flex;align-items:center;gap:10px;color:var(--amber-hi);font-size:10.5px;pointer-events:none}
-.maquete__key i{width:16px;height:9px;border-radius:2px;background:linear-gradient(100deg,#cf904a,#ffca7f,#d89b55)}
+.maquete__key{position:absolute;left:18px;top:14px;display:flex;align-items:center;gap:10px;color:var(--acc-hi);font-size:10.5px;pointer-events:none}
+.maquete__key i{width:16px;height:9px;border-radius:2px;background:linear-gradient(100deg,#c80707,#ff3b33,#d40d0b)}
 .maquete figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:13px 18px;border-top:1px solid var(--line);color:var(--dim);font-size:11px}
 .local__info .addr{margin:0 0 22px}
 .plan__note{margin:0 0 18px;color:#efece6;font-size:16px}
@@ -318,20 +322,20 @@ html.is-loading .nav{opacity:0}
 .faq__item summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;cursor:pointer;list-style:none}
 .faq__item summary::-webkit-details-marker{display:none}
 .faq__item h3{font-size:clamp(17px,1.6vw,21px);font-weight:700;line-height:1.3;transition:color .25s}
-.faq__item summary:hover h3,.faq__item[open] h3{color:var(--amber-hi)}
+.faq__item summary:hover h3,.faq__item[open] h3{color:var(--acc-hi)}
 .faq__item i{flex:none;position:relative;width:36px;height:36px;border:1px solid var(--line-2);border-radius:50%;transition:background .3s,border-color .3s,transform .45s var(--ease)}
-.faq__item i::before,.faq__item i::after{content:"";position:absolute;left:50%;top:50%;width:13px;height:2px;margin:-1px 0 0 -6.5px;background:var(--amber-hi);transition:background .3s}
+.faq__item i::before,.faq__item i::after{content:"";position:absolute;left:50%;top:50%;width:13px;height:2px;margin:-1px 0 0 -6.5px;background:var(--acc-hi);transition:background .3s}
 .faq__item i::after{transform:rotate(90deg)}
-.faq__item[open] i{transform:rotate(45deg);background:var(--amber-hi);border-color:var(--amber-hi)}
-.faq__item[open] i::before,.faq__item[open] i::after{background:#171310}
+.faq__item[open] i{transform:rotate(45deg);background:var(--acc-hi);border-color:var(--acc-hi)}
+.faq__item[open] i::before,.faq__item[open] i::after{background:#fff}
 .faq__item p{max-width:62ch;padding:0 56px 26px 0;color:#ebe8e2;font-size:16px}
 .addr{font-size:clamp(18px,1.8vw,24px);font-weight:500;margin:26px 0 26px;line-height:1.35}
 
 /* CTA final */
-.final{position:relative;padding:clamp(90px,13vw,180px) 0 clamp(70px,9vw,120px);overflow:hidden;text-align:center}
+.final{position:relative;background:var(--stripes-dark);padding:clamp(90px,13vw,180px) 0 clamp(70px,9vw,120px);overflow:hidden;text-align:center}
 .final__big{font-weight:800;font-style:italic;text-transform:uppercase;line-height:.84;letter-spacing:-.045em;font-size:clamp(64px,17vw,300px);white-space:nowrap;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.34)}
 .final__big span{display:inline-block;will-change:transform}
-.final__big em{font-style:italic;-webkit-text-stroke:0;background:var(--amber-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.final__big em{font-style:italic;-webkit-text-stroke:0;background:var(--acc-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .final p{color:var(--muted);margin:26px auto 30px;max-width:46ch}
 .final .slashes{justify-content:center;margin-top:34px}
 
@@ -340,7 +344,7 @@ html.is-loading .nav{opacity:0}
 .footer__inner{display:grid;grid-template-columns:1.3fr .7fr;gap:28px 56px;align-items:start}
 .footer__nav{display:grid;gap:10px;justify-items:start;font-size:14px;color:var(--muted)}
 .footer__nav a{transition:color .25s}
-.footer__nav a:hover{color:var(--amber-hi)}
+.footer__nav a:hover{color:var(--acc-hi)}
 .footer .footer__legal{grid-column:1/-1;max-width:none;margin:0;padding-top:20px;border-top:1px solid var(--line)}
 .buybar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(15,15,15,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line-2);transform:translateY(110%);transition:transform .45s var(--ease)}
 .buybar.is-on{transform:none}
@@ -480,7 +484,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     "name": "O que está incluso no camarote?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Acesso ao camarote, próximo da reta principal, vista exclusiva do Autódromo de Goiânia, open bar e open food premium, com bebidas alcoólicas a partir das 11h, e acesso à Fanzone. O Lounge Diogo Moreira inclui também o meet & greet com o piloto e a camiseta oficial do fã-clube."
+     "text": "Acesso ao camarote, próximo da reta principal, vista exclusiva do Autódromo de Goiânia, open bar e open food premium, com bebidas alcoólicas a partir das 11h, e acesso à Fanzone. O Lounge Diogo Moreira é uma área exclusiva para 250 pessoas, com varanda para a pista, meet & greet com o piloto e a camisa oficial do fã-clube."
     }
    },
    {
@@ -538,7 +542,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
 <!-- LARGADA: as cinco luzes acendem enquanto a página carrega e apagam para liberar o site -->
 <div class="boot" data-boot role="status" aria-live="polite" aria-label="Carregando o site">
   <div class="boot__inner">
-    <img class="boot__logo" src="img/logo-2rodasclub-vertical.png" alt="2Rodas Club" width="1000" height="362" fetchpriority="high" decoding="async">
+    <img class="boot__logo" src="img/logo-2rodasclub.png" alt="2Rodas Club" width="1000" height="367" fetchpriority="high" decoding="async">
     <div class="lights" aria-hidden="true"><i class="light"></i><i class="light"></i><i class="light"></i><i class="light"></i><i class="light"></i></div>
     <div class="boot__row"><span class="boot__pct" data-pct>0</span><span class="mono boot__status" data-status>alinhando no grid</span></div>
   </div>
@@ -552,7 +556,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
 
 <header class="nav" id="nav">
   <div class="container nav__inner">
-    <a href="#top" aria-label="2Rodas Club, início"><img class="logo" src="img/logo-2rodasclub-horizontal.png" alt="2Rodas Club" width="1400" height="272"></a>
+    <a href="#top" aria-label="2Rodas Club, início"><img class="logo" src="img/logo-2rodasclub.png" alt="2Rodas Club" width="1000" height="367"></a>
     <nav class="nav__links mono" aria-label="Principal">
       <a href="#camarote">O camarote</a><a href="#ingressos">Ingressos</a><a href="#lounge">Lounge</a><a href="#temporada">2027</a><a href="#local">Local</a><a href="#duvidas">Dúvidas</a>
     </nav>
@@ -596,7 +600,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     <h1>
       <span class="mono hero__kicker" data-intro><span id="kicker">Camarote 2Rodas Club · MotoGP™ Brasil 2027</span></span>
       <span class="line"><span>É hora de</span></span>
-      <span class="line"><span><strong class="amber">acelerar</strong></span></span>
+      <span class="line"><span><strong class="acc">acelerar</strong></span></span>
     </h1>
     <div class="slashes hero__slashes" data-intro aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <p class="hero__sub" data-intro>Três dias de MotoGP em Goiânia, vistos do camarote da revista Duas Rodas. Open bar, open food premium e vista exclusiva, próximo da reta principal.</p>
@@ -635,7 +639,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   <div class="container split">
     <div data-calm="0.12">
       <p class="mono section__label"><b>01</b> O camarote</p>
-      <h2 class="h2" id="t-camarote" data-split>Três dias de MotoGP, <strong class="amber">vistos de perto da reta.</strong></h2>
+      <h2 class="h2" id="t-camarote" data-split>Três dias de MotoGP, <strong class="acc">vistos de perto da reta.</strong></h2>
       <p class="lead" data-reveal>O 2Rodas Club é o camarote da revista Duas Rodas no MotoGP™ Grande Prêmio do Brasil. Você acompanha os treinos e a corrida com vista exclusiva do autódromo, comida e bebida inclusas.</p>
       <ul class="checklist">
         <li data-reveal><span class="mono n" data-scramble>01</span><div><h3>Camarote próximo da reta principal</h3><p>A localização do 2Rodas Club dentro do autódromo.</p></div></li>
@@ -662,9 +666,9 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     <div class="xp-head" data-calm="0.12">
       <div>
         <p class="mono section__label"><b>02</b> Ingressos</p>
-        <h2 class="h2" id="t-ingressos" data-split>Uma escolha, <strong class="amber">duas experiências.</strong></h2>
+        <h2 class="h2" id="t-ingressos" data-split>Uma escolha, <strong class="acc">duas experiências.</strong></h2>
       </div>
-      <p class="lead" data-reveal>Os dois ingressos valem para os três dias e incluem open bar e open food premium. O Lounge soma a camiseta oficial do fã-clube e o meet &amp; greet com o Diogo Moreira.</p>
+      <p class="lead" data-reveal>Os dois ingressos valem para os três dias e incluem open bar e open food premium. O Lounge soma a varanda para a pista, o meet &amp; greet com o Diogo Moreira e a camisa oficial do fã-clube.</p>
     </div>
 
     <div class="xp-grid">
@@ -684,7 +688,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
         <div class="xp__media"><span class="xp__badge" aria-hidden="true">Lounge<small>Diogo Moreira</small></span><span class="mono xp__tag">2º lote</span></div>
         <div class="xp__body">
           <h3 class="xp__name"><small>2Rodas Club</small>Lounge Diogo Moreira</h3>
-          <p class="xp__desc">O camarote oficial do piloto brasileiro, com meet &amp; greet com o Diogo Moreira e a camiseta oficial do fã-clube.</p>
+          <p class="xp__desc">Uma experiência dentro da experiência: área exclusiva para 250 pessoas, com varanda para a pista, meet &amp; greet com o Diogo Moreira e a camisa oficial do fã-clube.</p>
           <div class="xp__foot">
             <p class="xp__price"><span>R$</span><b data-count="8900">8.900</b><span>preço único</span></p>
             <a class="btn btn--primary" data-magnet href="https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22259465/" target="_blank" rel="noopener">Garanta seu lugar no Lounge <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
@@ -703,8 +707,10 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
           <tr><th scope="row">Open bar e open food premium<small>Bebidas alcoólicas a partir das 11h</small></th><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
           <tr><th scope="row">Acesso à Fanzone<small>Produtos licenciados, entretenimento e shows</small></th><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
           <tr><th scope="row">Ingresso válido para os três dias</th><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
+          <tr><th scope="row">Área exclusiva para 250 pessoas</th><td><span class="no">Não inclui</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
+          <tr><th scope="row">Varanda exclusiva para a pista</th><td><span class="no">Não inclui</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
           <tr><th scope="row">Meet &amp; greet com o Diogo Moreira</th><td><span class="no">Não inclui</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
-          <tr><th scope="row">Camiseta oficial do fã-clube do Diogo Moreira</th><td><span class="no">Não inclui</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
+          <tr><th scope="row">Camisa oficial do fã-clube do Diogo Moreira</th><td><span class="no">Não inclui</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
           <tr class="compare__price"><th scope="row">Preço único, 2º lote</th><td>R$ 7.390</td><td>R$ 8.900</td></tr>
         </tbody>
       </table>
@@ -713,7 +719,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     <article class="arq" id="arquibancada" data-reveal aria-labelledby="t-arq">
       <div class="arq__info">
         <p class="mono arq__k">Também à venda</p>
-        <h3 class="arq__name" id="t-arq">Arquibancada Oficial <strong class="amber">Diogo Moreira</strong></h3>
+        <h3 class="arq__name" id="t-arq">Arquibancada Oficial <strong class="acc">Diogo Moreira</strong></h3>
         <p class="arq__desc">A arquibancada coberta da torcida do piloto brasileiro, com visão para a curva Bico de Pato.</p>
         <ul class="arq__list">
           <li>Arquibancada coberta, com visão para a curva Bico de Pato</li>
@@ -742,8 +748,8 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     </div>
     <div data-calm="0.12">
       <p class="mono section__label"><b>03</b> Lounge Diogo Moreira</p>
-      <h2 class="h2" id="t-lounge" data-split>O camarote oficial <strong class="amber">do Diogo Moreira.</strong></h2>
-      <p class="lead" data-reveal>O Lounge Diogo Moreira é o camarote oficial do piloto brasileiro no MotoGP™ Grande Prêmio do Brasil. Quem escolhe o Lounge torce de dentro do camarote do piloto, participa do meet &amp; greet com ele e leva a camiseta oficial do fã-clube.</p>
+      <h2 class="h2" id="t-lounge" data-split>O camarote oficial <strong class="acc">do Diogo Moreira.</strong></h2>
+      <p class="lead" data-reveal>O Lounge Diogo Moreira é o camarote oficial do piloto brasileiro no MotoGP™ Grande Prêmio do Brasil. É uma área exclusiva para apenas 250 pessoas, com varanda para a pista. Quem escolhe o Lounge participa do meet &amp; greet com o piloto e leva a camisa oficial do fã-clube.</p>
       <div class="stats" data-reveal>
         <div class="stat"><b>2ª temporada</b><span>Em 2027, Diogo corre o segundo ano na categoria principal do motociclismo mundial, pela Honda.</span></div>
         <div class="stat"><b>Melhor tempo</b><span>Fez a melhor marca, não oficial, nos testes da Pirelli em Spielberg, na Áustria, em setembro.</span></div>
@@ -758,7 +764,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   <div class="container">
     <div data-calm="0.12">
       <p class="mono section__label"><b>04</b> Fim de semana</p>
-      <h2 class="h2" id="t-dias" data-split>Um ingresso, <strong class="amber">três dias de pista.</strong></h2>
+      <h2 class="h2" id="t-dias" data-split>Um ingresso, <strong class="acc">três dias de pista.</strong></h2>
     </div>
     <ol class="days">
       <li class="day" data-reveal><div class="day__n" aria-hidden="true">02</div><p class="day__w">Sexta-feira<span class="sr">, 02 de abril de 2027</span></p><p class="mono day__m">Abril · treinos</p></li>
@@ -773,15 +779,15 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
 <section class="section h-wrap" id="temporada" data-flow="0.9" aria-labelledby="t-temporada">
   <div class="container h-head" data-calm="0.12">
     <p class="mono section__label"><b>05</b> Temporada 2027</p>
-    <h2 class="h2" id="t-temporada" data-split>Em 2027, <strong class="amber">a MotoGP muda.</strong></h2>
+    <h2 class="h2" id="t-temporada" data-split>Em 2027, <strong class="acc">a MotoGP muda.</strong></h2>
     <p class="lead" data-reveal>Motos novas, pneus novos e asfalto novo. Goiânia recebe a terceira etapa do Mundial.</p>
   </div>
   <div class="h-track" id="hTrack">
     <article class="panel"><p class="mono panel__k">Motores</p><div><h3 class="panel__big"><span data-count="850">850</span><small>cc</small></h3></div><p>Motos novas, com motores de 850 cc no lugar dos atuais de 1000 cc.</p></article>
-    <article class="panel"><p class="mono panel__k">Pneus</p><div><h3 class="panel__big amber">Pirelli</h3></div><p>A Pirelli passa a fornecer os pneus, no lugar da Michelin.</p></article>
+    <article class="panel"><p class="mono panel__k">Pneus</p><div><h3 class="panel__big acc">Pirelli</h3></div><p>A Pirelli passa a fornecer os pneus, no lugar da Michelin.</p></article>
     <article class="panel"><p class="mono panel__k">Aerodinâmica</p><div><h3 class="panel__big">Menos aero</h3></div><p>As motos chegam com menos recursos aerodinâmicos.</p></article>
     <article class="panel"><p class="mono panel__k">Calendário</p><div><h3 class="panel__big"><span data-count="3">3</span>ª<small>etapa</small></h3></div><p>Goiânia recebe a terceira corrida do Mundial, depois da Tailândia (07/03) e do Catar (14/03).</p></article>
-    <article class="panel"><p class="mono panel__k">Autódromo</p><div><h3 class="panel__big amber">Asfalto novo</h3></div><p>Nova camada em todo o traçado, para garantir a drenagem e a mesma aderência.</p></article>
+    <article class="panel"><p class="mono panel__k">Autódromo</p><div><h3 class="panel__big acc">Asfalto novo</h3></div><p>Nova camada em todo o traçado, para garantir a drenagem e a mesma aderência.</p></article>
   </div>
 </section>
 
@@ -790,7 +796,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   <div class="container local">
     <div data-calm="0.12">
       <p class="mono section__label"><b>06</b> Local</p>
-      <h2 class="h2" id="t-local" data-split>Autódromo Internacional de Goiânia <strong class="amber">Ayrton Senna.</strong></h2>
+      <h2 class="h2" id="t-local" data-split>Autódromo Internacional de Goiânia <strong class="acc">Ayrton Senna.</strong></h2>
     </div>
     <div class="local__info" data-reveal>
       <p class="plan__note">No mapa oficial de setores, o 2Rodas Club fica na reta principal, do lado de fora da pista, perto da largada e dos boxes. A Arquibancada Oficial Diogo Moreira fica na outra ponta do circuito, com visão para a curva Bico de Pato.</p>
@@ -811,12 +817,12 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   <div class="container faq">
     <div data-calm="0.12">
       <p class="mono section__label"><b>07</b> Dúvidas</p>
-      <h2 class="h2" id="t-duvidas" data-split>Antes de <strong class="amber">garantir o seu.</strong></h2>
+      <h2 class="h2" id="t-duvidas" data-split>Antes de <strong class="acc">garantir o seu.</strong></h2>
       <p class="lead" data-reveal>As respostas seguem as regras publicadas pela Eventim, que faz a venda oficial dos ingressos.</p>
     </div>
     <div class="faq__list">
       <details class="faq__item" data-reveal><summary><h3>O ingresso vale para os três dias?</h3><i aria-hidden="true"></i></summary><p>Sim. Os ingressos do MotoGP™ Grande Prêmio do Brasil 2027 são vendidos apenas para os três dias. Você assiste aos treinos de sexta-feira e sábado e à corrida de domingo.</p></details>
-      <details class="faq__item" data-reveal><summary><h3>O que está incluso no camarote?</h3><i aria-hidden="true"></i></summary><p>Acesso ao camarote, próximo da reta principal, vista exclusiva do Autódromo de Goiânia, open bar e open food premium, com bebidas alcoólicas a partir das 11h, e acesso à Fanzone. O Lounge Diogo Moreira inclui também o meet &amp; greet com o piloto e a camiseta oficial do fã-clube.</p></details>
+      <details class="faq__item" data-reveal><summary><h3>O que está incluso no camarote?</h3><i aria-hidden="true"></i></summary><p>Acesso ao camarote, próximo da reta principal, vista exclusiva do Autódromo de Goiânia, open bar e open food premium, com bebidas alcoólicas a partir das 11h, e acesso à Fanzone. O Lounge Diogo Moreira é uma área exclusiva para 250 pessoas, com varanda para a pista, meet &amp; greet com o piloto e a camisa oficial do fã-clube.</p></details>
       <details class="faq__item" data-reveal><summary><h3>Quanto custa cada ingresso?</h3><i aria-hidden="true"></i></summary><p>No 2º lote, o 2Rodas Club custa R$ 7.390, o Lounge Diogo Moreira custa R$ 8.900 e a Arquibancada Oficial Diogo Moreira custa R$ 2.250, em preço único. Os valores incluem impostos. A Eventim pode cobrar taxas adicionais, que aparecem antes da confirmação do pedido.</p></details>
       <details class="faq__item" data-reveal><summary><h3>O que inclui a Arquibancada Oficial Diogo Moreira?</h3><i aria-hidden="true"></i></summary><p>Lugar na arquibancada coberta, com visão para a curva Bico de Pato, telão e acesso à Fanzone, com pontos de venda de alimentação, bebidas, produtos licenciados, entretenimento e shows. Cada ingresso dá direito a uma camiseta oficial do fã-clube do Diogo Moreira, do PP ao 3G, com o tamanho escolhido no ato da compra. Comida e bebida não estão incluídas.</p></details>
       <details class="faq__item" data-reveal><summary><h3>Quantos ingressos posso comprar?</h3><i aria-hidden="true"></i></summary><p>A Eventim limita a compra a 4 ingressos por CPF para o MotoGP™ Grande Prêmio do Brasil 2027.</p></details>
@@ -842,13 +848,13 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
 <footer class="footer">
   <div class="container footer__inner">
     <div>
-      <img class="logo" src="img/logo-2rodasclub-horizontal.png" alt="2Rodas Club" width="1400" height="272" loading="lazy" decoding="async">
+      <img class="logo" src="img/logo-2rodasclub.png" alt="2Rodas Club" width="1000" height="367" loading="lazy" decoding="async">
       <p>2Rodas Club, o camarote da revista Duas Rodas no MotoGP™ Grande Prêmio do Brasil 2027. De 02 a 04 de abril de 2027, no Autódromo Internacional de Goiânia Ayrton Senna.</p>
     </div>
     <nav class="footer__nav" aria-label="Rodapé">
       <a href="#camarote">O camarote</a><a href="#ingressos">Ingressos</a><a href="#lounge">Lounge Diogo Moreira</a><a href="#duvidas">Dúvidas</a><a href="https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22259465/" target="_blank" rel="noopener">Comprar na Eventim</a>
     </nav>
-    <p class="footer__legal">Venda oficial de ingressos pela Eventim. MotoGP™ é marca de seus respectivos titulares. Traçado do circuito: © colaboradores do OpenStreetMap.</p>
+    <p class="footer__legal"><a href="https://www.instagram.com/2rodasclub.br/" target="_blank" rel="noopener">@2rodasclub.br</a> no Instagram. Venda oficial de ingressos pela Eventim. MotoGP™ é marca de seus respectivos titulares. Traçado do circuito: © colaboradores do OpenStreetMap.</p>
   </div>
 </footer>
 </div></div>
@@ -936,7 +942,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       s.v = 260 + Math.random() * 1250;
       s.t = Math.random() < 0.14 ? 2 : 1;
       s.a = 0.06 + Math.random() * 0.34;
-      s.c = Math.random() < 0.64 ? '242,180,106' : '255,255,255';
+      s.c = Math.random() < 0.64 ? '232,32,31' : '255,255,255';
       return s;
     }
     function resize() {
@@ -1058,10 +1064,10 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
 
       ctx.clearRect(0, 0, w, h);
       ctx.save(); ctx.translate(w / 2, hz); ctx.rotate(-lean * 0.92);
-      const sky = ctx.createLinearGradient(0, -h * 1.2, 0, 0); sky.addColorStop(0, '#08090b'); sky.addColorStop(0.72, '#1c1712'); sky.addColorStop(1, '#5a3d20');
+      const sky = ctx.createLinearGradient(0, -h * 1.2, 0, 0); sky.addColorStop(0, '#08090b'); sky.addColorStop(0.72, '#151314'); sky.addColorStop(1, '#3d1716');
       ctx.fillStyle = sky; ctx.fillRect(-w * 2, -w * 2, w * 4, w * 2);
       ctx.fillStyle = '#0b0d0a'; ctx.fillRect(-w * 2, 0, w * 4, w * 2);
-      const sun = ctx.createRadialGradient(0, 0, 0, 0, 0, w * 0.55); sun.addColorStop(0, 'rgba(255,202,127,.55)'); sun.addColorStop(0.35, 'rgba(242,180,106,.18)'); sun.addColorStop(1, 'rgba(242,180,106,0)');
+      const sun = ctx.createRadialGradient(0, 0, 0, 0, 0, w * 0.55); sun.addColorStop(0, 'rgba(255,64,56,.55)'); sun.addColorStop(0.35, 'rgba(232,32,31,.18)'); sun.addColorStop(1, 'rgba(232,32,31,0)');
       ctx.fillStyle = sun; ctx.fillRect(-w * 2, -w, w * 4, w * 1.4);
 
       // projeta as bordas da pista nos próximos ~340 m do traçado
@@ -1077,17 +1083,17 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
         const a = rows[k + 1], b = rows[k + 2];
         if (k > 0 && (a.f < 0.7 || b.f < 0.7)) continue;
         const band = Math.floor(a.i / 3) % 2, curve = Math.abs(K[a.i]) > 0.0035;
-        if (curve) { const kc = a.i % 2 ? '#f2b46a' : '#f4f2ee'; quad(a, b, 0, 1, kc); quad(a, b, 4, 5, kc); }
+        if (curve) { const kc = a.i % 2 ? '#e8201f' : '#f4f2ee'; quad(a, b, 0, 1, kc); quad(a, b, 4, 5, kc); }
         quad(a, b, 1, 4, band ? '#2b2b2f' : '#34343a');
         quad(a, b, 1, 2, 'rgba(244,242,238,.85)'); quad(a, b, 3, 4, 'rgba(244,242,238,.85)');
         // o camarote: bloco dourado do lado de fora da pista
         if (inStretch(a.i) && inStretch(b.i)) {
           const ya = (EYE - CLUB_H) * f / Math.max(a.f, 0.7), yb = (EYE - CLUB_H) * f / Math.max(b.f, 0.7);
-          ctx.fillStyle = '#ffca7f'; ctx.beginPath(); ctx.moveTo(a.x[6], ya); ctx.lineTo(a.x[7], ya); ctx.lineTo(b.x[7], yb); ctx.lineTo(b.x[6], yb); ctx.fill();
-          ctx.fillStyle = band ? '#c48640' : '#d89b55'; ctx.beginPath(); ctx.moveTo(a.x[6], a.y); ctx.lineTo(a.x[6], ya); ctx.lineTo(b.x[6], yb); ctx.lineTo(b.x[6], b.y); ctx.fill();
+          ctx.fillStyle = '#ff4038'; ctx.beginPath(); ctx.moveTo(a.x[6], ya); ctx.lineTo(a.x[7], ya); ctx.lineTo(b.x[7], yb); ctx.lineTo(b.x[6], yb); ctx.fill();
+          ctx.fillStyle = band ? '#a50d0b' : '#c81a18'; ctx.beginPath(); ctx.moveTo(a.x[6], a.y); ctx.lineTo(a.x[6], ya); ctx.lineTo(b.x[6], yb); ctx.lineTo(b.x[6], b.y); ctx.fill();
         }
       }
-      const haze = ctx.createLinearGradient(0, -2, 0, h * 0.09); haze.addColorStop(0, 'rgba(70,48,26,.95)'); haze.addColorStop(1, 'rgba(70,48,26,0)');
+      const haze = ctx.createLinearGradient(0, -2, 0, h * 0.09); haze.addColorStop(0, 'rgba(52,22,22,.95)'); haze.addColorStop(1, 'rgba(52,22,22,0)');
       ctx.fillStyle = haze; ctx.fillRect(-w * 2, -2, w * 4, h * 0.09 + 2);
       ctx.restore();
 
@@ -1102,15 +1108,15 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       ctx.lineCap = 'round';
       ctx.strokeStyle = 'rgba(255,255,255,.22)'; ctx.lineWidth = 3 * u; ctx.beginPath(); ctx.arc(gx, gy, R, -Math.PI / 2 - SPAN, -Math.PI / 2 + SPAN); ctx.stroke();
       const sweep = Math.max(-1, Math.min(1, lean / (Math.PI / 3))) * SPAN;
-      ctx.strokeStyle = '#ffca7f'; ctx.lineWidth = 6 * u; ctx.beginPath(); ctx.arc(gx, gy, R, -Math.PI / 2, -Math.PI / 2 + sweep, sweep < 0); ctx.stroke();
+      ctx.strokeStyle = '#ff4038'; ctx.lineWidth = 6 * u; ctx.beginPath(); ctx.arc(gx, gy, R, -Math.PI / 2, -Math.PI / 2 + sweep, sweep < 0); ctx.stroke();
       ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
-      ctx.fillStyle = deg >= 20 ? '#ffca7f' : '#f4f2ee'; ctx.font = `italic 800 ${38 * u}px Montserrat, sans-serif`; ctx.fillText(deg + '°', gx + 4 * u, gy - 12 * u);
+      ctx.fillStyle = deg >= 20 ? '#ff4038' : '#f4f2ee'; ctx.font = `italic 800 ${38 * u}px Montserrat, sans-serif`; ctx.fillText(deg + '°', gx + 4 * u, gy - 12 * u);
       ctx.fillStyle = 'rgba(255,255,255,.82)'; ctx.font = `500 ${9.5 * u}px "JetBrains Mono", monospace`; ctx.fillText('INCLINAÇÃO', gx, gy + 4 * u);
       ctx.fillStyle = '#f4f2ee'; ctx.font = `italic 800 ${46 * u}px Montserrat, sans-serif`;
       const sw = ctx.measureText(String(kmh)).width; ctx.fillText(String(kmh), gx - 20 * u, gy + 52 * u);
       ctx.textAlign = 'left'; ctx.font = `italic 800 ${14 * u}px Montserrat, sans-serif`; ctx.fillStyle = 'rgba(255,255,255,.75)'; ctx.fillText('KM/H', gx - 20 * u + sw / 2 + 6 * u, gy + 52 * u);
       ctx.textAlign = 'center'; ctx.font = `700 ${12 * u}px "JetBrains Mono", monospace`;
-      for (let g = 1; g <= 6; g++) { ctx.fillStyle = g === gear ? '#ffca7f' : 'rgba(255,255,255,.45)'; ctx.fillText(String(g), gx + (g - 3.5) * 17 * u, gy + 74 * u); }
+      for (let g = 1; g <= 6; g++) { ctx.fillStyle = g === gear ? '#ff4038' : 'rgba(255,255,255,.45)'; ctx.fillText(String(g), gx + (g - 3.5) * 17 * u, gy + 74 * u); }
 
       // minimapa do circuito, com o 2Rodas Club marcado em dourado
       const mw = 170 * u, sc = mw / (maxX - minX), mh = (maxY - minY) * sc, mx = w - mw - 16 * u, my = 16 * u;
@@ -1121,18 +1127,18 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       for (let i = 0; i <= N; i += 5) { const j = i % N; i ? ctx.lineTo(mapX(j), mapY(j)) : ctx.moveTo(mapX(j), mapY(j)); }
       ctx.stroke();
       const offX = j => mapX(j) + OUT * -Math.sin(TH[j]) * 5 * u, offY = j => mapY(j) + OUT * Math.cos(TH[j]) * 5 * u;
-      ctx.strokeStyle = '#ffca7f'; ctx.lineWidth = 4 * u; ctx.beginPath();
+      ctx.strokeStyle = '#ff4038'; ctx.lineWidth = 4 * u; ctx.beginPath();
       for (let k = 0, len = (SB - SA + N) % N; k <= len; k += 3) { const j = (SA + Math.min(k, len)) % N; k ? ctx.lineTo(offX(j), offY(j)) : ctx.moveTo(offX(j), offY(j)); }
       ctx.lineTo(offX(SB), offY(SB)); ctx.stroke();
       const ph = (performance.now() / 1000 % 2) / 2;
-      ctx.strokeStyle = `rgba(255,202,127,${0.9 * (1 - ph)})`; ctx.lineWidth = 1.5 * u; ctx.beginPath(); ctx.arc(offX(SMID), offY(SMID), (3 + ph * 12) * u, 0, 7); ctx.stroke();
+      ctx.strokeStyle = `rgba(255,64,56,${0.9 * (1 - ph)})`; ctx.lineWidth = 1.5 * u; ctx.beginPath(); ctx.arc(offX(SMID), offY(SMID), (3 + ph * 12) * u, 0, 7); ctx.stroke();
       ctx.strokeStyle = 'rgba(255,255,255,.95)'; ctx.lineWidth = 1.8 * u; ctx.beginPath();
       for (let t = 60; t >= 0; t -= 5) { const j = (i0 - t + N) % N; t === 60 ? ctx.moveTo(mapX(j), mapY(j)) : ctx.lineTo(mapX(j), mapY(j)); }
       ctx.stroke();
       const dx0 = mx + (cx - minX) * sc, dy0 = my + (cy - minY) * sc;
       ctx.fillStyle = '#141414'; ctx.beginPath(); ctx.arc(dx0, dy0, 4.6 * u, 0, 7); ctx.fill();
       ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(dx0, dy0, 3.2 * u, 0, 7); ctx.fill();
-      ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = '#ffca7f';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = '#ff4038';
       ctx.font = `700 ${Math.max(8, 8.5 * u)}px "JetBrains Mono", monospace`;
       ctx.fillText('2RODAS CLUB', Math.min(offX(SMID), mx + mw - 34 * u), my + mh + 16 * u);
 
@@ -1145,7 +1151,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
         ctx.font = `500 ${13 * cu}px Montserrat, sans-serif`; const tw = ctx.measureText(l2).width;
         const bx = 16 * u - (1 - callout) * 14, by = 16 * u, bw = tw + 30 * cu, bh = 46 * cu;
         ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.fillRect(bx, by, bw, bh);
-        ctx.fillStyle = '#ffca7f'; ctx.fillRect(bx, by, 3 * cu, bh);
+        ctx.fillStyle = '#ff4038'; ctx.fillRect(bx, by, 3 * cu, bh);
         ctx.font = `700 ${9.5 * cu}px "JetBrains Mono", monospace`; ctx.fillText(l1, bx + 15 * cu, by + 18 * cu);
         ctx.fillStyle = '#f4f2ee'; ctx.font = `500 ${13 * cu}px Montserrat, sans-serif`; ctx.fillText(l2, bx + 15 * cu, by + 36 * cu);
         ctx.restore();
@@ -1205,25 +1211,25 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     function sign(b) {
       if (!b.s.lab || (narrow && !b.s.club && !b.s.feat)) return;
       const u = Math.max(0.72, Math.min(1.15, W / 1100)), base = pr(b.c[0], b.c[1], b.h), top = pr(b.c[0], b.c[1], b.h + (b.s.club ? 68 : b.s.feat ? 52 : 44));
-      ctx.strokeStyle = b.s.club || b.s.feat ? '#ffca7f' : 'rgba(255,255,255,.4)'; ctx.lineWidth = b.s.club ? 2 : b.s.feat ? 1.6 : 1.2; ctx.beginPath(); ctx.moveTo(base[0], base[1]); ctx.lineTo(top[0], top[1]); ctx.stroke();
+      ctx.strokeStyle = b.s.club || b.s.feat ? '#ff4038' : 'rgba(255,255,255,.4)'; ctx.lineWidth = b.s.club ? 2 : b.s.feat ? 1.6 : 1.2; ctx.beginPath(); ctx.moveTo(base[0], base[1]); ctx.lineTo(top[0], top[1]); ctx.stroke();
       ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
       if (b.s.club) {
         // placa menor e translúcida, para não esconder a pista atrás dela
         ctx.font = `800 ${14 * u}px Montserrat, sans-serif`; const w = ctx.measureText('2RODAS CLUB').width + 24 * u, h = 38 * u, x = top[0] - w / 2, y = top[1] - h;
-        ctx.save(); ctx.shadowColor = 'rgba(255,202,127,.35)'; ctx.shadowBlur = 16; ctx.globalAlpha = 0.68;
-        const g = ctx.createLinearGradient(x, 0, x + w, 0); g.addColorStop(0, '#cf904a'); g.addColorStop(0.55, '#ffca7f'); g.addColorStop(1, '#d89b55');
+        ctx.save(); ctx.shadowColor = 'rgba(255,64,56,.35)'; ctx.shadowBlur = 16; ctx.globalAlpha = 0.68;
+        const g = ctx.createLinearGradient(x, 0, x + w, 0); g.addColorStop(0, '#c80707'); g.addColorStop(0.55, '#ff3b33'); g.addColorStop(1, '#d40d0b');
         ctx.fillStyle = g; rr(x, y, w, h, 7 * u); ctx.fill(); ctx.restore();
-        ctx.strokeStyle = 'rgba(255,243,220,.75)'; ctx.lineWidth = 1; rr(x, y, w, h, 7 * u); ctx.stroke();
-        ctx.fillStyle = '#171310'; ctx.fillText('2RODAS CLUB', top[0], y + 19.5 * u);
+        ctx.strokeStyle = 'rgba(255,255,255,.7)'; ctx.lineWidth = 1; rr(x, y, w, h, 7 * u); ctx.stroke();
+        ctx.fillStyle = '#fff'; ctx.fillText('2RODAS CLUB', top[0], y + 19.5 * u);
         ctx.font = `700 ${7.5 * u}px "JetBrains Mono", monospace`; ctx.fillText('CAMAROTE', top[0], y + 31 * u);
       } else if (b.s.feat) {
         // arquibancada oficial do Diogo Moreira: também à venda, destaque com contorno dourado
         const l1 = narrow ? 'ARQ. DIOGO MOREIRA' : 'ARQ. OFICIAL DIOGO MOREIRA', l2 = 'TAMBÉM À VENDA';
         ctx.font = `700 ${10.5 * u}px "JetBrains Mono", monospace`; const w = ctx.measureText(l1).width + 20 * u, h = 32 * u, x = top[0] - w / 2, y = top[1] - h;
-        ctx.save(); ctx.globalAlpha = 0.9; ctx.fillStyle = '#1c1712'; rr(x, y, w, h, 6 * u); ctx.fill(); ctx.restore();
-        ctx.strokeStyle = '#ffca7f'; ctx.lineWidth = 1.2; rr(x, y, w, h, 6 * u); ctx.stroke();
-        ctx.fillStyle = '#ffca7f'; ctx.fillText(l1, top[0], y + 14 * u);
-        ctx.font = `500 ${7.5 * u}px "JetBrains Mono", monospace`; ctx.fillStyle = 'rgba(255,202,127,.75)'; ctx.fillText(l2, top[0], y + 25 * u);
+        ctx.save(); ctx.globalAlpha = 0.9; ctx.fillStyle = '#1a0e0e'; rr(x, y, w, h, 6 * u); ctx.fill(); ctx.restore();
+        ctx.strokeStyle = '#ff4038'; ctx.lineWidth = 1.2; rr(x, y, w, h, 6 * u); ctx.stroke();
+        ctx.fillStyle = '#ff4038'; ctx.fillText(l1, top[0], y + 14 * u);
+        ctx.font = `500 ${7.5 * u}px "JetBrains Mono", monospace`; ctx.fillStyle = 'rgba(255,64,56,.75)'; ctx.fillText(l2, top[0], y + 25 * u);
       } else {
         ctx.font = `500 ${10.5 * u}px "JetBrains Mono", monospace`; const txt = b.s.lab.toUpperCase(), w = ctx.measureText(txt).width + 16 * u, h = 22 * u, x = top[0] - w / 2, y = top[1] - h;
         ctx.fillStyle = 'rgba(20,20,20,.92)'; ctx.strokeStyle = 'rgba(255,255,255,.3)'; ctx.lineWidth = 1; rr(x, y, w, h, 5 * u); ctx.fill(); ctx.stroke();
@@ -1254,8 +1260,8 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       // base da maquete solta na página, com sombra macia por baixo (sem quadro nem fundo)
       ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.75)'; ctx.shadowBlur = 40 * Math.max(0.6, sc * 1.6); ctx.shadowOffsetY = 16 * Math.max(0.6, sc * 1.6);
       fillPoly(ground, -16, '#0b0b0b'); ctx.restore();
-      const gg = ctx.createLinearGradient(0, H * 0.2, 0, H * 0.95); gg.addColorStop(0, '#26241f'); gg.addColorStop(1, '#161616');
-      fillPoly(ground, 0, gg, 'rgba(255,202,127,.16)');
+      const gg = ctx.createLinearGradient(0, H * 0.2, 0, H * 0.95); gg.addColorStop(0, '#232222'); gg.addColorStop(1, '#141414');
+      fillPoly(ground, 0, gg, 'rgba(255,64,56,.16)');
       for (let x = Math.ceil((minX - 95) / 70) * 70; x < maxX + 95; x += 70) line([[x, minY - 60], [x, maxY + 60]], 0, 'rgba(255,255,255,.03)', 1);
       line(pts, 0, '#050505', 17 * sc, true); line(pts, 2, 'rgba(255,255,255,.7)', 13.5 * sc, true); line(pts, 2, '#2f2f33', 11 * sc, true);
       line([off(START, -7), off(START, 7)], 2.5, '#fff', 2.4);
@@ -1264,15 +1270,15 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
         if (pos >= N) { pos -= N; laps++; }
         if (km) { km.textContent = (pos / N * TRACK_KM).toFixed(3).replace('.', ','); lapEl.textContent = String(laps).padStart(2, '0'); }
       }
-      for (let k = 0; k < 24; k++) { const i = ((Math.floor(pos) - k) % N + N) % N, j = (i - 1 + N) % N; line([pts[j], pts[i]], 3, `rgba(255,202,127,${1 - k / 24})`, (5 - k * 0.13) * Math.max(0.7, sc)); }
+      for (let k = 0; k < 24; k++) { const i = ((Math.floor(pos) - k) % N + N) % N, j = (i - 1 + N) % N; line([pts[j], pts[i]], 3, `rgba(255,64,56,${1 - k / 24})`, (5 - k * 0.13) * Math.max(0.7, sc)); }
       const ph = ((now - t0) / 1000 % 2.2) / 2.2, ring = [];
       for (let k = 0; k < 40; k++) { const an = k / 40 * Math.PI * 2, r = 14 + ph * 58; ring.push([clubC[0] + Math.cos(an) * r, clubC[1] + Math.sin(an) * r]); }
-      if (!RM) line(ring, 1, `rgba(255,202,127,${0.9 * (1 - ph)})`, 2, true);
+      if (!RM) line(ring, 1, `rgba(255,64,56,${0.9 * (1 - ph)})`, 2, true);
       const order = blocks.map(bk => ({ bk, d: pr(bk.c[0], bk.c[1], 0)[2] })).sort((x, y) => x.d - y.d);
       for (const { bk } of order) {
-        const side = bk.s.club ? '#9a6a35' : bk.s.feat ? '#5e4528' : bk.box ? '#19191b' : '#2a2a2d', top = bk.s.club ? '#ffca7f' : bk.s.feat ? '#c48f52' : bk.box ? '#2b2b2f' : '#4a4a50';
+        const side = bk.s.club ? '#8e0d0b' : bk.s.feat ? '#4d1513' : bk.box ? '#19191b' : '#2a2a2d', top = bk.s.club ? '#ff3b33' : bk.s.feat ? '#b3302c' : bk.box ? '#2b2b2f' : '#4a4a50';
         for (let z = 0; z < bk.h; z += 1.5) fillPoly(bk.poly, z, side);
-        fillPoly(bk.poly, bk.h, top, bk.s.club ? '#fff3dc' : bk.s.feat ? '#ffca7f' : 'rgba(255,255,255,.3)');
+        fillPoly(bk.poly, bk.h, top, bk.s.club ? '#ffd9d6' : bk.s.feat ? '#ff4038' : 'rgba(255,255,255,.3)');
       }
       for (const { bk } of order) if (!bk.s.club && !bk.s.feat) sign(bk);
       for (const { bk } of order) if (bk.s.feat) sign(bk);
