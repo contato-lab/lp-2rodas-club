@@ -101,8 +101,8 @@ strong{font-weight:800}
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
 html.is-loading .nav{opacity:0}
 .nav.is-stuck{background:rgba(20,20,20,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
-.nav__inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
-.logo{height:48px;width:auto;display:block}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:80px}
+.logo{height:62px;width:auto;display:block}
 .boot__logo{width:clamp(170px,26vw,250px);height:auto}
 .nav__links{display:flex;gap:30px}
 .nav__links a{position:relative;color:var(--muted);transition:color .25s}
@@ -352,7 +352,7 @@ html.is-loading .nav{opacity:0}
 .buybar .mono{font-size:9.5px;color:var(--muted)}
 .buybar b{font-family:var(--f-mono);font-size:19px}
 .footer p{max-width:62ch;margin-top:6px}
-.footer .logo{height:36px;margin-bottom:18px}
+.footer .logo{height:60px;margin-bottom:18px}
 
 /* estados de animação (só com JS e sem redução de movimento) */
 html.js:not(.no-intro) [data-reveal]{opacity:0;transform:translateY(34px)}
@@ -376,7 +376,8 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
 }
 @media (max-width:720px){
   .hero{padding-top:104px}
-  .logo{height:32px}
+  .logo{height:46px}
+  .footer .logo{height:54px}
   .btn{white-space:normal;max-width:100%;text-align:center;padding:12px 22px;line-height:1.25}
   .final .btn{width:100%;justify-content:center}
   .monitor__bar span:nth-child(2):not(:last-child){display:none}
