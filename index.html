@@ -251,6 +251,18 @@ html.is-loading .nav{opacity:0}
 .no{color:var(--dim);font-size:14px}
 .compare__price th{font-weight:700!important;color:var(--text)!important}
 .compare__price td{font-family:var(--f-mono);font-weight:700;font-size:clamp(16px,1.8vw,22px);white-space:nowrap}
+.arq{position:relative;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(20px,4vw,56px);align-items:end;margin-top:22px;padding:clamp(22px,3vw,40px);border:1px solid rgba(242,180,106,.45);border-radius:22px;background:linear-gradient(160deg,#241f19,#171615);overflow:hidden}
+.arq::before{content:"";position:absolute;right:-40px;top:-40px;width:260px;height:260px;background:repeating-linear-gradient(118deg,rgba(242,180,106,.5) 0 10px,transparent 10px 26px);opacity:.12;pointer-events:none}
+.arq__k{color:var(--amber-hi)}
+.arq__name{margin-top:10px;font-size:clamp(24px,2.8vw,38px);font-weight:300;text-transform:uppercase;line-height:1.05;letter-spacing:-.02em}
+.arq__name strong{display:block;font-weight:800}
+.arq__desc{margin-top:12px;color:#cfccc6;font-size:16px;max-width:52ch}
+.arq__list{margin-top:18px;display:grid;gap:9px}
+.arq__list li{display:grid;grid-template-columns:20px 1fr;gap:8px;color:#d6d3cd;font-size:15px;line-height:1.4}
+.arq__list li::before{content:"";width:9px;height:13px;margin-top:4px;background:var(--amber);transform:skewX(-24deg)}
+.arq__buy{position:relative;display:grid;gap:12px;justify-items:start}
+.arq__buy .btn{white-space:normal;max-width:100%;line-height:1.25;padding-top:12px;padding-bottom:12px}
+.arq__lote{color:var(--dim)}
 .xp-note{margin-top:22px;color:var(--dim);font-size:13.5px;max-width:78ch}
 
 /* diogo */
@@ -378,6 +390,8 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   .footer{padding-bottom:110px}
   .buybar{display:flex}
   .buybar .btn{flex:none;width:auto;min-height:46px;padding:0 16px;font-size:12px;white-space:nowrap}
+  .arq{grid-template-columns:1fr}
+  .arq__buy .btn{width:100%;justify-content:center}
   .compare th,.compare td{padding:13px 10px}
   .compare thead th{font-size:10.5px;letter-spacing:.03em}
   .compare td,.compare thead th{width:22%}
@@ -438,6 +452,14 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     "priceCurrency": "BRL",
     "url": "https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22259465/",
     "validFrom": "2026-10-08T12:00:00-03:00"
+   },
+   {
+    "@type": "Offer",
+    "name": "Arquibancada Oficial Diogo Moreira (2º lote)",
+    "price": "2250.00",
+    "priceCurrency": "BRL",
+    "url": "https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22255019/",
+    "validFrom": "2026-10-08T12:00:00-03:00"
    }
   ]
  },
@@ -458,7 +480,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     "name": "O que está incluso no camarote?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Acesso ao camarote, próximo da reta principal, vista exclusiva do Autódromo de Goiânia, open bar e open food premium, com bebidas alcoólicas a partir das 11h, e acesso à Fanzone. O Lounge Diogo Moreira inclui também a camiseta oficial do fã-clube do piloto."
+     "text": "Acesso ao camarote, próximo da reta principal, vista exclusiva do Autódromo de Goiânia, open bar e open food premium, com bebidas alcoólicas a partir das 11h, e acesso à Fanzone. O Lounge Diogo Moreira inclui também o meet & greet com o piloto e a camiseta oficial do fã-clube."
     }
    },
    {
@@ -466,7 +488,15 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     "name": "Quanto custa cada ingresso?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "No 2º lote, o 2Rodas Club custa R$ 7.390 e o Lounge Diogo Moreira custa R$ 8.900, em preço único. Os valores incluem impostos. A Eventim pode cobrar taxas adicionais, que aparecem antes da confirmação do pedido."
+     "text": "No 2º lote, o 2Rodas Club custa R$ 7.390, o Lounge Diogo Moreira custa R$ 8.900 e a Arquibancada Oficial Diogo Moreira custa R$ 2.250, em preço único. Os valores incluem impostos. A Eventim pode cobrar taxas adicionais, que aparecem antes da confirmação do pedido."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "O que inclui a Arquibancada Oficial Diogo Moreira?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Lugar na arquibancada coberta, com visão para a curva Bico de Pato, telão e acesso à Fanzone, com pontos de venda de alimentação, bebidas, produtos licenciados, entretenimento e shows. Cada ingresso dá direito a uma camiseta oficial do fã-clube do Diogo Moreira, do PP ao 3G, com o tamanho escolhido no ato da compra. Comida e bebida não estão incluídas."
     }
    },
    {
@@ -538,7 +568,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
 </div>
 
 <div class="buybar" id="buybar" aria-hidden="true">
-  <p><span class="mono">A partir de</span><b>R$ 7.390</b></p>
+  <p><span class="mono">Camarote a partir de</span><b>R$ 7.390</b></p>
   <a class="btn btn--primary" href="https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22259465/" target="_blank" rel="noopener" tabindex="-1">Garanta seu ingresso <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
 </div>
 <div id="smooth-wrapper"><div id="smooth-content">
@@ -580,7 +610,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     <div class="container hero__bottom-inner" data-calm="0.15">
       <div><p class="mono fact__k">Quando</p><p class="fact__v">02 a 04 de abril de 2027<br>sexta-feira a domingo</p></div>
       <div><p class="mono fact__k">Onde</p><p class="fact__v">Autódromo Internacional de Goiânia Ayrton Senna</p></div>
-      <div><p class="mono fact__k">Ingressos</p><p class="fact__v">A partir de R$ 7.390<br>2º lote, na Eventim</p></div>
+      <div><p class="mono fact__k">Camarote</p><p class="fact__v">A partir de R$ 7.390<br>2º lote, na Eventim</p></div>
       <div>
         <p class="mono fact__k">Contagem para sexta-feira, 02/04/2027</p>
         <div class="countdown" role="timer" aria-label="Contagem regressiva para 02/04/2027">
@@ -634,7 +664,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
         <p class="mono section__label"><b>02</b> Ingressos</p>
         <h2 class="h2" id="t-ingressos" data-split>Uma escolha, <strong class="amber">duas experiências.</strong></h2>
       </div>
-      <p class="lead" data-reveal>Os dois ingressos valem para os três dias e incluem open bar e open food premium. O Lounge soma a camiseta oficial do fã-clube do Diogo Moreira.</p>
+      <p class="lead" data-reveal>Os dois ingressos valem para os três dias e incluem open bar e open food premium. O Lounge soma a camiseta oficial do fã-clube e o meet &amp; greet com o Diogo Moreira.</p>
     </div>
 
     <div class="xp-grid">
@@ -654,7 +684,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
         <div class="xp__media"><span class="xp__badge" aria-hidden="true">Lounge<small>Diogo Moreira</small></span><span class="mono xp__tag">2º lote</span></div>
         <div class="xp__body">
           <h3 class="xp__name"><small>2Rodas Club</small>Lounge Diogo Moreira</h3>
-          <p class="xp__desc">O camarote oficial do piloto brasileiro, com a camiseta oficial do fã-clube do Diogo Moreira.</p>
+          <p class="xp__desc">O camarote oficial do piloto brasileiro, com meet &amp; greet com o Diogo Moreira e a camiseta oficial do fã-clube.</p>
           <div class="xp__foot">
             <p class="xp__price"><span>R$</span><b data-count="8900">8.900</b><span>preço único</span></p>
             <a class="btn btn--primary" data-magnet href="https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22259465/" target="_blank" rel="noopener">Garanta seu lugar no Lounge <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
@@ -673,11 +703,32 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
           <tr><th scope="row">Open bar e open food premium<small>Bebidas alcoólicas a partir das 11h</small></th><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
           <tr><th scope="row">Acesso à Fanzone<small>Produtos licenciados, entretenimento e shows</small></th><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
           <tr><th scope="row">Ingresso válido para os três dias</th><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
+          <tr><th scope="row">Meet &amp; greet com o Diogo Moreira</th><td><span class="no">Não inclui</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
           <tr><th scope="row">Camiseta oficial do fã-clube do Diogo Moreira</th><td><span class="no">Não inclui</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
           <tr class="compare__price"><th scope="row">Preço único, 2º lote</th><td>R$ 7.390</td><td>R$ 8.900</td></tr>
         </tbody>
       </table>
     </div>
+
+    <article class="arq" id="arquibancada" data-reveal aria-labelledby="t-arq">
+      <div class="arq__info">
+        <p class="mono arq__k">Também à venda</p>
+        <h3 class="arq__name" id="t-arq">Arquibancada Oficial <strong class="amber">Diogo Moreira</strong></h3>
+        <p class="arq__desc">A arquibancada coberta da torcida do piloto brasileiro, com visão para a curva Bico de Pato.</p>
+        <ul class="arq__list">
+          <li>Arquibancada coberta, com visão para a curva Bico de Pato</li>
+          <li>Telão</li>
+          <li>Camiseta oficial do fã-clube do Diogo Moreira, uma por ingresso, do PP ao 3G, com o tamanho escolhido na compra</li>
+          <li>Acesso à Fanzone, com pontos de venda de alimentação, bebidas, produtos licenciados, entretenimento e shows</li>
+          <li>Ingresso válido para os três dias</li>
+        </ul>
+      </div>
+      <div class="arq__buy">
+        <p class="mono arq__lote">2º lote</p>
+        <p class="xp__price"><span>R$</span><b data-count="2250">2.250</b><span>preço único</span></p>
+        <a class="btn btn--primary" data-magnet href="https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22255019/" target="_blank" rel="noopener">Garanta seu lugar na arquibancada <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+      </div>
+    </article>
     <p class="xp-note" data-reveal>Valores do 2º lote, com impostos incluídos. A Eventim pode cobrar taxas adicionais, informadas antes da confirmação do pedido. Ingressos limitados, sujeitos à disponibilidade.</p>
   </div>
 </section>
@@ -692,7 +743,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     <div data-calm="0.12">
       <p class="mono section__label"><b>03</b> Lounge Diogo Moreira</p>
       <h2 class="h2" id="t-lounge" data-split>O camarote oficial <strong class="amber">do Diogo Moreira.</strong></h2>
-      <p class="lead" data-reveal>O Lounge Diogo Moreira é o camarote oficial do piloto brasileiro no MotoGP™ Grande Prêmio do Brasil. Quem escolhe o Lounge torce de dentro do camarote do piloto e leva a camiseta oficial do fã-clube.</p>
+      <p class="lead" data-reveal>O Lounge Diogo Moreira é o camarote oficial do piloto brasileiro no MotoGP™ Grande Prêmio do Brasil. Quem escolhe o Lounge torce de dentro do camarote do piloto, participa do meet &amp; greet com ele e leva a camiseta oficial do fã-clube.</p>
       <div class="stats" data-reveal>
         <div class="stat"><b>2ª temporada</b><span>Em 2027, Diogo corre o segundo ano na categoria principal do motociclismo mundial, pela Honda.</span></div>
         <div class="stat"><b>Melhor tempo</b><span>Fez a melhor marca, não oficial, nos testes da Pirelli em Spielberg, na Áustria, em setembro.</span></div>
@@ -742,7 +793,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       <h2 class="h2" id="t-local" data-split>Autódromo Internacional de Goiânia <strong class="amber">Ayrton Senna.</strong></h2>
     </div>
     <div class="local__info" data-reveal>
-      <p class="plan__note">No mapa oficial de setores, o 2Rodas Club fica na reta principal, do lado de fora da pista, perto da largada e dos boxes.</p>
+      <p class="plan__note">No mapa oficial de setores, o 2Rodas Club fica na reta principal, do lado de fora da pista, perto da largada e dos boxes. A Arquibancada Oficial Diogo Moreira fica na outra ponta do circuito, com visão para a curva Bico de Pato.</p>
       <address class="addr">Rodovia GO 020, Km 04<br>Goiânia, Goiás</address>
       <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&query=Aut%C3%B3dromo+Internacional+de+Goi%C3%A2nia+Ayrton+Senna" target="_blank" rel="noopener">Abrir no Google Maps <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
     </div>
@@ -765,8 +816,9 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     </div>
     <div class="faq__list">
       <details class="faq__item" data-reveal><summary><h3>O ingresso vale para os três dias?</h3><i aria-hidden="true"></i></summary><p>Sim. Os ingressos do MotoGP™ Grande Prêmio do Brasil 2027 são vendidos apenas para os três dias. Você assiste aos treinos de sexta-feira e sábado e à corrida de domingo.</p></details>
-      <details class="faq__item" data-reveal><summary><h3>O que está incluso no camarote?</h3><i aria-hidden="true"></i></summary><p>Acesso ao camarote, próximo da reta principal, vista exclusiva do Autódromo de Goiânia, open bar e open food premium, com bebidas alcoólicas a partir das 11h, e acesso à Fanzone. O Lounge Diogo Moreira inclui também a camiseta oficial do fã-clube do piloto.</p></details>
-      <details class="faq__item" data-reveal><summary><h3>Quanto custa cada ingresso?</h3><i aria-hidden="true"></i></summary><p>No 2º lote, o 2Rodas Club custa R$ 7.390 e o Lounge Diogo Moreira custa R$ 8.900, em preço único. Os valores incluem impostos. A Eventim pode cobrar taxas adicionais, que aparecem antes da confirmação do pedido.</p></details>
+      <details class="faq__item" data-reveal><summary><h3>O que está incluso no camarote?</h3><i aria-hidden="true"></i></summary><p>Acesso ao camarote, próximo da reta principal, vista exclusiva do Autódromo de Goiânia, open bar e open food premium, com bebidas alcoólicas a partir das 11h, e acesso à Fanzone. O Lounge Diogo Moreira inclui também o meet &amp; greet com o piloto e a camiseta oficial do fã-clube.</p></details>
+      <details class="faq__item" data-reveal><summary><h3>Quanto custa cada ingresso?</h3><i aria-hidden="true"></i></summary><p>No 2º lote, o 2Rodas Club custa R$ 7.390, o Lounge Diogo Moreira custa R$ 8.900 e a Arquibancada Oficial Diogo Moreira custa R$ 2.250, em preço único. Os valores incluem impostos. A Eventim pode cobrar taxas adicionais, que aparecem antes da confirmação do pedido.</p></details>
+      <details class="faq__item" data-reveal><summary><h3>O que inclui a Arquibancada Oficial Diogo Moreira?</h3><i aria-hidden="true"></i></summary><p>Lugar na arquibancada coberta, com visão para a curva Bico de Pato, telão e acesso à Fanzone, com pontos de venda de alimentação, bebidas, produtos licenciados, entretenimento e shows. Cada ingresso dá direito a uma camiseta oficial do fã-clube do Diogo Moreira, do PP ao 3G, com o tamanho escolhido no ato da compra. Comida e bebida não estão incluídas.</p></details>
       <details class="faq__item" data-reveal><summary><h3>Quantos ingressos posso comprar?</h3><i aria-hidden="true"></i></summary><p>A Eventim limita a compra a 4 ingressos por CPF para o MotoGP™ Grande Prêmio do Brasil 2027.</p></details>
       <details class="faq__item" data-reveal><summary><h3>Como recebo o ingresso?</h3><i aria-hidden="true"></i></summary><p>Os ingressos do evento são digitais, pelo Eventim Pass, e ficam no aplicativo Eventim Brasil, para iPhone e Android. O QR Code aparece a partir da meia-noite do dia do evento. Para áreas VIP, a Eventim informa que a entrada é com credencial física, com ponto de retirada a ser divulgado.</p></details>
       <details class="faq__item" data-reveal><summary><h3>Crianças e adolescentes podem entrar?</h3><i aria-hidden="true"></i></summary><p>Sim, e todos precisam de ingresso. Até 11 anos, a entrada é somente com pai, mãe ou responsável legal. De 12 a 17 anos, com pai, mãe, responsável legal ou outro maior de 18 anos, com a documentação exigida. Alguns setores podem ter restrição de idade, então vale conferir os termos do evento na Eventim.</p></details>
@@ -1127,7 +1179,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       { f: [0.900, 0.916], d: 16, w: 13, lab: '' },
       { f: [0.150, 0.168], d: 16, w: 13, lab: 'Setor C' },
       { f: [0.184, 0.202], d: 16, w: 13, lab: 'Setor D' },
-      { f: [0.222, 0.248], d: 16, w: 13, lab: 'Arq. oficial Diogo Moreira' },
+      { f: [0.222, 0.248], d: 16, w: 14, lab: 'Arq. oficial Diogo Moreira', feat: true },
       { f: [0.705, 0.805], d: 18, w: 11, lab: 'Setor F' },
     ];
     const BOX = { f: [0.918, 0.982], d: -34, w: 18, lab: 'Boxes' }, START = 0.974;
@@ -1146,12 +1198,12 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     const line = (arr, z, color, wd, close) => { path(arr, z); if (close) ctx.closePath(); ctx.strokeStyle = color; ctx.lineWidth = wd; ctx.lineJoin = 'round'; ctx.lineCap = 'round'; ctx.stroke(); };
     const rr = (x, y, w, h, r) => { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); };
     const ground = []; { const m = 95, r = 120, x0 = minX - m, x1 = maxX + m, y0 = minY - m, y1 = maxY + m; const arc = (cx, cy, a0) => { for (let k = 0; k <= 8; k++) { const a = a0 + Math.PI / 2 * k / 8; ground.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]); } }; arc(x1 - r, y0 + r, -Math.PI / 2); arc(x1 - r, y1 - r, 0); arc(x0 + r, y1 - r, Math.PI / 2); arc(x0 + r, y0 + r, Math.PI); }
-    const blocks = S.map(s => ({ s, poly: strip(s.f[0], s.f[1], s.d, s.w), c: mid(s.f[0], s.f[1], s.d + s.w / 2), h: s.club ? 26 : 13 }));
+    const blocks = S.map(s => ({ s, poly: strip(s.f[0], s.f[1], s.d, s.w), c: mid(s.f[0], s.f[1], s.d + s.w / 2), h: s.club ? 26 : s.feat ? 18 : 13 }));
     blocks.push({ s: BOX, poly: strip(BOX.f[0], BOX.f[1], BOX.d, BOX.w), c: mid(BOX.f[0], BOX.f[1], BOX.d + BOX.w / 2), h: 16, box: true });
     function sign(b) {
-      if (!b.s.lab || (narrow && !b.s.club)) return;
-      const u = Math.max(0.72, Math.min(1.15, W / 1100)), base = pr(b.c[0], b.c[1], b.h), top = pr(b.c[0], b.c[1], b.h + (b.s.club ? 68 : 44));
-      ctx.strokeStyle = b.s.club ? '#ffca7f' : 'rgba(255,255,255,.4)'; ctx.lineWidth = b.s.club ? 2 : 1.2; ctx.beginPath(); ctx.moveTo(base[0], base[1]); ctx.lineTo(top[0], top[1]); ctx.stroke();
+      if (!b.s.lab || (narrow && !b.s.club && !b.s.feat)) return;
+      const u = Math.max(0.72, Math.min(1.15, W / 1100)), base = pr(b.c[0], b.c[1], b.h), top = pr(b.c[0], b.c[1], b.h + (b.s.club ? 68 : b.s.feat ? 52 : 44));
+      ctx.strokeStyle = b.s.club || b.s.feat ? '#ffca7f' : 'rgba(255,255,255,.4)'; ctx.lineWidth = b.s.club ? 2 : b.s.feat ? 1.6 : 1.2; ctx.beginPath(); ctx.moveTo(base[0], base[1]); ctx.lineTo(top[0], top[1]); ctx.stroke();
       ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
       if (b.s.club) {
         // placa menor e translúcida, para não esconder a pista atrás dela
@@ -1162,6 +1214,14 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
         ctx.strokeStyle = 'rgba(255,243,220,.75)'; ctx.lineWidth = 1; rr(x, y, w, h, 7 * u); ctx.stroke();
         ctx.fillStyle = '#171310'; ctx.fillText('2RODAS CLUB', top[0], y + 19.5 * u);
         ctx.font = `700 ${7.5 * u}px "JetBrains Mono", monospace`; ctx.fillText('CAMAROTE', top[0], y + 31 * u);
+      } else if (b.s.feat) {
+        // arquibancada oficial do Diogo Moreira: também à venda, destaque com contorno dourado
+        const l1 = narrow ? 'ARQ. DIOGO MOREIRA' : 'ARQ. OFICIAL DIOGO MOREIRA', l2 = 'TAMBÉM À VENDA';
+        ctx.font = `700 ${10.5 * u}px "JetBrains Mono", monospace`; const w = ctx.measureText(l1).width + 20 * u, h = 32 * u, x = top[0] - w / 2, y = top[1] - h;
+        ctx.save(); ctx.globalAlpha = 0.9; ctx.fillStyle = '#1c1712'; rr(x, y, w, h, 6 * u); ctx.fill(); ctx.restore();
+        ctx.strokeStyle = '#ffca7f'; ctx.lineWidth = 1.2; rr(x, y, w, h, 6 * u); ctx.stroke();
+        ctx.fillStyle = '#ffca7f'; ctx.fillText(l1, top[0], y + 14 * u);
+        ctx.font = `500 ${7.5 * u}px "JetBrains Mono", monospace`; ctx.fillStyle = 'rgba(255,202,127,.75)'; ctx.fillText(l2, top[0], y + 25 * u);
       } else {
         ctx.font = `500 ${10.5 * u}px "JetBrains Mono", monospace`; const txt = b.s.lab.toUpperCase(), w = ctx.measureText(txt).width + 16 * u, h = 22 * u, x = top[0] - w / 2, y = top[1] - h;
         ctx.fillStyle = 'rgba(20,20,20,.92)'; ctx.strokeStyle = 'rgba(255,255,255,.3)'; ctx.lineWidth = 1; rr(x, y, w, h, 5 * u); ctx.fill(); ctx.stroke();
@@ -1208,11 +1268,12 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       if (!RM) line(ring, 1, `rgba(255,202,127,${0.9 * (1 - ph)})`, 2, true);
       const order = blocks.map(bk => ({ bk, d: pr(bk.c[0], bk.c[1], 0)[2] })).sort((x, y) => x.d - y.d);
       for (const { bk } of order) {
-        const side = bk.s.club ? '#9a6a35' : bk.box ? '#19191b' : '#2a2a2d', top = bk.s.club ? '#ffca7f' : bk.box ? '#2b2b2f' : '#4a4a50';
+        const side = bk.s.club ? '#9a6a35' : bk.s.feat ? '#5e4528' : bk.box ? '#19191b' : '#2a2a2d', top = bk.s.club ? '#ffca7f' : bk.s.feat ? '#c48f52' : bk.box ? '#2b2b2f' : '#4a4a50';
         for (let z = 0; z < bk.h; z += 1.5) fillPoly(bk.poly, z, side);
-        fillPoly(bk.poly, bk.h, top, bk.s.club ? '#fff3dc' : 'rgba(255,255,255,.3)');
+        fillPoly(bk.poly, bk.h, top, bk.s.club ? '#fff3dc' : bk.s.feat ? '#ffca7f' : 'rgba(255,255,255,.3)');
       }
-      for (const { bk } of order) if (!bk.s.club) sign(bk);
+      for (const { bk } of order) if (!bk.s.club && !bk.s.feat) sign(bk);
+      for (const { bk } of order) if (bk.s.feat) sign(bk);
       sign(blocks.find(bk => bk.s.club));
     }
     function loop(now) { if (!visible) return; const dt = Math.min(0.05, (now - last) / 1000 || 0); last = now; draw(now, dt); requestAnimationFrame(loop); }
