@@ -1138,7 +1138,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     const km = hud ? $('#hudKm') : null, lapEl = hud ? $('#hudLap') : null; let laps = 1;
     let W = 0, H = 0, narrow = false, yaw = 0.34, auto = !RM, drag = null, visible = false, t0 = performance.now(), last = t0, pos = 0, cs = 1, sn = 0, sc = 1, MX = 0, MY = 0;
     const size = () => { const r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2); W = r.width; H = r.height; narrow = W < 560; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); };
-    const pr = (x, y, z) => { const X = x - CX, Y = y - CY, xr = X * cs - Y * sn, yr = X * sn + Y * cs; return [W / 2 + (xr - MX) * sc, H * 0.64 + (yr - MY) * sc * CP - z * sc * SP, yr]; };
+    const pr = (x, y, z) => { const X = x - CX, Y = y - CY, xr = X * cs - Y * sn, yr = X * sn + Y * cs; return [W / 2 + (xr - MX) * sc, H * (narrow ? 0.6 : 0.59) + (yr - MY) * sc * CP - z * sc * SP, yr]; };
     const path = (arr, z) => { ctx.beginPath(); arr.forEach((p, i) => { const q = pr(p[0], p[1], z); i ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]); }); };
     const fillPoly = (arr, z, color, stroke) => { path(arr, z); ctx.closePath(); if (color) { ctx.fillStyle = color; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = 1; ctx.stroke(); } };
     const line = (arr, z, color, wd, close) => { path(arr, z); if (close) ctx.closePath(); ctx.strokeStyle = color; ctx.lineWidth = wd; ctx.lineJoin = 'round'; ctx.lineCap = 'round'; ctx.stroke(); };
@@ -1168,13 +1168,15 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       if (auto) yaw = 0.34 + Math.sin((now - t0) / 1000 * 0.3) * 0.3;
       cs = Math.cos(yaw); sn = Math.sin(yaw);
       // escala que faz o circuito inteiro caber na largura, em qualquer ângulo
+      // a escala considera a base inteira da maquete (não só a pista), para nada cortar nas bordas
       let lx = 1e9, hx = -1e9, ly = 1e9, hy = -1e9;
-      for (let i = 0; i < N; i += 6) { const X = pts[i][0] - CX, Y = pts[i][1] - CY, xr = X * cs - Y * sn, yr = X * sn + Y * cs; lx = Math.min(lx, xr); hx = Math.max(hx, xr); ly = Math.min(ly, yr); hy = Math.max(hy, yr); }
+      for (const p of ground) { const X = p[0] - CX, Y = p[1] - CY, xr = X * cs - Y * sn, yr = X * sn + Y * cs; lx = Math.min(lx, xr); hx = Math.max(hx, xr); ly = Math.min(ly, yr); hy = Math.max(hy, yr); }
       MX = (lx + hx) / 2; MY = (ly + hy) / 2;
-      sc = Math.min(W * (narrow ? 0.9 : 0.84) / (hx - lx), H * 0.52 / ((hy - ly) * CP));
+      const headroom = narrow ? 0.30 : 0.26;   // espaço acima da base para as placas
+      sc = Math.min(W * 0.95 / (hx - lx), H * (1 - headroom - 0.06) / ((hy - ly) * CP + 16 * SP));
       ctx.clearRect(0, 0, W, H);
       // base da maquete solta na página, com sombra macia por baixo (sem quadro nem fundo)
-      ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.75)'; ctx.shadowBlur = 50 * Math.max(0.6, sc * 1.6); ctx.shadowOffsetY = 26 * Math.max(0.6, sc * 1.6);
+      ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.75)'; ctx.shadowBlur = 40 * Math.max(0.6, sc * 1.6); ctx.shadowOffsetY = 16 * Math.max(0.6, sc * 1.6);
       fillPoly(ground, -16, '#0b0b0b'); ctx.restore();
       const gg = ctx.createLinearGradient(0, H * 0.2, 0, H * 0.95); gg.addColorStop(0, '#26241f'); gg.addColorStop(1, '#161616');
       fillPoly(ground, 0, gg, 'rgba(255,202,127,.16)');
