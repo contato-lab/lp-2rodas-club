@@ -137,7 +137,7 @@ html.is-loading .nav{opacity:0}
 /* ═══════════ HERO ═══════════ */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 0;overflow:hidden}
 .hero__glow{position:absolute;right:-10%;bottom:-20%;width:90vw;height:90vw;max-width:1300px;max-height:1300px;border-radius:50%;background:radial-gradient(circle,rgba(242,180,106,.16),transparent 62%);pointer-events:none}
-.hero__track{position:absolute;right:3vw;top:50%;width:min(50vw,820px);transform:translateY(-50%);pointer-events:none;perspective:1400px}
+.hero__track{position:absolute;right:1.5vw;top:50%;width:min(56vw,900px,calc(98.5vw - max(0px,(100vw - 1320px)/2) - 5vw - 484px));transform:translateY(-50%);pointer-events:none;perspective:1400px}
 .hero__track-cap{display:none;align-items:center;justify-content:center;gap:10px;margin-top:-6px;color:var(--amber-hi);font-size:10px;text-align:center}
 .hero__track-cap i{flex:none;width:22px;height:3px;border-radius:2px;background:var(--amber-hi)}
 .hero__track-tilt{transform:rotateX(46deg) rotateZ(-7deg);transform-style:preserve-3d;will-change:transform}
@@ -159,7 +159,7 @@ html.is-loading .nav{opacity:0}
 .hero h1 .line > span{display:block;will-change:transform}
 .hero h1 strong{font-weight:800}
 .hero__slashes{margin:22px 0 22px}
-.hero__sub{max-width:520px;font-size:clamp(16px,1.35vw,19px);color:#d9d6d0}
+.hero__sub{max-width:460px;font-size:clamp(16px,1.35vw,19px);color:#d9d6d0}
 .hero__ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 .hero__bottom{position:relative;z-index:2;margin-top:clamp(36px,6vh,72px);border-top:1px solid var(--line);background:linear-gradient(180deg,rgba(20,20,20,.0),rgba(20,20,20,.75))}
 .hero__bottom-inner{display:grid;grid-template-columns:1.2fr 1fr 1fr auto;gap:28px;align-items:center;padding-top:22px;padding-bottom:22px}
@@ -936,7 +936,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   (function track() {
     const edge = $('#trkEdge'), comet = $('#trkComet'), glow = $('#trkGlow'), dot = $('#trkDot');
     if (!edge) return;
-    const L = edge.getTotalLength(), TRAIL = L * 0.075, GLOW = L * 0.11;
+    const L = edge.getTotalLength(), TRAIL = L * 0.04, GLOW = L * 0.06;
     comet.style.strokeDasharray = `${TRAIL} ${L - TRAIL}`;
     glow.style.strokeDasharray = `${GLOW} ${L - GLOW}`;
     edge.style.strokeDasharray = L; edge.style.strokeDashoffset = RM ? 0 : L;
@@ -957,7 +957,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       requestAnimationFrame(run);
       const dt = Math.min(0.05, (now - last) / 1000); last = now;
       if (!lap.ready || document.hidden) return;
-      lap.pos += (L / 13) * dt * lap.speed * (0.6 + flow.boost * 0.4);
+      lap.pos += (L / 7.5) * dt * lap.speed * (0.6 + flow.boost * 0.4);
       if (lap.pos >= L) { lap.pos -= L; lap.laps++; }
       lap.place();
     })(last);
