@@ -569,7 +569,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
 
 <div class="buybar" id="buybar" aria-hidden="true">
   <p><span class="mono">Camarote a partir de</span><b>R$ 7.390</b></p>
-  <a class="btn btn--primary" href="https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22259465/" target="_blank" rel="noopener" tabindex="-1">Garanta seu ingresso <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+  <a class="btn btn--primary" href="#ingressos" tabindex="-1">Garanta seu ingresso <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
 </div>
 <div id="smooth-wrapper"><div id="smooth-content">
 <main id="main">
@@ -911,8 +911,10 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   (function buybar() {
     const bar = $('#buybar'), cta = $('.hero__ctas'), end = $('.final');
     if (!bar || !cta || !end || !('IntersectionObserver' in window)) return;
-    const link = $('a', bar); let past = false, atEnd = false;
-    const set = () => { const on = past && !atEnd; bar.classList.toggle('is-on', on); bar.setAttribute('aria-hidden', String(!on)); link.tabIndex = on ? 0 : -1; };
+    // o botão leva até a escolha dos ingressos e some enquanto essa seção está na tela
+    const link = $('a', bar), tickets = $('#ingressos'); let past = false, atEnd = false, atTickets = false;
+    const set = () => { const on = past && !atEnd && !atTickets; bar.classList.toggle('is-on', on); bar.setAttribute('aria-hidden', String(!on)); link.tabIndex = on ? 0 : -1; };
+    if (tickets) new IntersectionObserver(([e]) => { atTickets = e.isIntersecting; set(); }, { rootMargin: '-35% 0px -35% 0px' }).observe(tickets);
     new IntersectionObserver(([e]) => { past = !e.isIntersecting && e.boundingClientRect.top < 0; set(); }).observe(cta);
     new IntersectionObserver(([e]) => { atEnd = e.isIntersecting; set(); }, { threshold: 0.2 }).observe(end);
   })();
