@@ -137,17 +137,19 @@ html.is-loading .nav{opacity:0}
 /* ═══════════ HERO ═══════════ */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 0;overflow:hidden}
 .hero__glow{position:absolute;right:-10%;bottom:-20%;width:90vw;height:90vw;max-width:1300px;max-height:1300px;border-radius:50%;background:radial-gradient(circle,rgba(242,180,106,.16),transparent 62%);pointer-events:none}
-.hero__track{position:absolute;right:-20vw;top:50%;width:min(86vw,1340px);transform:translateY(-30%);pointer-events:none;perspective:1400px;-webkit-mask-image:linear-gradient(90deg,transparent 2%,#000 34%);mask-image:linear-gradient(90deg,transparent 2%,#000 34%)}
+.hero__track{position:absolute;right:3vw;top:50%;width:min(50vw,820px);transform:translateY(-50%);pointer-events:none;perspective:1400px}
+.hero__track-cap{display:none;align-items:center;justify-content:center;gap:10px;margin-top:-6px;color:var(--amber-hi);font-size:10px;text-align:center}
+.hero__track-cap i{flex:none;width:22px;height:3px;border-radius:2px;background:var(--amber-hi)}
 .hero__track-tilt{transform:rotateX(46deg) rotateZ(-7deg);transform-style:preserve-3d;will-change:transform}
 .hero__track svg{width:100%;height:auto;overflow:visible;display:block}
 .trk-base{fill:none;stroke:rgba(255,255,255,.16);stroke-width:9;stroke-linejoin:round}
-.trk-edge{fill:none;stroke:rgba(255,255,255,.55);stroke-width:1.6;stroke-linejoin:round}
+.trk-edge{fill:none;stroke:rgba(255,255,255,.6);stroke-width:2.2;stroke-linejoin:round}
 .trk-pit{fill:none;stroke:rgba(255,255,255,.22);stroke-width:1.4;stroke-dasharray:5 6}
 .trk-glow{fill:none;stroke:var(--amber);stroke-width:16;stroke-linecap:round;opacity:.22}
-.trk-comet{fill:none;stroke:var(--amber-hi);stroke-width:4.5;stroke-linecap:round}
+.trk-comet{fill:none;stroke:var(--amber-hi);stroke-width:6;stroke-linecap:round}
 .trk-dot{fill:#fff}
-.trk-straight{fill:none;stroke:var(--amber-hi);stroke-width:6;stroke-linecap:round;opacity:.75}
-.trk-label{font-family:var(--f-mono);font-size:15px;letter-spacing:.2em;fill:var(--amber-hi)}
+.trk-straight{fill:none;stroke:var(--amber-hi);stroke-width:8;stroke-linecap:round;opacity:.8}
+.trk-label{font-family:var(--f-mono);font-size:19px;letter-spacing:.18em;fill:var(--amber-hi)}
 .trk-tick{stroke:var(--amber);stroke-width:2}
 .hero__content{position:relative;z-index:2}
 .hero__kicker{display:flex;align-items:center;gap:14px;color:var(--amber-hi);margin-bottom:22px;font-weight:500;line-height:1.5}
@@ -344,11 +346,17 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   .split,.diogo,.local,.faq{grid-template-columns:1fr}
   .monitor{position:relative;top:0}
   .hud{display:none}
+  .hero__content{order:1}
+  .hero__track{order:2;position:relative;right:auto;top:auto;width:100%;max-width:640px;transform:none;margin:18px auto 0;padding:0 var(--pad)}
+  .hero__bottom{order:3;margin-top:14px}
+  .trk-label,.trk-tick{display:none}
+  .trk-edge{stroke-width:3.6}.trk-straight{stroke-width:13}.trk-comet{stroke-width:9}.trk-glow{stroke-width:26}.trk-pit{stroke-width:2.8}
+  .trk-dot{r:11px}
+  .hero__track-cap{display:flex}
 }
 @media (max-width:720px){
   .hero{padding-top:104px}
   .logo{height:32px}
-  .hero__track{right:-58vw;width:175vw;top:84px;bottom:auto;transform:none;opacity:.2;-webkit-mask-image:none;mask-image:none}
   .btn{white-space:normal;max-width:100%;text-align:center;padding:12px 22px;line-height:1.25}
   .final .btn{width:100%;justify-content:center}
   .monitor__bar span:nth-child(2):not(:last-child){display:none}
@@ -534,7 +542,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   <div class="bands" aria-hidden="true"></div>
   <div class="hero__glow" aria-hidden="true"></div>
 
-  <div class="hero__track" aria-hidden="true" data-speed="0.82">
+  <div class="hero__track" aria-hidden="true">
     <div class="hero__track-tilt" id="trackTilt">
       <svg viewBox="-10 -20 1100 470">
         <path class="trk-pit" d="M925.6 216.6C925.9 217.2 926.8 218.9 927.6 220.0C928.3 221.0 929.3 222.1 930.1 222.9C930.9 223.7 931.5 224.2 932.3 224.8C933.1 225.3 933.9 225.9 934.8 226.3C935.6 226.8 933.2 225.6 937.4 227.5C941.6 229.4 953.2 234.1 959.9 237.9C966.6 241.7 972.7 246.7 977.3 250.5C981.9 254.2 985.3 258.3 987.4 260.5C989.6 262.7 989.5 262.6 990.3 263.7C991.2 264.8 992.1 266.0 992.8 267.2C993.6 268.4 994.2 269.7 994.8 271.0C995.4 272.3 995.8 273.5 996.3 275.0C996.7 276.6 997.1 278.4 997.3 280.2C997.5 281.9 997.6 283.7 997.5 285.4C997.5 287.1 997.3 288.9 996.9 290.6C996.6 292.3 996.5 293.2 995.5 295.7C994.5 298.1 995.5 299.0 990.8 305.3C986.2 311.5 973.7 326.4 967.7 333.3C961.7 340.2 957.6 344.1 954.7 346.8C951.9 349.6 952.1 349.1 950.7 350.1C949.3 351.1 947.8 352.0 946.3 352.8C944.8 353.7 943.5 354.4 941.7 355.2C939.9 356.0 937.6 356.9 935.5 357.6C933.4 358.2 931.2 358.8 929.0 359.1C926.8 359.5 924.6 359.8 922.4 359.9C920.2 360.0 937.9 361.1 915.7 359.8C893.6 358.6 837.6 354.9 789.5 352.4C741.3 349.9 662.9 345.6 627.0 344.6C591.0 343.6 583.3 346.2 574.0 346.6C564.7 346.9 572.1 346.5 571.1 346.6C570.1 346.8 569.1 347.1 568.3 347.4C567.5 347.7 567.0 348.0 566.4 348.4C565.8 348.8 565.2 349.3 564.7 349.8C564.2 350.3 563.5 351.2 563.3 351.5"/>
@@ -548,6 +556,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
         <text class="trk-label" x="600" y="401" text-anchor="middle">RETA PRINCIPAL · 2RODAS CLUB PRÓXIMO</text>
       </svg>
     </div>
+    <p class="mono hero__track-cap"><i></i>Reta principal, perto do 2Rodas Club</p>
   </div>
 
   <div class="hud mono" aria-hidden="true">
