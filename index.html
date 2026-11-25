@@ -1124,7 +1124,12 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     ]);
     const counter = { v: 0 };
     const say = txt => gsap.to(status, { duration: 0.35, scrambleText: { text: txt, chars: 'abcdefghijklmnopqrstuvwxyz', speed: 0.8 } });
-    return new Promise(done => {
+    // a largada segue o relógio, não a contagem de quadros, e nunca passa de 6,5 s
+    gsap.ticker.lagSmoothing(0);
+    return new Promise(resolve => {
+      let over = false;
+      const done = () => { if (over) return; over = true; clearTimeout(hard); gsap.ticker.lagSmoothing(500, 33); resolve(); };
+      const hard = setTimeout(() => { root.classList.remove('is-loading'); el.remove(); done(); }, 6500);
       const tl = gsap.timeline();
       tl.to(counter, { v: 80, duration: 1.15, ease: 'none', onUpdate: () => pct.textContent = Math.round(counter.v) }, 0);
       lights.forEach((l, i) => tl.call(() => { l.classList.add('on'); if (i === 2) say('luzes acesas'); }, null, 0.15 + i * 0.2));
