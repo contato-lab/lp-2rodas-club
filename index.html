@@ -271,8 +271,9 @@ html.is-loading .nav{opacity:0}
 
 /* diogo */
 .diogo{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(30px,6vw,90px);align-items:center}
-.diogo__photo{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:3/5;max-width:340px;justify-self:center;width:100%;border:1px solid rgba(232,32,31,.4)}
-.diogo__photo img{width:108%;max-width:none;height:100%;object-fit:cover;object-position:30% 0}
+.diogo__photo{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:600/860;max-width:400px;justify-self:center;width:100%;border:1px solid rgba(232,32,31,.4)}
+.diogo__photo img{width:100%;max-width:none;height:100%;object-fit:cover;object-position:50% 0}
+.xp-note a,#duvidas .lead a{color:var(--acc-hi);text-decoration:underline;text-underline-offset:3px}
 .diogo__photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,20,20,.9)),var(--stripes-dark)}
 .diogo__cap{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;display:flex;justify-content:space-between;color:#f4f2ee;font-size:11px}
 .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin:36px 0 34px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
@@ -447,7 +448,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     "name": "2Rodas Club (2º lote)",
     "price": "7390.00",
     "priceCurrency": "BRL",
-    "url": "https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22259465/",
+    "url": "https://contato-lab.github.io/lp-2rodas-club/#ingressos",
     "validFrom": "2026-10-08T12:00:00-03:00"
    },
    {
@@ -455,7 +456,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     "name": "2Rodas Club - Lounge Diogo Moreira (2º lote)",
     "price": "8900.00",
     "priceCurrency": "BRL",
-    "url": "https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22259465/",
+    "url": "https://contato-lab.github.io/lp-2rodas-club/#ingressos",
     "validFrom": "2026-10-08T12:00:00-03:00"
    },
    {
@@ -463,7 +464,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     "name": "Arquibancada Oficial Diogo Moreira (2º lote)",
     "price": "2250.00",
     "priceCurrency": "BRL",
-    "url": "https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22255019/",
+    "url": "https://contato-lab.github.io/lp-2rodas-club/#ingressos",
     "validFrom": "2026-10-08T12:00:00-03:00"
    }
   ]
@@ -493,7 +494,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     "name": "Quanto custa cada ingresso?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "No 2º lote, o 2Rodas Club custa R$ 7.390, o Lounge Diogo Moreira custa R$ 8.900 e a Arquibancada Oficial Diogo Moreira custa R$ 2.250, em preço único. Os valores incluem impostos. A Eventim pode cobrar taxas adicionais, que aparecem antes da confirmação do pedido."
+     "text": "No 2º lote, o 2Rodas Club custa R$ 7.390, o Lounge Diogo Moreira custa R$ 8.900 e a Arquibancada Oficial Diogo Moreira custa R$ 2.250, em preço único. Os valores incluem impostos."
     }
    },
    {
@@ -506,26 +507,10 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
    },
    {
     "@type": "Question",
-    "name": "Quantos ingressos posso comprar?",
-    "acceptedAnswer": {
-     "@type": "Answer",
-     "text": "A Eventim limita a compra a 4 ingressos por CPF para o MotoGP™ Grande Prêmio do Brasil 2027."
-    }
-   },
-   {
-    "@type": "Question",
-    "name": "Como recebo o ingresso?",
-    "acceptedAnswer": {
-     "@type": "Answer",
-     "text": "Os ingressos do evento são digitais, pelo Eventim Pass, e ficam no aplicativo Eventim Brasil, para iPhone e Android. O QR Code aparece a partir da meia-noite do dia do evento. Para áreas VIP, a Eventim informa que a entrada é com credencial física, com ponto de retirada a ser divulgado."
-    }
-   },
-   {
-    "@type": "Question",
     "name": "Crianças e adolescentes podem entrar?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Sim, e todos precisam de ingresso. Até 11 anos, a entrada é somente com pai, mãe ou responsável legal. De 12 a 17 anos, com pai, mãe, responsável legal ou outro maior de 18 anos, com a documentação exigida. Alguns setores podem ter restrição de idade, então vale conferir os termos do evento na Eventim."
+     "text": "Sim, e todos precisam de ingresso. Até 11 anos, a entrada é somente com pai, mãe ou responsável legal. De 12 a 17 anos, com pai, mãe, responsável legal ou outro maior de 18 anos, com a documentação exigida. Alguns setores podem ter restrição de idade, então vale conferir os termos do evento."
     }
    }
   ]
@@ -562,7 +547,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       <a href="#camarote">O camarote</a><a href="#ingressos">Ingressos</a><a href="#lounge">Lounge</a><a href="#temporada">2027</a><a href="#local">Local</a><a href="#duvidas">Dúvidas</a>
     </nav>
     <div class="nav__right">
-      <a class="btn btn--primary btn--sm" data-magnet href="https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22259465/" target="_blank" rel="noopener">Comprar<span class="sr"> ingresso</span> <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+      <a class="btn btn--primary btn--sm" data-magnet href="#ingressos">Comprar<span class="sr"> ingresso</span> <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
       <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span></button>
     </div>
   </div>
@@ -586,7 +571,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
 
   <div class="hero__map">
     <svg class="geo" viewBox="-10 -20 1100 470" aria-hidden="true" focusable="false"><path id="trkEdge" d="M563.3 351.5C476.3 347.6 491.2 348.8 415.8 345.7C340.4 342.6 164.3 335.4 110.9 332.7C57.5 330.0 100.4 331.2 95.4 329.7C90.5 328.2 85.8 326.0 81.2 323.6C76.6 321.2 72.8 319.3 68.0 315.2C63.2 311.1 56.8 304.9 52.7 298.9C48.6 292.9 45.3 286.4 43.2 279.2C41.1 271.9 40.0 264.2 40.0 255.4C40.0 246.6 41.5 236.2 43.5 226.3C45.5 216.4 48.6 204.4 52.1 195.7C55.6 187.0 60.8 179.6 64.2 174.2C67.6 168.8 68.5 167.6 72.7 163.5C76.9 159.4 65.6 163.1 89.2 149.9C112.8 136.7 181.4 101.3 214.3 84.3C247.2 67.3 272.8 54.5 286.5 47.8C300.2 41.0 293.4 44.9 296.8 43.8C300.2 42.7 303.7 41.7 307.2 41.1C310.7 40.5 313.8 40.1 317.7 40.0C321.6 39.9 324.7 39.8 330.9 40.2C337.1 40.6 332.9 39.9 355.0 42.6C377.1 45.3 443.0 53.9 463.6 56.6C484.2 59.4 474.0 57.8 478.6 59.1C483.2 60.5 487.7 62.3 491.4 64.7C495.1 67.1 498.0 70.3 500.8 73.3C503.6 76.2 506.0 79.5 508.1 82.4C510.2 85.3 512.2 87.9 513.6 90.7C515.0 93.5 515.5 96.4 516.2 99.3C516.9 102.2 517.7 104.8 518.0 108.1C518.3 111.4 518.2 115.4 518.0 118.9C517.8 122.5 517.6 125.7 516.5 129.4C515.4 133.1 513.0 137.7 511.1 141.0C509.2 144.3 507.4 146.4 505.0 149.0C502.6 151.6 499.8 154.3 496.6 156.7C493.4 159.1 489.7 161.8 485.8 163.6C481.9 165.4 477.4 166.6 473.4 167.4C469.3 168.2 466.0 168.8 461.5 168.6C457.0 168.4 451.1 167.5 446.4 166.4C441.7 165.3 449.8 168.8 433.3 161.9C416.8 155.1 363.5 131.6 347.3 125.3C331.1 119.0 340.1 124.3 336.2 124.0C332.3 123.7 328.0 123.1 324.0 123.5C320.0 123.9 316.1 125.1 312.0 126.3C307.9 127.5 321.9 119.2 299.6 130.5C277.3 141.8 199.7 182.3 178.1 193.9C156.5 205.5 172.2 197.4 169.8 200.1C167.4 202.8 165.2 206.6 163.8 210.0C162.5 213.4 161.8 217.5 161.7 220.8C161.6 224.1 162.3 226.6 163.4 229.6C164.5 232.6 166.2 235.9 168.0 239.0C169.8 242.1 172.1 245.2 174.5 247.9C176.9 250.6 179.2 252.9 182.3 255.2C185.4 257.5 189.2 260.1 192.9 261.8C196.6 263.5 200.2 264.7 204.5 265.5C208.8 266.3 213.6 266.8 218.8 266.4C224.1 266.0 229.1 265.1 236.0 262.9C242.9 260.6 253.6 255.6 260.5 252.9C267.4 250.2 271.3 248.1 277.4 246.7C283.5 245.2 290.6 244.7 297.3 244.2C304.0 243.7 280.9 239.7 317.5 243.8C354.1 247.9 481.5 264.7 517.0 268.9C552.5 273.1 525.6 269.5 530.3 269.1C535.0 268.8 539.8 268.3 545.1 266.8C550.4 265.3 552.4 264.3 561.9 260.1C571.4 255.9 593.8 246.2 602.4 241.8C611.0 237.4 611.2 236.2 613.7 233.8C616.2 231.5 616.2 230.8 617.1 227.7C618.0 224.6 619.4 219.2 619.3 215.5C619.1 211.8 619.1 211.8 616.2 205.6C613.3 199.3 604.4 184.0 601.9 178.0C599.4 172.0 600.9 172.7 601.3 169.8C601.7 166.9 602.9 163.3 604.2 160.8C605.5 158.3 607.0 156.4 609.0 154.7C611.0 153.0 605.6 155.2 616.3 150.4C626.9 145.6 661.4 130.5 672.9 126.0C684.4 121.5 681.3 124.0 685.2 123.5C689.1 123.0 692.3 122.8 696.2 123.0C700.1 123.2 699.3 121.6 708.5 125.0C717.7 128.4 715.4 127.9 751.6 143.2C787.8 158.5 884.7 199.3 925.6 216.6C966.5 233.8 981.0 239.8 996.9 246.7C1012.8 253.6 1015.8 255.3 1020.8 257.8C1025.8 260.3 1024.8 260.1 1026.8 261.8C1028.8 263.5 1031.1 265.9 1032.9 268.2C1034.8 270.5 1036.7 273.4 1037.9 275.9C1039.1 278.4 1039.7 280.3 1040.0 283.0C1040.3 285.7 1040.4 288.8 1039.9 292.2C1039.4 295.6 1041.2 295.7 1036.9 303.2C1032.6 310.7 1019.0 330.0 1013.9 337.0C1008.8 344.0 1009.0 342.8 1006.3 345.2C1003.6 347.6 1001.2 349.3 997.9 351.5C994.6 353.7 990.1 356.6 986.3 358.5C982.5 360.4 979.4 361.6 974.9 363.0C970.4 364.4 965.4 366.1 959.2 367.1C953.0 368.1 1003.6 371.8 937.6 369.2C871.6 366.6 650.3 355.4 563.3 351.5Z"/></svg>
-    <canvas id="maquete" role="img" aria-label="Maquete do Autódromo Internacional de Goiânia com os setores. O 2Rodas Club aparece em dourado, na reta principal, do lado de fora da pista, perto da largada e dos boxes."></canvas>
+    <canvas id="maquete" role="img" aria-label="Maquete do Autódromo Internacional de Goiânia com os setores. O 2Rodas Club aparece em vermelho, na reta principal, do lado de fora da pista, perto da largada e dos boxes."></canvas>
     <p class="mono hero__map-cap" aria-hidden="true"><span>Arraste para girar</span><span>Posições aproximadas · mapa oficial de setores</span></p>
   </div>
 
@@ -606,7 +591,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     <div class="slashes hero__slashes" data-intro aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <p class="hero__sub" data-intro>Três dias de MotoGP em Goiânia, vistos do camarote da revista Duas Rodas. Open bar, open food premium e vista exclusiva, próximo da reta principal.</p>
     <div class="hero__ctas" data-intro>
-      <a class="btn btn--primary" data-magnet href="https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22259465/" target="_blank" rel="noopener">Garanta seu ingresso <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+      <a class="btn btn--primary" data-magnet href="#ingressos">Garanta seu ingresso <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
       <a class="btn btn--ghost" href="#ingressos">Compare as duas experiências</a>
     </div>
   </div>
@@ -655,7 +640,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       <div class="monitor__screen" data-video="">
         <canvas id="onboard" role="img" aria-label="Animação de uma volta simulada no traçado do Autódromo de Goiânia"></canvas>
       </div>
-      <div class="monitor__bar mono"><span>Em dourado: 2Rodas Club</span><span>Telemetria simulada</span></div>
+      <div class="monitor__bar mono"><span>Em vermelho: 2Rodas Club</span><span>Telemetria simulada</span></div>
     </div>
   </div>
 </section>
@@ -680,7 +665,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
           <p class="xp__desc">O camarote da revista Duas Rodas, próximo da reta principal, com vista exclusiva do autódromo.</p>
           <div class="xp__foot">
             <p class="xp__price"><span>R$</span><b data-count="7390">7.390</b><span>preço único</span></p>
-            <a class="btn btn--ghost" href="https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22259465/" target="_blank" rel="noopener">Garanta seu ingresso <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+            <a class="btn btn--ghost" href="https://ig.me/m/2rodasclub.br" target="_blank" rel="noopener">Garanta seu ingresso <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
           </div>
         </div>
       </article>
@@ -692,7 +677,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
           <p class="xp__desc">Uma experiência dentro da experiência: área exclusiva para 250 pessoas, com varanda para a pista, meet &amp; greet com o Diogo Moreira e a camisa oficial do fã-clube.</p>
           <div class="xp__foot">
             <p class="xp__price"><span>R$</span><b data-count="8900">8.900</b><span>preço único</span></p>
-            <a class="btn btn--primary" data-magnet href="https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22259465/" target="_blank" rel="noopener">Garanta seu lugar no Lounge <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+            <a class="btn btn--primary" data-magnet href="https://ig.me/m/2rodasclub.br" target="_blank" rel="noopener">Garanta seu lugar no Lounge <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
           </div>
         </div>
       </article>
@@ -733,10 +718,10 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       <div class="arq__buy">
         <p class="mono arq__lote">2º lote</p>
         <p class="xp__price"><span>R$</span><b data-count="2250">2.250</b><span>preço único</span></p>
-        <a class="btn btn--primary" data-magnet href="https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22255019/" target="_blank" rel="noopener">Garanta seu lugar na arquibancada <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+        <a class="btn btn--primary" data-magnet href="https://ig.me/m/2rodasclub.br" target="_blank" rel="noopener">Garanta seu lugar na arquibancada <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
       </div>
     </article>
-    <p class="xp-note" data-reveal>Valores do 2º lote, com impostos incluídos. A Eventim pode cobrar taxas adicionais, informadas antes da confirmação do pedido. Ingressos limitados, sujeitos à disponibilidade.</p>
+    <p class="xp-note" data-reveal>Valores do 2º lote, com impostos incluídos. Ingressos limitados, sujeitos à disponibilidade. A compra é feita pelo Direct do Instagram <a href="https://www.instagram.com/2rodasclub.br/" target="_blank" rel="noopener">@2rodasclub.br</a>.</p>
   </div>
 </section>
 
@@ -744,7 +729,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
 <section class="section" id="lounge" data-flow="0.4" aria-labelledby="t-lounge">
   <div class="container diogo">
     <div class="diogo__photo" data-reveal data-speed="1.06">
-      <img src="img/diogo.jpg" alt="Diogo Moreira, piloto brasileiro da MotoGP, com o uniforme da equipe Honda" width="308" height="775" loading="lazy" decoding="async">
+      <img src="img/diogo-fa.jpg" alt="Diogo Moreira sorrindo com o boné da Red Bull e a camisa da Honda, no meio dos fãs" width="600" height="860" loading="lazy" decoding="async">
       <div class="diogo__cap mono"><span>Diogo Moreira</span><span>Brasil · Honda</span></div>
     </div>
     <div data-calm="0.12">
@@ -755,7 +740,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
         <div class="stat"><b>2ª temporada</b><span>Em 2027, Diogo corre o segundo ano na categoria principal do motociclismo mundial, pela Honda.</span></div>
         <div class="stat"><b>Melhor tempo</b><span>Fez a melhor marca, não oficial, nos testes da Pirelli em Spielberg, na Áustria, em setembro.</span></div>
       </div>
-      <a class="btn btn--primary" data-magnet href="https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22259465/" target="_blank" rel="noopener">Garanta seu lugar no Lounge <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+      <a class="btn btn--primary" data-magnet href="https://ig.me/m/2rodasclub.br" target="_blank" rel="noopener">Garanta seu lugar no Lounge <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
     </div>
   </div>
 </section>
@@ -805,7 +790,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&query=Aut%C3%B3dromo+Internacional+de+Goi%C3%A2nia+Ayrton+Senna" target="_blank" rel="noopener">Abrir no Google Maps <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
     </div>
     <figure class="maquete" data-reveal>
-      <canvas id="maqueteLocal" role="img" aria-label="Maquete do Autódromo Internacional de Goiânia com os setores. O 2Rodas Club aparece em dourado, na reta principal, do lado de fora da pista, perto da largada e dos boxes."></canvas>
+      <canvas id="maqueteLocal" role="img" aria-label="Maquete do Autódromo Internacional de Goiânia com os setores. O 2Rodas Club aparece em vermelho, na reta principal, do lado de fora da pista, perto da largada e dos boxes."></canvas>
       <span class="mono maquete__key" aria-hidden="true"><i></i>2Rodas Club</span>
       <span class="mono maquete__hint" aria-hidden="true">Arraste para girar</span>
       <figcaption class="mono"><span>Posições aproximadas, a partir do mapa oficial de setores</span><span>Traçado · 3,835 km</span></figcaption>
@@ -819,16 +804,14 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     <div data-calm="0.12">
       <p class="mono section__label"><b>07</b> Dúvidas</p>
       <h2 class="h2" id="t-duvidas" data-split>Antes de <strong class="acc">garantir o seu.</strong></h2>
-      <p class="lead" data-reveal>As respostas seguem as regras publicadas pela Eventim, que faz a venda oficial dos ingressos.</p>
+      <p class="lead" data-reveal>Ficou alguma dúvida que não está aqui? Fale com a gente no Direct do Instagram <a href="https://www.instagram.com/2rodasclub.br/" target="_blank" rel="noopener">@2rodasclub.br</a>.</p>
     </div>
     <div class="faq__list">
       <details class="faq__item" data-reveal><summary><h3>O ingresso vale para os três dias?</h3><i aria-hidden="true"></i></summary><p>Sim. Os ingressos do MotoGP™ Grande Prêmio do Brasil 2027 são vendidos apenas para os três dias. Você assiste aos treinos de sexta-feira e sábado e à corrida de domingo.</p></details>
       <details class="faq__item" data-reveal><summary><h3>O que está incluso no camarote?</h3><i aria-hidden="true"></i></summary><p>Acesso ao camarote, próximo da reta principal, vista exclusiva do Autódromo de Goiânia, open bar e open food premium, com bebidas alcoólicas a partir das 11h, e acesso à Fanzone. O Lounge Diogo Moreira é uma área exclusiva para 250 pessoas, com varanda para a pista, meet &amp; greet com o piloto e a camisa oficial do fã-clube.</p></details>
-      <details class="faq__item" data-reveal><summary><h3>Quanto custa cada ingresso?</h3><i aria-hidden="true"></i></summary><p>No 2º lote, o 2Rodas Club custa R$ 7.390, o Lounge Diogo Moreira custa R$ 8.900 e a Arquibancada Oficial Diogo Moreira custa R$ 2.250, em preço único. Os valores incluem impostos. A Eventim pode cobrar taxas adicionais, que aparecem antes da confirmação do pedido.</p></details>
+      <details class="faq__item" data-reveal><summary><h3>Quanto custa cada ingresso?</h3><i aria-hidden="true"></i></summary><p>No 2º lote, o 2Rodas Club custa R$ 7.390, o Lounge Diogo Moreira custa R$ 8.900 e a Arquibancada Oficial Diogo Moreira custa R$ 2.250, em preço único. Os valores incluem impostos.</p></details>
       <details class="faq__item" data-reveal><summary><h3>O que inclui a Arquibancada Oficial Diogo Moreira?</h3><i aria-hidden="true"></i></summary><p>Lugar na arquibancada coberta, com visão para a curva Bico de Pato, telão e acesso à Fanzone, com pontos de venda de alimentação, bebidas, produtos licenciados, entretenimento e shows. Cada ingresso dá direito a uma camiseta oficial do fã-clube do Diogo Moreira, do PP ao 3G, com o tamanho escolhido no ato da compra. Comida e bebida não estão incluídas. A Arquibancada não dá acesso ao camarote 2Rodas Club nem ao Lounge Diogo Moreira.</p></details>
-      <details class="faq__item" data-reveal><summary><h3>Quantos ingressos posso comprar?</h3><i aria-hidden="true"></i></summary><p>A Eventim limita a compra a 4 ingressos por CPF para o MotoGP™ Grande Prêmio do Brasil 2027.</p></details>
-      <details class="faq__item" data-reveal><summary><h3>Como recebo o ingresso?</h3><i aria-hidden="true"></i></summary><p>Os ingressos do evento são digitais, pelo Eventim Pass, e ficam no aplicativo Eventim Brasil, para iPhone e Android. O QR Code aparece a partir da meia-noite do dia do evento. Para áreas VIP, a Eventim informa que a entrada é com credencial física, com ponto de retirada a ser divulgado.</p></details>
-      <details class="faq__item" data-reveal><summary><h3>Crianças e adolescentes podem entrar?</h3><i aria-hidden="true"></i></summary><p>Sim, e todos precisam de ingresso. Até 11 anos, a entrada é somente com pai, mãe ou responsável legal. De 12 a 17 anos, com pai, mãe, responsável legal ou outro maior de 18 anos, com a documentação exigida. Alguns setores podem ter restrição de idade, então vale conferir os termos do evento na Eventim.</p></details>
+      <details class="faq__item" data-reveal><summary><h3>Crianças e adolescentes podem entrar?</h3><i aria-hidden="true"></i></summary><p>Sim, e todos precisam de ingresso. Até 11 anos, a entrada é somente com pai, mãe ou responsável legal. De 12 a 17 anos, com pai, mãe, responsável legal ou outro maior de 18 anos, com a documentação exigida. Alguns setores podem ter restrição de idade, então vale conferir os termos do evento.</p></details>
     </div>
   </div>
 </section>
@@ -839,7 +822,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   <div class="container" data-calm="0.1">
     <h2 class="sr">Garanta seu ingresso para o 2Rodas Club</h2>
     <p data-reveal>2Rodas Club e Lounge Diogo Moreira, de 02 a 04 de abril de 2027, em Goiânia. Os ingressos são limitados.</p>
-    <a class="btn btn--primary" data-magnet data-reveal href="https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22259465/" target="_blank" rel="noopener">Garanta seu ingresso <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+    <a class="btn btn--primary" data-magnet data-reveal href="#ingressos">Garanta seu ingresso <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
     <div class="slashes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
 </section>
@@ -853,7 +836,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       <p>2Rodas Club, o camarote da revista Duas Rodas no MotoGP™ Grande Prêmio do Brasil 2027. De 02 a 04 de abril de 2027, no Autódromo Internacional de Goiânia Ayrton Senna.</p>
     </div>
     <nav class="footer__nav" aria-label="Rodapé">
-      <a href="#camarote">O camarote</a><a href="#ingressos">Ingressos</a><a href="#lounge">Lounge Diogo Moreira</a><a href="#duvidas">Dúvidas</a><a href="https://www.eventim.com.br/event/motogp-grande-premio-do-brasil-2027-autodromo-internacional-de-goiania-ayrton-senna-22259465/" target="_blank" rel="noopener">Comprar ingresso</a>
+      <a href="#camarote">O camarote</a><a href="#ingressos">Ingressos</a><a href="#lounge">Lounge Diogo Moreira</a><a href="#duvidas">Dúvidas</a><a href="#ingressos">Comprar ingresso</a>
     </nav>
     <p class="footer__legal"><a href="https://www.instagram.com/2rodasclub.br/" target="_blank" rel="noopener">@2rodasclub.br</a> no Instagram. MotoGP™ é marca de seus respectivos titulares. Traçado do circuito: © colaboradores do OpenStreetMap.</p>
   </div>
@@ -1087,7 +1070,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
         if (curve) { const kc = a.i % 2 ? '#e8201f' : '#f4f2ee'; quad(a, b, 0, 1, kc); quad(a, b, 4, 5, kc); }
         quad(a, b, 1, 4, band ? '#2b2b2f' : '#34343a');
         quad(a, b, 1, 2, 'rgba(244,242,238,.85)'); quad(a, b, 3, 4, 'rgba(244,242,238,.85)');
-        // o camarote: bloco dourado do lado de fora da pista
+        // o camarote: bloco vermelho do lado de fora da pista
         if (inStretch(a.i) && inStretch(b.i)) {
           const ya = (EYE - CLUB_H) * f / Math.max(a.f, 0.7), yb = (EYE - CLUB_H) * f / Math.max(b.f, 0.7);
           ctx.fillStyle = '#ff4038'; ctx.beginPath(); ctx.moveTo(a.x[6], ya); ctx.lineTo(a.x[7], ya); ctx.lineTo(b.x[7], yb); ctx.lineTo(b.x[6], yb); ctx.fill();
@@ -1119,7 +1102,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       ctx.textAlign = 'center'; ctx.font = `700 ${12 * u}px "JetBrains Mono", monospace`;
       for (let g = 1; g <= 6; g++) { ctx.fillStyle = g === gear ? '#ff4038' : 'rgba(255,255,255,.45)'; ctx.fillText(String(g), gx + (g - 3.5) * 17 * u, gy + 74 * u); }
 
-      // minimapa do circuito, com o 2Rodas Club marcado em dourado
+      // minimapa do circuito, com o 2Rodas Club marcado em vermelho
       const mw = 170 * u, sc = mw / (maxX - minX), mh = (maxY - minY) * sc, mx = w - mw - 16 * u, my = 16 * u;
       const mapX = i => mx + (X[i] - minX) * sc, mapY = i => my + (Y[i] - minY) * sc;
       ctx.fillStyle = 'rgba(0,0,0,.45)'; ctx.fillRect(mx - 9 * u, my - 9 * u, mw + 18 * u, mh + 32 * u);
@@ -1224,7 +1207,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
         ctx.fillStyle = '#fff'; ctx.fillText('2RODAS CLUB', top[0], y + 19.5 * u);
         ctx.font = `700 ${7.5 * u}px "JetBrains Mono", monospace`; ctx.fillText('CAMAROTE', top[0], y + 31 * u);
       } else if (b.s.feat) {
-        // arquibancada oficial do Diogo Moreira: também à venda, destaque com contorno dourado
+        // arquibancada oficial do Diogo Moreira: também à venda, destaque com contorno vermelho
         const l1 = narrow ? 'ARQ. DIOGO MOREIRA' : 'ARQ. OFICIAL DIOGO MOREIRA', l2 = 'TAMBÉM À VENDA';
         ctx.font = `700 ${10.5 * u}px "JetBrains Mono", monospace`; const w = ctx.measureText(l1).width + 20 * u, h = 32 * u, x = top[0] - w / 2, y = top[1] - h;
         ctx.save(); ctx.globalAlpha = 0.9; ctx.fillStyle = '#1a0e0e'; rr(x, y, w, h, 6 * u); ctx.fill(); ctx.restore();
