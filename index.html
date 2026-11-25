@@ -138,8 +138,8 @@ html.is-loading .nav{opacity:0}
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 0;overflow:hidden}
 .hero__glow{position:absolute;right:-10%;bottom:-20%;width:90vw;height:90vw;max-width:1300px;max-height:1300px;border-radius:50%;background:radial-gradient(circle,rgba(242,180,106,.16),transparent 62%);pointer-events:none}
 .hero__map{position:absolute;right:1.5vw;top:54%;z-index:1;width:min(56vw,900px,calc(98.5vw - max(0px,(100vw - 1320px)/2) - 5vw - 484px));transform:translateY(-50%)}
-.hero__map canvas{display:block;width:100%;aspect-ratio:16/10;cursor:grab;touch-action:pan-y}
-.hero__map canvas:active{cursor:grabbing}
+.hero__map canvas{display:block;width:100%;aspect-ratio:16/10;cursor:grab;touch-action:pan-y;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
+.hero__map canvas.is-drag,.maquete canvas.is-drag{cursor:grabbing}
 .hero__map-cap{display:flex;justify-content:space-between;gap:12px;margin:-4px 6% 0;color:var(--dim);font-size:10px;pointer-events:none}
 .geo{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
 .trk-base{fill:none;stroke:rgba(255,255,255,.16);stroke-width:9;stroke-linejoin:round}
@@ -153,7 +153,8 @@ html.is-loading .nav{opacity:0}
 @keyframes trkPulse{0%{transform:scale(.4);opacity:.95}100%{transform:scale(2.8);opacity:0}}
 .trk-label{font-family:var(--f-mono);font-size:19px;letter-spacing:.18em;fill:var(--amber-hi)}
 .trk-tick{stroke:var(--amber);stroke-width:2}
-.hero__content{position:relative;z-index:2}
+.hero__content{position:relative;z-index:2;pointer-events:none}
+.hero__content a,.hero__content button{pointer-events:auto}
 .hero__kicker{display:flex;align-items:center;gap:14px;color:var(--amber-hi);margin-bottom:22px;font-weight:500;line-height:1.5}
 .hero__kicker::before{content:"";flex:none;width:34px;height:2px;background:var(--amber)}
 .hero h1{font-weight:300;text-transform:uppercase;line-height:.94;letter-spacing:-.02em;font-size:clamp(40px,6.2vw,100px)}
@@ -171,7 +172,7 @@ html.is-loading .nav{opacity:0}
 .cd{min-width:62px;padding:8px 8px 7px;border:1px solid var(--line-2);border-radius:10px;background:rgba(0,0,0,.35);text-align:center}
 .cd b{display:block;font-family:var(--f-mono);font-weight:700;font-size:26px;line-height:1;font-variant-numeric:tabular-nums}
 .cd span{display:block;margin-top:5px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase}
-.hud{position:absolute;right:var(--pad);top:104px;z-index:2;display:grid;gap:6px;justify-items:end;color:var(--muted)}
+.hud{position:absolute;right:var(--pad);top:104px;z-index:2;pointer-events:none;display:grid;gap:6px;justify-items:end;color:var(--muted)}
 .hud b{color:var(--text);font-weight:500}
 .hud__dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--amber);margin-right:8px;animation:pulse 1.4s infinite}
 @keyframes pulse{50%{opacity:.25}}
@@ -290,8 +291,7 @@ html.is-loading .nav{opacity:0}
 .local{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:clamp(24px,5vw,80px);align-items:end}
 .local__info{padding-bottom:6px}
 .maquete{grid-column:1/-1;position:relative;margin:clamp(8px,2vw,24px) 0 0;border:1px solid var(--line-2);border-radius:22px;background:radial-gradient(ellipse at 50% 45%,#1d1a16,#0c0c0c 70%);overflow:hidden}
-.maquete canvas{display:block;width:100%;aspect-ratio:2/1;cursor:grab;touch-action:pan-y}
-.maquete canvas:active{cursor:grabbing}
+.maquete canvas{display:block;width:100%;aspect-ratio:2/1;cursor:grab;touch-action:pan-y;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
 .maquete__hint{position:absolute;right:18px;top:16px;color:var(--dim);font-size:10.5px;pointer-events:none}
 .maquete__key{position:absolute;left:18px;top:14px;display:flex;align-items:center;gap:10px;color:var(--amber-hi);font-size:10.5px;pointer-events:none}
 .maquete__key i{width:16px;height:9px;border-radius:2px;background:linear-gradient(100deg,#cf904a,#ffca7f,#d89b55)}
@@ -350,7 +350,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   .local{align-items:start}
   .monitor{position:relative;top:0}
   .hud{display:none}
-  .hero__content{order:1}
+  .hero__content{order:1;pointer-events:auto}
   .hero__map{order:2;position:relative;right:auto;top:auto;width:100%;max-width:680px;transform:none;margin:10px auto 0}
   .hero__map-cap{margin:2px var(--pad) 0;flex-direction:column;align-items:center;gap:4px;text-align:center}
   .hero__bottom{order:3;margin-top:14px}
@@ -1136,7 +1136,9 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     const CX = (minX + maxX) / 2, CY = (minY + maxY) / 2, PITCH = 0.98, SP = Math.sin(PITCH), CP = Math.cos(PITCH);
     const clubC = mid(CLUB_F[0], CLUB_F[1], 24);
     const km = hud ? $('#hudKm') : null, lapEl = hud ? $('#hudLap') : null; let laps = 1;
-    let W = 0, H = 0, narrow = false, yaw = 0.34, auto = !RM, drag = null, visible = false, t0 = performance.now(), last = t0, pos = 0, cs = 1, sn = 0, sc = 1, MX = 0, MY = 0;
+    const YAW0 = 0.34;
+    let W = 0, H = 0, narrow = false, yaw = YAW0, auto = !RM, drag = null, visible = false, t0 = performance.now(), last = t0, pos = 0, cs = 1, sn = 0, sc = 1, MX = 0, MY = 0;
+    let base = YAW0, sway = 1, vel = 0, idleAt = 0;   // giro: ângulo de repouso, balanço automático, inércia e hora do último toque
     const size = () => { const r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2); W = r.width; H = r.height; narrow = W < 560; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); };
     const pr = (x, y, z) => { const X = x - CX, Y = y - CY, xr = X * cs - Y * sn, yr = X * sn + Y * cs; return [W / 2 + (xr - MX) * sc, H * (narrow ? 0.6 : 0.59) + (yr - MY) * sc * CP - z * sc * SP, yr]; };
     const path = (arr, z) => { ctx.beginPath(); arr.forEach((p, i) => { const q = pr(p[0], p[1], z); i ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]); }); };
@@ -1167,7 +1169,17 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       }
     }
     function draw(now, dt) {
-      if (auto) yaw = 0.34 + Math.sin((now - t0) / 1000 * 0.3) * 0.3;
+      if (auto) {
+        // balanço automático: volta devagar ao ângulo de repouso (pelo caminho mais curto) e retoma o vai e vem sem dar tranco
+        const alvo = YAW0 + Math.round((base - YAW0) / (Math.PI * 2)) * Math.PI * 2;
+        base += (alvo - base) * Math.min(1, dt * 0.7); sway += (1 - sway) * Math.min(1, dt * 0.6);
+        yaw = base + Math.sin((now - t0) / 1000 * 0.3) * 0.3 * sway;
+      } else if (!drag || !drag.on) {
+        // soltou: gira mais um pouco por inércia; depois de uns segundos parado, o balanço automático volta
+        yaw += vel * dt; vel *= Math.pow(0.004, dt);
+        if (!RM && now - idleAt > 3200 && Math.abs(vel) < 0.03) { auto = true; base = yaw; sway = 0; t0 = now; vel = 0; }
+      }
+      const giro = auto ? 'auto' : (drag && drag.on) ? 'arrasto' : 'solto'; if (cv.dataset.giro !== giro) cv.dataset.giro = giro;
       cs = Math.cos(yaw); sn = Math.sin(yaw);
       // escala que faz o circuito inteiro caber na largura, em qualquer ângulo
       // a escala considera a base inteira da maquete (não só a pista), para nada cortar nas bordas
@@ -1205,10 +1217,27 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     }
     function loop(now) { if (!visible) return; const dt = Math.min(0.05, (now - last) / 1000 || 0); last = now; draw(now, dt); requestAnimationFrame(loop); }
     size(); addEventListener('resize', () => { size(); if (RM) draw(performance.now(), 0); });
-    cv.addEventListener('pointerdown', e => { drag = { x: e.clientX, yaw }; auto = false; try { cv.setPointerCapture(e.pointerId); } catch (_) {} });
-    cv.addEventListener('pointermove', e => { if (!drag) return; yaw = drag.yaw + (e.clientX - drag.x) * 0.006; if (RM) draw(performance.now(), 0); });
-    const end = () => { drag = null; };
-    cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
+    // arrastar para girar: a maquete acompanha o dedo ou o mouse na mesma direção
+    const engage = e => { drag.on = true; drag.x = e.clientX; drag.yaw = yaw; drag.t = performance.now(); auto = false; vel = 0; cv.classList.add('is-drag'); try { cv.setPointerCapture(e.pointerId); } catch (_) {} };
+    cv.addEventListener('pointerdown', e => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      drag = { id: e.pointerId, x: e.clientX, y: e.clientY, yaw, t: performance.now(), on: false };
+      if (e.pointerType === 'mouse') { e.preventDefault(); engage(e); }   // no toque, só assume o gesto depois de saber que é horizontal
+    });
+    cv.addEventListener('pointermove', e => {
+      if (!drag || e.pointerId !== drag.id) return;
+      if (!drag.on) { const dx = Math.abs(e.clientX - drag.x), dy = Math.abs(e.clientY - drag.y); if (dx > 6 && dx > dy) engage(e); else return; }
+      const now = performance.now(), novo = drag.yaw - (e.clientX - drag.x) * (3.2 / Math.max(W, 280));
+      const inst = (novo - yaw) / Math.max(0.008, (now - drag.t) / 1000);
+      vel = vel * 0.55 + inst * 0.45; yaw = novo; drag.t = now;
+      if (RM) draw(now, 0);
+    });
+    const end = e => {
+      if (!drag || (e && e.pointerId !== drag.id)) return;
+      if (drag.on) { const now = performance.now(); if (now - drag.t > 90) vel = 0; vel = Math.max(-2.4, Math.min(2.4, vel)); idleAt = now; cv.classList.remove('is-drag'); }
+      drag = null;
+    };
+    cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end); cv.addEventListener('lostpointercapture', end);
     new IntersectionObserver(([e]) => {
       if (RM) { if (e.isIntersecting) { size(); draw(performance.now(), 0); } return; }
       visible = e.isIntersecting; if (visible) { size(); last = performance.now(); requestAnimationFrame(loop); }
