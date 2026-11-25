@@ -148,7 +148,9 @@ html.is-loading .nav{opacity:0}
 .trk-glow{fill:none;stroke:var(--amber);stroke-width:16;stroke-linecap:round;opacity:.22}
 .trk-comet{fill:none;stroke:var(--amber-hi);stroke-width:6;stroke-linecap:round}
 .trk-dot{fill:#fff}
-.trk-straight{fill:none;stroke:var(--amber-hi);stroke-width:8;stroke-linecap:round;opacity:.8}
+.trk-club{fill:var(--amber-hi);stroke:#fff3dc;stroke-width:1}
+.trk-pulse{fill:none;stroke:var(--amber-hi);stroke-width:2.5;transform-box:fill-box;transform-origin:center;animation:trkPulse 2.2s ease-out infinite}
+@keyframes trkPulse{0%{transform:scale(.4);opacity:.95}100%{transform:scale(2.8);opacity:0}}
 .trk-label{font-family:var(--f-mono);font-size:19px;letter-spacing:.18em;fill:var(--amber-hi)}
 .trk-tick{stroke:var(--amber);stroke-width:2}
 .hero__content{position:relative;z-index:2}
@@ -285,16 +287,16 @@ html.is-loading .nav{opacity:0}
 .panel > p:last-child{color:#cfccc6;font-size:16px;max-width:32ch}
 
 /* local */
-.local{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,6vw,90px);align-items:center}
-.plan{margin:0;padding:clamp(18px,2.4vw,30px);border:1px solid var(--line-2);border-radius:22px;background:rgba(0,0,0,.3)}
-.plan svg{display:block;width:100%;height:auto;overflow:visible}
-.plan__track{fill:none;stroke:rgba(255,255,255,.62);stroke-width:5;stroke-linejoin:round}
-.plan__pit{fill:none;stroke:rgba(255,255,255,.26);stroke-width:2;stroke-dasharray:6 7}
-.plan__straight{fill:none;stroke:var(--amber-hi);stroke-width:10;stroke-linecap:round}
-.plan__tick{stroke:var(--amber);stroke-width:2.5}
-.plan__label{font-family:var(--f-mono);font-size:25px;letter-spacing:.18em;fill:var(--amber-hi)}
-.plan figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);color:var(--dim);font-size:11px}
-.plan__note{margin-top:12px;color:#d6d3cd;font-size:15px}
+.local{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:clamp(24px,5vw,80px);align-items:end}
+.local__info .addr{margin:0 0 22px}
+.maquete{grid-column:1/-1;position:relative;margin:clamp(8px,2vw,24px) 0 0;border:1px solid var(--line-2);border-radius:22px;background:radial-gradient(ellipse at 50% 45%,#1d1a16,#0c0c0c 70%);overflow:hidden}
+.maquete canvas{display:block;width:100%;aspect-ratio:2/1;cursor:grab;touch-action:pan-y}
+.maquete canvas:active{cursor:grabbing}
+.maquete__hint{position:absolute;right:18px;top:16px;color:var(--dim);font-size:10.5px;pointer-events:none}
+.maquete__key{position:absolute;left:18px;top:14px;display:flex;align-items:center;gap:10px;color:var(--amber-hi);font-size:10.5px;pointer-events:none}
+.maquete__key i{width:16px;height:9px;border-radius:2px;background:linear-gradient(100deg,#cf904a,#ffca7f,#d89b55)}
+.maquete figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:13px 18px;border-top:1px solid var(--line);color:var(--dim);font-size:11px}
+.plan__note{margin:0 0 18px;color:#d6d3cd;font-size:16px}
 .faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(30px,6vw,90px);align-items:start}
 .faq .h2{font-size:clamp(32px,4.3vw,64px)}
 .local .h2{font-size:clamp(30px,3.7vw,54px);max-width:14ch}
@@ -344,13 +346,14 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   .nav__links{display:none}.burger{display:grid}
   .hero__bottom-inner{grid-template-columns:1fr 1fr}
   .split,.diogo,.local,.faq{grid-template-columns:1fr}
+  .local{align-items:start}
   .monitor{position:relative;top:0}
   .hud{display:none}
   .hero__content{order:1}
   .hero__track{order:2;position:relative;right:auto;top:auto;width:100%;max-width:640px;transform:none;margin:18px auto 0;padding:0 var(--pad)}
   .hero__bottom{order:3;margin-top:14px}
   .trk-label,.trk-tick{display:none}
-  .trk-edge{stroke-width:3.6}.trk-straight{stroke-width:13}.trk-comet{stroke-width:9}.trk-glow{stroke-width:26}.trk-pit{stroke-width:2.8}
+  .trk-edge{stroke-width:3.6}.trk-comet{stroke-width:9}.trk-glow{stroke-width:26}.trk-pit{stroke-width:2.8}
   .trk-dot{r:11px}
   .hero__track-cap{display:flex}
 }
@@ -382,12 +385,14 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   .compare caption{padding:18px 10px 4px}
   .ok{margin-left:14px}
   .faq__item p{padding-right:0}
-  .plan__label{font-size:34px}
   .xp__foot .btn{width:100%;justify-content:center}
+  .maquete canvas{aspect-ratio:3/2}
+  .maquete__hint{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   .grain,.hud__dot,.sim::before{animation:none}
   .buybar,.faq__item i{transition:none}
+  .trk-pulse{animation:none;opacity:0}
   html.js [data-reveal],html.js .hero [data-intro]{opacity:1!important;transform:none!important}
 }
 </style>
@@ -548,15 +553,13 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
         <path class="trk-pit" d="M925.6 216.6C925.9 217.2 926.8 218.9 927.6 220.0C928.3 221.0 929.3 222.1 930.1 222.9C930.9 223.7 931.5 224.2 932.3 224.8C933.1 225.3 933.9 225.9 934.8 226.3C935.6 226.8 933.2 225.6 937.4 227.5C941.6 229.4 953.2 234.1 959.9 237.9C966.6 241.7 972.7 246.7 977.3 250.5C981.9 254.2 985.3 258.3 987.4 260.5C989.6 262.7 989.5 262.6 990.3 263.7C991.2 264.8 992.1 266.0 992.8 267.2C993.6 268.4 994.2 269.7 994.8 271.0C995.4 272.3 995.8 273.5 996.3 275.0C996.7 276.6 997.1 278.4 997.3 280.2C997.5 281.9 997.6 283.7 997.5 285.4C997.5 287.1 997.3 288.9 996.9 290.6C996.6 292.3 996.5 293.2 995.5 295.7C994.5 298.1 995.5 299.0 990.8 305.3C986.2 311.5 973.7 326.4 967.7 333.3C961.7 340.2 957.6 344.1 954.7 346.8C951.9 349.6 952.1 349.1 950.7 350.1C949.3 351.1 947.8 352.0 946.3 352.8C944.8 353.7 943.5 354.4 941.7 355.2C939.9 356.0 937.6 356.9 935.5 357.6C933.4 358.2 931.2 358.8 929.0 359.1C926.8 359.5 924.6 359.8 922.4 359.9C920.2 360.0 937.9 361.1 915.7 359.8C893.6 358.6 837.6 354.9 789.5 352.4C741.3 349.9 662.9 345.6 627.0 344.6C591.0 343.6 583.3 346.2 574.0 346.6C564.7 346.9 572.1 346.5 571.1 346.6C570.1 346.8 569.1 347.1 568.3 347.4C567.5 347.7 567.0 348.0 566.4 348.4C565.8 348.8 565.2 349.3 564.7 349.8C564.2 350.3 563.5 351.2 563.3 351.5"/>
         <path class="trk-base" d="M563.3 351.5C476.3 347.6 491.2 348.8 415.8 345.7C340.4 342.6 164.3 335.4 110.9 332.7C57.5 330.0 100.4 331.2 95.4 329.7C90.5 328.2 85.8 326.0 81.2 323.6C76.6 321.2 72.8 319.3 68.0 315.2C63.2 311.1 56.8 304.9 52.7 298.9C48.6 292.9 45.3 286.4 43.2 279.2C41.1 271.9 40.0 264.2 40.0 255.4C40.0 246.6 41.5 236.2 43.5 226.3C45.5 216.4 48.6 204.4 52.1 195.7C55.6 187.0 60.8 179.6 64.2 174.2C67.6 168.8 68.5 167.6 72.7 163.5C76.9 159.4 65.6 163.1 89.2 149.9C112.8 136.7 181.4 101.3 214.3 84.3C247.2 67.3 272.8 54.5 286.5 47.8C300.2 41.0 293.4 44.9 296.8 43.8C300.2 42.7 303.7 41.7 307.2 41.1C310.7 40.5 313.8 40.1 317.7 40.0C321.6 39.9 324.7 39.8 330.9 40.2C337.1 40.6 332.9 39.9 355.0 42.6C377.1 45.3 443.0 53.9 463.6 56.6C484.2 59.4 474.0 57.8 478.6 59.1C483.2 60.5 487.7 62.3 491.4 64.7C495.1 67.1 498.0 70.3 500.8 73.3C503.6 76.2 506.0 79.5 508.1 82.4C510.2 85.3 512.2 87.9 513.6 90.7C515.0 93.5 515.5 96.4 516.2 99.3C516.9 102.2 517.7 104.8 518.0 108.1C518.3 111.4 518.2 115.4 518.0 118.9C517.8 122.5 517.6 125.7 516.5 129.4C515.4 133.1 513.0 137.7 511.1 141.0C509.2 144.3 507.4 146.4 505.0 149.0C502.6 151.6 499.8 154.3 496.6 156.7C493.4 159.1 489.7 161.8 485.8 163.6C481.9 165.4 477.4 166.6 473.4 167.4C469.3 168.2 466.0 168.8 461.5 168.6C457.0 168.4 451.1 167.5 446.4 166.4C441.7 165.3 449.8 168.8 433.3 161.9C416.8 155.1 363.5 131.6 347.3 125.3C331.1 119.0 340.1 124.3 336.2 124.0C332.3 123.7 328.0 123.1 324.0 123.5C320.0 123.9 316.1 125.1 312.0 126.3C307.9 127.5 321.9 119.2 299.6 130.5C277.3 141.8 199.7 182.3 178.1 193.9C156.5 205.5 172.2 197.4 169.8 200.1C167.4 202.8 165.2 206.6 163.8 210.0C162.5 213.4 161.8 217.5 161.7 220.8C161.6 224.1 162.3 226.6 163.4 229.6C164.5 232.6 166.2 235.9 168.0 239.0C169.8 242.1 172.1 245.2 174.5 247.9C176.9 250.6 179.2 252.9 182.3 255.2C185.4 257.5 189.2 260.1 192.9 261.8C196.6 263.5 200.2 264.7 204.5 265.5C208.8 266.3 213.6 266.8 218.8 266.4C224.1 266.0 229.1 265.1 236.0 262.9C242.9 260.6 253.6 255.6 260.5 252.9C267.4 250.2 271.3 248.1 277.4 246.7C283.5 245.2 290.6 244.7 297.3 244.2C304.0 243.7 280.9 239.7 317.5 243.8C354.1 247.9 481.5 264.7 517.0 268.9C552.5 273.1 525.6 269.5 530.3 269.1C535.0 268.8 539.8 268.3 545.1 266.8C550.4 265.3 552.4 264.3 561.9 260.1C571.4 255.9 593.8 246.2 602.4 241.8C611.0 237.4 611.2 236.2 613.7 233.8C616.2 231.5 616.2 230.8 617.1 227.7C618.0 224.6 619.4 219.2 619.3 215.5C619.1 211.8 619.1 211.8 616.2 205.6C613.3 199.3 604.4 184.0 601.9 178.0C599.4 172.0 600.9 172.7 601.3 169.8C601.7 166.9 602.9 163.3 604.2 160.8C605.5 158.3 607.0 156.4 609.0 154.7C611.0 153.0 605.6 155.2 616.3 150.4C626.9 145.6 661.4 130.5 672.9 126.0C684.4 121.5 681.3 124.0 685.2 123.5C689.1 123.0 692.3 122.8 696.2 123.0C700.1 123.2 699.3 121.6 708.5 125.0C717.7 128.4 715.4 127.9 751.6 143.2C787.8 158.5 884.7 199.3 925.6 216.6C966.5 233.8 981.0 239.8 996.9 246.7C1012.8 253.6 1015.8 255.3 1020.8 257.8C1025.8 260.3 1024.8 260.1 1026.8 261.8C1028.8 263.5 1031.1 265.9 1032.9 268.2C1034.8 270.5 1036.7 273.4 1037.9 275.9C1039.1 278.4 1039.7 280.3 1040.0 283.0C1040.3 285.7 1040.4 288.8 1039.9 292.2C1039.4 295.6 1041.2 295.7 1036.9 303.2C1032.6 310.7 1019.0 330.0 1013.9 337.0C1008.8 344.0 1009.0 342.8 1006.3 345.2C1003.6 347.6 1001.2 349.3 997.9 351.5C994.6 353.7 990.1 356.6 986.3 358.5C982.5 360.4 979.4 361.6 974.9 363.0C970.4 364.4 965.4 366.1 959.2 367.1C953.0 368.1 1003.6 371.8 937.6 369.2C871.6 366.6 650.3 355.4 563.3 351.5Z"/>
         <path class="trk-edge" id="trkEdge" d="M563.3 351.5C476.3 347.6 491.2 348.8 415.8 345.7C340.4 342.6 164.3 335.4 110.9 332.7C57.5 330.0 100.4 331.2 95.4 329.7C90.5 328.2 85.8 326.0 81.2 323.6C76.6 321.2 72.8 319.3 68.0 315.2C63.2 311.1 56.8 304.9 52.7 298.9C48.6 292.9 45.3 286.4 43.2 279.2C41.1 271.9 40.0 264.2 40.0 255.4C40.0 246.6 41.5 236.2 43.5 226.3C45.5 216.4 48.6 204.4 52.1 195.7C55.6 187.0 60.8 179.6 64.2 174.2C67.6 168.8 68.5 167.6 72.7 163.5C76.9 159.4 65.6 163.1 89.2 149.9C112.8 136.7 181.4 101.3 214.3 84.3C247.2 67.3 272.8 54.5 286.5 47.8C300.2 41.0 293.4 44.9 296.8 43.8C300.2 42.7 303.7 41.7 307.2 41.1C310.7 40.5 313.8 40.1 317.7 40.0C321.6 39.9 324.7 39.8 330.9 40.2C337.1 40.6 332.9 39.9 355.0 42.6C377.1 45.3 443.0 53.9 463.6 56.6C484.2 59.4 474.0 57.8 478.6 59.1C483.2 60.5 487.7 62.3 491.4 64.7C495.1 67.1 498.0 70.3 500.8 73.3C503.6 76.2 506.0 79.5 508.1 82.4C510.2 85.3 512.2 87.9 513.6 90.7C515.0 93.5 515.5 96.4 516.2 99.3C516.9 102.2 517.7 104.8 518.0 108.1C518.3 111.4 518.2 115.4 518.0 118.9C517.8 122.5 517.6 125.7 516.5 129.4C515.4 133.1 513.0 137.7 511.1 141.0C509.2 144.3 507.4 146.4 505.0 149.0C502.6 151.6 499.8 154.3 496.6 156.7C493.4 159.1 489.7 161.8 485.8 163.6C481.9 165.4 477.4 166.6 473.4 167.4C469.3 168.2 466.0 168.8 461.5 168.6C457.0 168.4 451.1 167.5 446.4 166.4C441.7 165.3 449.8 168.8 433.3 161.9C416.8 155.1 363.5 131.6 347.3 125.3C331.1 119.0 340.1 124.3 336.2 124.0C332.3 123.7 328.0 123.1 324.0 123.5C320.0 123.9 316.1 125.1 312.0 126.3C307.9 127.5 321.9 119.2 299.6 130.5C277.3 141.8 199.7 182.3 178.1 193.9C156.5 205.5 172.2 197.4 169.8 200.1C167.4 202.8 165.2 206.6 163.8 210.0C162.5 213.4 161.8 217.5 161.7 220.8C161.6 224.1 162.3 226.6 163.4 229.6C164.5 232.6 166.2 235.9 168.0 239.0C169.8 242.1 172.1 245.2 174.5 247.9C176.9 250.6 179.2 252.9 182.3 255.2C185.4 257.5 189.2 260.1 192.9 261.8C196.6 263.5 200.2 264.7 204.5 265.5C208.8 266.3 213.6 266.8 218.8 266.4C224.1 266.0 229.1 265.1 236.0 262.9C242.9 260.6 253.6 255.6 260.5 252.9C267.4 250.2 271.3 248.1 277.4 246.7C283.5 245.2 290.6 244.7 297.3 244.2C304.0 243.7 280.9 239.7 317.5 243.8C354.1 247.9 481.5 264.7 517.0 268.9C552.5 273.1 525.6 269.5 530.3 269.1C535.0 268.8 539.8 268.3 545.1 266.8C550.4 265.3 552.4 264.3 561.9 260.1C571.4 255.9 593.8 246.2 602.4 241.8C611.0 237.4 611.2 236.2 613.7 233.8C616.2 231.5 616.2 230.8 617.1 227.7C618.0 224.6 619.4 219.2 619.3 215.5C619.1 211.8 619.1 211.8 616.2 205.6C613.3 199.3 604.4 184.0 601.9 178.0C599.4 172.0 600.9 172.7 601.3 169.8C601.7 166.9 602.9 163.3 604.2 160.8C605.5 158.3 607.0 156.4 609.0 154.7C611.0 153.0 605.6 155.2 616.3 150.4C626.9 145.6 661.4 130.5 672.9 126.0C684.4 121.5 681.3 124.0 685.2 123.5C689.1 123.0 692.3 122.8 696.2 123.0C700.1 123.2 699.3 121.6 708.5 125.0C717.7 128.4 715.4 127.9 751.6 143.2C787.8 158.5 884.7 199.3 925.6 216.6C966.5 233.8 981.0 239.8 996.9 246.7C1012.8 253.6 1015.8 255.3 1020.8 257.8C1025.8 260.3 1024.8 260.1 1026.8 261.8C1028.8 263.5 1031.1 265.9 1032.9 268.2C1034.8 270.5 1036.7 273.4 1037.9 275.9C1039.1 278.4 1039.7 280.3 1040.0 283.0C1040.3 285.7 1040.4 288.8 1039.9 292.2C1039.4 295.6 1041.2 295.7 1036.9 303.2C1032.6 310.7 1019.0 330.0 1013.9 337.0C1008.8 344.0 1009.0 342.8 1006.3 345.2C1003.6 347.6 1001.2 349.3 997.9 351.5C994.6 353.7 990.1 356.6 986.3 358.5C982.5 360.4 979.4 361.6 974.9 363.0C970.4 364.4 965.4 366.1 959.2 367.1C953.0 368.1 1003.6 371.8 937.6 369.2C871.6 366.6 650.3 355.4 563.3 351.5Z"/>
-        <path class="trk-straight" d="M938 369 L563 351"/>
+        <g id="trkClub"></g>
         <path class="trk-glow" id="trkGlow" d="M563.3 351.5C476.3 347.6 491.2 348.8 415.8 345.7C340.4 342.6 164.3 335.4 110.9 332.7C57.5 330.0 100.4 331.2 95.4 329.7C90.5 328.2 85.8 326.0 81.2 323.6C76.6 321.2 72.8 319.3 68.0 315.2C63.2 311.1 56.8 304.9 52.7 298.9C48.6 292.9 45.3 286.4 43.2 279.2C41.1 271.9 40.0 264.2 40.0 255.4C40.0 246.6 41.5 236.2 43.5 226.3C45.5 216.4 48.6 204.4 52.1 195.7C55.6 187.0 60.8 179.6 64.2 174.2C67.6 168.8 68.5 167.6 72.7 163.5C76.9 159.4 65.6 163.1 89.2 149.9C112.8 136.7 181.4 101.3 214.3 84.3C247.2 67.3 272.8 54.5 286.5 47.8C300.2 41.0 293.4 44.9 296.8 43.8C300.2 42.7 303.7 41.7 307.2 41.1C310.7 40.5 313.8 40.1 317.7 40.0C321.6 39.9 324.7 39.8 330.9 40.2C337.1 40.6 332.9 39.9 355.0 42.6C377.1 45.3 443.0 53.9 463.6 56.6C484.2 59.4 474.0 57.8 478.6 59.1C483.2 60.5 487.7 62.3 491.4 64.7C495.1 67.1 498.0 70.3 500.8 73.3C503.6 76.2 506.0 79.5 508.1 82.4C510.2 85.3 512.2 87.9 513.6 90.7C515.0 93.5 515.5 96.4 516.2 99.3C516.9 102.2 517.7 104.8 518.0 108.1C518.3 111.4 518.2 115.4 518.0 118.9C517.8 122.5 517.6 125.7 516.5 129.4C515.4 133.1 513.0 137.7 511.1 141.0C509.2 144.3 507.4 146.4 505.0 149.0C502.6 151.6 499.8 154.3 496.6 156.7C493.4 159.1 489.7 161.8 485.8 163.6C481.9 165.4 477.4 166.6 473.4 167.4C469.3 168.2 466.0 168.8 461.5 168.6C457.0 168.4 451.1 167.5 446.4 166.4C441.7 165.3 449.8 168.8 433.3 161.9C416.8 155.1 363.5 131.6 347.3 125.3C331.1 119.0 340.1 124.3 336.2 124.0C332.3 123.7 328.0 123.1 324.0 123.5C320.0 123.9 316.1 125.1 312.0 126.3C307.9 127.5 321.9 119.2 299.6 130.5C277.3 141.8 199.7 182.3 178.1 193.9C156.5 205.5 172.2 197.4 169.8 200.1C167.4 202.8 165.2 206.6 163.8 210.0C162.5 213.4 161.8 217.5 161.7 220.8C161.6 224.1 162.3 226.6 163.4 229.6C164.5 232.6 166.2 235.9 168.0 239.0C169.8 242.1 172.1 245.2 174.5 247.9C176.9 250.6 179.2 252.9 182.3 255.2C185.4 257.5 189.2 260.1 192.9 261.8C196.6 263.5 200.2 264.7 204.5 265.5C208.8 266.3 213.6 266.8 218.8 266.4C224.1 266.0 229.1 265.1 236.0 262.9C242.9 260.6 253.6 255.6 260.5 252.9C267.4 250.2 271.3 248.1 277.4 246.7C283.5 245.2 290.6 244.7 297.3 244.2C304.0 243.7 280.9 239.7 317.5 243.8C354.1 247.9 481.5 264.7 517.0 268.9C552.5 273.1 525.6 269.5 530.3 269.1C535.0 268.8 539.8 268.3 545.1 266.8C550.4 265.3 552.4 264.3 561.9 260.1C571.4 255.9 593.8 246.2 602.4 241.8C611.0 237.4 611.2 236.2 613.7 233.8C616.2 231.5 616.2 230.8 617.1 227.7C618.0 224.6 619.4 219.2 619.3 215.5C619.1 211.8 619.1 211.8 616.2 205.6C613.3 199.3 604.4 184.0 601.9 178.0C599.4 172.0 600.9 172.7 601.3 169.8C601.7 166.9 602.9 163.3 604.2 160.8C605.5 158.3 607.0 156.4 609.0 154.7C611.0 153.0 605.6 155.2 616.3 150.4C626.9 145.6 661.4 130.5 672.9 126.0C684.4 121.5 681.3 124.0 685.2 123.5C689.1 123.0 692.3 122.8 696.2 123.0C700.1 123.2 699.3 121.6 708.5 125.0C717.7 128.4 715.4 127.9 751.6 143.2C787.8 158.5 884.7 199.3 925.6 216.6C966.5 233.8 981.0 239.8 996.9 246.7C1012.8 253.6 1015.8 255.3 1020.8 257.8C1025.8 260.3 1024.8 260.1 1026.8 261.8C1028.8 263.5 1031.1 265.9 1032.9 268.2C1034.8 270.5 1036.7 273.4 1037.9 275.9C1039.1 278.4 1039.7 280.3 1040.0 283.0C1040.3 285.7 1040.4 288.8 1039.9 292.2C1039.4 295.6 1041.2 295.7 1036.9 303.2C1032.6 310.7 1019.0 330.0 1013.9 337.0C1008.8 344.0 1009.0 342.8 1006.3 345.2C1003.6 347.6 1001.2 349.3 997.9 351.5C994.6 353.7 990.1 356.6 986.3 358.5C982.5 360.4 979.4 361.6 974.9 363.0C970.4 364.4 965.4 366.1 959.2 367.1C953.0 368.1 1003.6 371.8 937.6 369.2C871.6 366.6 650.3 355.4 563.3 351.5Z"/>
         <path class="trk-comet" id="trkComet" d="M563.3 351.5C476.3 347.6 491.2 348.8 415.8 345.7C340.4 342.6 164.3 335.4 110.9 332.7C57.5 330.0 100.4 331.2 95.4 329.7C90.5 328.2 85.8 326.0 81.2 323.6C76.6 321.2 72.8 319.3 68.0 315.2C63.2 311.1 56.8 304.9 52.7 298.9C48.6 292.9 45.3 286.4 43.2 279.2C41.1 271.9 40.0 264.2 40.0 255.4C40.0 246.6 41.5 236.2 43.5 226.3C45.5 216.4 48.6 204.4 52.1 195.7C55.6 187.0 60.8 179.6 64.2 174.2C67.6 168.8 68.5 167.6 72.7 163.5C76.9 159.4 65.6 163.1 89.2 149.9C112.8 136.7 181.4 101.3 214.3 84.3C247.2 67.3 272.8 54.5 286.5 47.8C300.2 41.0 293.4 44.9 296.8 43.8C300.2 42.7 303.7 41.7 307.2 41.1C310.7 40.5 313.8 40.1 317.7 40.0C321.6 39.9 324.7 39.8 330.9 40.2C337.1 40.6 332.9 39.9 355.0 42.6C377.1 45.3 443.0 53.9 463.6 56.6C484.2 59.4 474.0 57.8 478.6 59.1C483.2 60.5 487.7 62.3 491.4 64.7C495.1 67.1 498.0 70.3 500.8 73.3C503.6 76.2 506.0 79.5 508.1 82.4C510.2 85.3 512.2 87.9 513.6 90.7C515.0 93.5 515.5 96.4 516.2 99.3C516.9 102.2 517.7 104.8 518.0 108.1C518.3 111.4 518.2 115.4 518.0 118.9C517.8 122.5 517.6 125.7 516.5 129.4C515.4 133.1 513.0 137.7 511.1 141.0C509.2 144.3 507.4 146.4 505.0 149.0C502.6 151.6 499.8 154.3 496.6 156.7C493.4 159.1 489.7 161.8 485.8 163.6C481.9 165.4 477.4 166.6 473.4 167.4C469.3 168.2 466.0 168.8 461.5 168.6C457.0 168.4 451.1 167.5 446.4 166.4C441.7 165.3 449.8 168.8 433.3 161.9C416.8 155.1 363.5 131.6 347.3 125.3C331.1 119.0 340.1 124.3 336.2 124.0C332.3 123.7 328.0 123.1 324.0 123.5C320.0 123.9 316.1 125.1 312.0 126.3C307.9 127.5 321.9 119.2 299.6 130.5C277.3 141.8 199.7 182.3 178.1 193.9C156.5 205.5 172.2 197.4 169.8 200.1C167.4 202.8 165.2 206.6 163.8 210.0C162.5 213.4 161.8 217.5 161.7 220.8C161.6 224.1 162.3 226.6 163.4 229.6C164.5 232.6 166.2 235.9 168.0 239.0C169.8 242.1 172.1 245.2 174.5 247.9C176.9 250.6 179.2 252.9 182.3 255.2C185.4 257.5 189.2 260.1 192.9 261.8C196.6 263.5 200.2 264.7 204.5 265.5C208.8 266.3 213.6 266.8 218.8 266.4C224.1 266.0 229.1 265.1 236.0 262.9C242.9 260.6 253.6 255.6 260.5 252.9C267.4 250.2 271.3 248.1 277.4 246.7C283.5 245.2 290.6 244.7 297.3 244.2C304.0 243.7 280.9 239.7 317.5 243.8C354.1 247.9 481.5 264.7 517.0 268.9C552.5 273.1 525.6 269.5 530.3 269.1C535.0 268.8 539.8 268.3 545.1 266.8C550.4 265.3 552.4 264.3 561.9 260.1C571.4 255.9 593.8 246.2 602.4 241.8C611.0 237.4 611.2 236.2 613.7 233.8C616.2 231.5 616.2 230.8 617.1 227.7C618.0 224.6 619.4 219.2 619.3 215.5C619.1 211.8 619.1 211.8 616.2 205.6C613.3 199.3 604.4 184.0 601.9 178.0C599.4 172.0 600.9 172.7 601.3 169.8C601.7 166.9 602.9 163.3 604.2 160.8C605.5 158.3 607.0 156.4 609.0 154.7C611.0 153.0 605.6 155.2 616.3 150.4C626.9 145.6 661.4 130.5 672.9 126.0C684.4 121.5 681.3 124.0 685.2 123.5C689.1 123.0 692.3 122.8 696.2 123.0C700.1 123.2 699.3 121.6 708.5 125.0C717.7 128.4 715.4 127.9 751.6 143.2C787.8 158.5 884.7 199.3 925.6 216.6C966.5 233.8 981.0 239.8 996.9 246.7C1012.8 253.6 1015.8 255.3 1020.8 257.8C1025.8 260.3 1024.8 260.1 1026.8 261.8C1028.8 263.5 1031.1 265.9 1032.9 268.2C1034.8 270.5 1036.7 273.4 1037.9 275.9C1039.1 278.4 1039.7 280.3 1040.0 283.0C1040.3 285.7 1040.4 288.8 1039.9 292.2C1039.4 295.6 1041.2 295.7 1036.9 303.2C1032.6 310.7 1019.0 330.0 1013.9 337.0C1008.8 344.0 1009.0 342.8 1006.3 345.2C1003.6 347.6 1001.2 349.3 997.9 351.5C994.6 353.7 990.1 356.6 986.3 358.5C982.5 360.4 979.4 361.6 974.9 363.0C970.4 364.4 965.4 366.1 959.2 367.1C953.0 368.1 1003.6 371.8 937.6 369.2C871.6 366.6 650.3 355.4 563.3 351.5Z"/>
         <circle class="trk-dot" id="trkDot" r="6" cx="-99" cy="-99"/>
-        <line class="trk-tick" x1="600" y1="361" x2="600" y2="379"/>
-        <text class="trk-label" x="600" y="401" text-anchor="middle">RETA PRINCIPAL · 2RODAS CLUB PRÓXIMO</text>
       </svg>
     </div>
-    <p class="mono hero__track-cap"><i></i>Reta principal, perto do 2Rodas Club</p>
+    <p class="mono hero__track-cap"><i></i>Em dourado: onde fica o 2Rodas Club</p>
   </div>
 
   <div class="hud mono" aria-hidden="true">
@@ -624,7 +627,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       <div class="monitor__screen" data-video="">
         <canvas id="onboard" role="img" aria-label="Animação de uma volta simulada no traçado do Autódromo de Goiânia"></canvas>
       </div>
-      <div class="monitor__bar mono"><span>Em dourado: reta principal</span><span>Telemetria simulada</span></div>
+      <div class="monitor__bar mono"><span>Em dourado: 2Rodas Club</span><span>Telemetria simulada</span></div>
     </div>
   </div>
 </section>
@@ -744,19 +747,17 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     <div data-calm="0.12">
       <p class="mono section__label"><b>06</b> Local</p>
       <h2 class="h2" id="t-local" data-split>Autódromo Internacional de Goiânia <strong class="amber">Ayrton Senna.</strong></h2>
-      <address class="addr" data-reveal>Rodovia GO 020, Km 04<br>Goiânia, Goiás</address>
-      <a class="btn btn--ghost" data-reveal href="https://www.google.com/maps/search/?api=1&query=Aut%C3%B3dromo+Internacional+de+Goi%C3%A2nia+Ayrton+Senna" target="_blank" rel="noopener">Abrir no Google Maps <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
     </div>
-    <figure class="plan" data-reveal>
-      <svg viewBox="-10 -20 1100 470" role="img" aria-label="Traçado do Autódromo Internacional de Goiânia Ayrton Senna, com a reta principal em destaque">
-        <path class="plan__pit" d="M925.6 216.6C925.9 217.2 926.8 218.9 927.6 220.0C928.3 221.0 929.3 222.1 930.1 222.9C930.9 223.7 931.5 224.2 932.3 224.8C933.1 225.3 933.9 225.9 934.8 226.3C935.6 226.8 933.2 225.6 937.4 227.5C941.6 229.4 953.2 234.1 959.9 237.9C966.6 241.7 972.7 246.7 977.3 250.5C981.9 254.2 985.3 258.3 987.4 260.5C989.6 262.7 989.5 262.6 990.3 263.7C991.2 264.8 992.1 266.0 992.8 267.2C993.6 268.4 994.2 269.7 994.8 271.0C995.4 272.3 995.8 273.5 996.3 275.0C996.7 276.6 997.1 278.4 997.3 280.2C997.5 281.9 997.6 283.7 997.5 285.4C997.5 287.1 997.3 288.9 996.9 290.6C996.6 292.3 996.5 293.2 995.5 295.7C994.5 298.1 995.5 299.0 990.8 305.3C986.2 311.5 973.7 326.4 967.7 333.3C961.7 340.2 957.6 344.1 954.7 346.8C951.9 349.6 952.1 349.1 950.7 350.1C949.3 351.1 947.8 352.0 946.3 352.8C944.8 353.7 943.5 354.4 941.7 355.2C939.9 356.0 937.6 356.9 935.5 357.6C933.4 358.2 931.2 358.8 929.0 359.1C926.8 359.5 924.6 359.8 922.4 359.9C920.2 360.0 937.9 361.1 915.7 359.8C893.6 358.6 837.6 354.9 789.5 352.4C741.3 349.9 662.9 345.6 627.0 344.6C591.0 343.6 583.3 346.2 574.0 346.6C564.7 346.9 572.1 346.5 571.1 346.6C570.1 346.8 569.1 347.1 568.3 347.4C567.5 347.7 567.0 348.0 566.4 348.4C565.8 348.8 565.2 349.3 564.7 349.8C564.2 350.3 563.5 351.2 563.3 351.5"/>
-        <path class="plan__track" d="M563.3 351.5C476.3 347.6 491.2 348.8 415.8 345.7C340.4 342.6 164.3 335.4 110.9 332.7C57.5 330.0 100.4 331.2 95.4 329.7C90.5 328.2 85.8 326.0 81.2 323.6C76.6 321.2 72.8 319.3 68.0 315.2C63.2 311.1 56.8 304.9 52.7 298.9C48.6 292.9 45.3 286.4 43.2 279.2C41.1 271.9 40.0 264.2 40.0 255.4C40.0 246.6 41.5 236.2 43.5 226.3C45.5 216.4 48.6 204.4 52.1 195.7C55.6 187.0 60.8 179.6 64.2 174.2C67.6 168.8 68.5 167.6 72.7 163.5C76.9 159.4 65.6 163.1 89.2 149.9C112.8 136.7 181.4 101.3 214.3 84.3C247.2 67.3 272.8 54.5 286.5 47.8C300.2 41.0 293.4 44.9 296.8 43.8C300.2 42.7 303.7 41.7 307.2 41.1C310.7 40.5 313.8 40.1 317.7 40.0C321.6 39.9 324.7 39.8 330.9 40.2C337.1 40.6 332.9 39.9 355.0 42.6C377.1 45.3 443.0 53.9 463.6 56.6C484.2 59.4 474.0 57.8 478.6 59.1C483.2 60.5 487.7 62.3 491.4 64.7C495.1 67.1 498.0 70.3 500.8 73.3C503.6 76.2 506.0 79.5 508.1 82.4C510.2 85.3 512.2 87.9 513.6 90.7C515.0 93.5 515.5 96.4 516.2 99.3C516.9 102.2 517.7 104.8 518.0 108.1C518.3 111.4 518.2 115.4 518.0 118.9C517.8 122.5 517.6 125.7 516.5 129.4C515.4 133.1 513.0 137.7 511.1 141.0C509.2 144.3 507.4 146.4 505.0 149.0C502.6 151.6 499.8 154.3 496.6 156.7C493.4 159.1 489.7 161.8 485.8 163.6C481.9 165.4 477.4 166.6 473.4 167.4C469.3 168.2 466.0 168.8 461.5 168.6C457.0 168.4 451.1 167.5 446.4 166.4C441.7 165.3 449.8 168.8 433.3 161.9C416.8 155.1 363.5 131.6 347.3 125.3C331.1 119.0 340.1 124.3 336.2 124.0C332.3 123.7 328.0 123.1 324.0 123.5C320.0 123.9 316.1 125.1 312.0 126.3C307.9 127.5 321.9 119.2 299.6 130.5C277.3 141.8 199.7 182.3 178.1 193.9C156.5 205.5 172.2 197.4 169.8 200.1C167.4 202.8 165.2 206.6 163.8 210.0C162.5 213.4 161.8 217.5 161.7 220.8C161.6 224.1 162.3 226.6 163.4 229.6C164.5 232.6 166.2 235.9 168.0 239.0C169.8 242.1 172.1 245.2 174.5 247.9C176.9 250.6 179.2 252.9 182.3 255.2C185.4 257.5 189.2 260.1 192.9 261.8C196.6 263.5 200.2 264.7 204.5 265.5C208.8 266.3 213.6 266.8 218.8 266.4C224.1 266.0 229.1 265.1 236.0 262.9C242.9 260.6 253.6 255.6 260.5 252.9C267.4 250.2 271.3 248.1 277.4 246.7C283.5 245.2 290.6 244.7 297.3 244.2C304.0 243.7 280.9 239.7 317.5 243.8C354.1 247.9 481.5 264.7 517.0 268.9C552.5 273.1 525.6 269.5 530.3 269.1C535.0 268.8 539.8 268.3 545.1 266.8C550.4 265.3 552.4 264.3 561.9 260.1C571.4 255.9 593.8 246.2 602.4 241.8C611.0 237.4 611.2 236.2 613.7 233.8C616.2 231.5 616.2 230.8 617.1 227.7C618.0 224.6 619.4 219.2 619.3 215.5C619.1 211.8 619.1 211.8 616.2 205.6C613.3 199.3 604.4 184.0 601.9 178.0C599.4 172.0 600.9 172.7 601.3 169.8C601.7 166.9 602.9 163.3 604.2 160.8C605.5 158.3 607.0 156.4 609.0 154.7C611.0 153.0 605.6 155.2 616.3 150.4C626.9 145.6 661.4 130.5 672.9 126.0C684.4 121.5 681.3 124.0 685.2 123.5C689.1 123.0 692.3 122.8 696.2 123.0C700.1 123.2 699.3 121.6 708.5 125.0C717.7 128.4 715.4 127.9 751.6 143.2C787.8 158.5 884.7 199.3 925.6 216.6C966.5 233.8 981.0 239.8 996.9 246.7C1012.8 253.6 1015.8 255.3 1020.8 257.8C1025.8 260.3 1024.8 260.1 1026.8 261.8C1028.8 263.5 1031.1 265.9 1032.9 268.2C1034.8 270.5 1036.7 273.4 1037.9 275.9C1039.1 278.4 1039.7 280.3 1040.0 283.0C1040.3 285.7 1040.4 288.8 1039.9 292.2C1039.4 295.6 1041.2 295.7 1036.9 303.2C1032.6 310.7 1019.0 330.0 1013.9 337.0C1008.8 344.0 1009.0 342.8 1006.3 345.2C1003.6 347.6 1001.2 349.3 997.9 351.5C994.6 353.7 990.1 356.6 986.3 358.5C982.5 360.4 979.4 361.6 974.9 363.0C970.4 364.4 965.4 366.1 959.2 367.1C953.0 368.1 1003.6 371.8 937.6 369.2C871.6 366.6 650.3 355.4 563.3 351.5Z"/>
-        <path class="plan__straight" d="M938 369 L563 351"/>
-        <line class="plan__tick" x1="750" y1="372" x2="750" y2="398"/>
-        <text class="plan__label" x="750" y="424" text-anchor="middle">RETA PRINCIPAL</text>
-      </svg>
-      <figcaption class="mono"><span>Traçado · 3,835 km</span><span>16°43′ S · 49°11′ O</span></figcaption>
-      <p class="plan__note">O 2Rodas Club e o Lounge Diogo Moreira ficam próximos da reta principal.</p>
+    <div class="local__info" data-reveal>
+      <p class="plan__note">No mapa oficial de setores, o 2Rodas Club fica na reta principal, do lado de fora da pista, perto da largada e dos boxes.</p>
+      <address class="addr">Rodovia GO 020, Km 04<br>Goiânia, Goiás</address>
+      <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&query=Aut%C3%B3dromo+Internacional+de+Goi%C3%A2nia+Ayrton+Senna" target="_blank" rel="noopener">Abrir no Google Maps <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+    </div>
+    <figure class="maquete" data-reveal>
+      <canvas id="maquete" role="img" aria-label="Maquete do Autódromo Internacional de Goiânia com os setores. O 2Rodas Club aparece em dourado, na reta principal, do lado de fora da pista, perto da largada e dos boxes."></canvas>
+      <span class="mono maquete__key" aria-hidden="true"><i></i>2Rodas Club</span>
+      <span class="mono maquete__hint" aria-hidden="true">Arraste para girar</span>
+      <figcaption class="mono"><span>Posições aproximadas, a partir do mapa oficial de setores</span><span>Traçado · 3,835 km</span></figcaption>
     </figure>
   </div>
 </section>
@@ -823,6 +824,22 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   const hasGsap = typeof gsap !== 'undefined';
   const EVENT_START = new Date('2027-04-02T00:00:00-03:00').getTime();
   const TRACK_KM = 3.835;
+  // posição do 2Rodas Club no traçado (fração da volta), tirada do mapa oficial de setores. Aproximada.
+  const CLUB_F = [0.925, 0.947];
+
+  /* amostra o traçado e calcula o lado de fora da pista, para posicionar setores e camarote */
+  function circuitGeo(path, N = 720) {
+    const L = path.getTotalLength(), pts = [];
+    for (let i = 0; i < N; i++) { const q = path.getPointAtLength(L * i / N); pts.push([q.x, q.y]); }
+    let area = 0; for (let i = 0; i < N; i++) { const a = pts[i], b = pts[(i + 1) % N]; area += a[0] * b[1] - b[0] * a[1]; }
+    const sgn = area > 0 ? 1 : -1;
+    const idx = f => ((Math.round(f * N) % N) + N) % N;
+    const nrm = i => { const a = pts[(i - 2 + N) % N], b = pts[(i + 2) % N]; const tx = b[0] - a[0], ty = b[1] - a[1], l = Math.hypot(tx, ty) || 1; return [sgn * ty / l, -sgn * tx / l]; };
+    const off = (f, d) => { const i = idx(f), n = nrm(i); return [pts[i][0] + n[0] * d, pts[i][1] + n[1] * d]; };
+    const strip = (f0, f1, d, w) => { const a = [], b = [], steps = Math.max(2, Math.round(Math.abs(f1 - f0) * N / 2)); for (let k = 0; k <= steps; k++) { const f = f0 + (f1 - f0) * k / steps; a.push(off(f, d)); b.push(off(f, d + w)); } return a.concat(b.reverse()); };
+    const mid = (f0, f1, d) => off((f0 + f1) / 2, d);
+    return { L, N, pts, off, strip, mid };
+  }
 
   /* ───────── contagem regressiva ───────── */
   (function countdown() {
@@ -963,6 +980,19 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     })(last);
   })();
 
+  /* ───────── circuito do topo: o 2Rodas Club marcado no lugar dele ───────── */
+  (function heroClub() {
+    const edge = $('#trkEdge'), g = $('#trkClub'); if (!edge || !g) return;
+    const geo = circuitGeo(edge), NS = 'http://www.w3.org/2000/svg';
+    const mk = (tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); g.appendChild(e); return e; };
+    const pts = geo.strip(CLUB_F[0], CLUB_F[1], 14, 16).map(p => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ');
+    const c = geo.mid(CLUB_F[0], CLUB_F[1], 22);
+    mk('circle', { class: 'trk-pulse', cx: c[0].toFixed(1), cy: c[1].toFixed(1), r: 12 });
+    mk('polygon', { class: 'trk-club', points: pts });
+    mk('line', { class: 'trk-tick', x1: c[0].toFixed(1), y1: (c[1] + 10).toFixed(1), x2: c[0].toFixed(1), y2: (c[1] + 30).toFixed(1) });
+    const t = mk('text', { class: 'trk-label', x: c[0].toFixed(1), y: (c[1] + 54).toFixed(1), 'text-anchor': 'middle' }); t.textContent = '2RODAS CLUB';
+  })();
+
   /* ───────── monitor: volta onboard simulada no traçado real de Goiânia ─────────
      A curvatura de cada ponto do circuito vira velocidade, inclinação e marcha (valores simulados).
      Para usar um vídeo de verdade no lugar, preencha data-video="img/arquivo.mp4" em .monitor__screen. */
@@ -995,20 +1025,22 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     for (let i = 0; i < N; i++) LEAN[i] = Math.atan(V[i] * V[i] * K[i] / G);
     let minX = 1e9, maxX = -1e9, minY = 1e9, maxY = -1e9;
     for (let i = 0; i < N; i++) { minX = Math.min(minX, X[i]); maxX = Math.max(maxX, X[i]); minY = Math.min(minY, Y[i]); maxY = Math.max(maxY, Y[i]); }
-    // trecho destacado na planta: reta principal, de (938,369) a (563,351) no desenho do circuito
-    const nearest = (px, py) => { let best = 0, bd = 1e12; for (let i = 0; i < N; i++) { const d = (X[i] - px * M) ** 2 + (Y[i] - py * M) ** 2; if (d < bd) { bd = d; best = i; } } return best; };
-    const SA = nearest(938, 369), SB = nearest(563, 351);
+    // onde fica o 2Rodas Club (mesma fração do traçado usada no topo e na maquete)
+    const SA = Math.round(CLUB_F[0] * N) % N, SB = Math.round(CLUB_F[1] * N) % N;
     const inStretch = i => SA <= SB ? (i >= SA && i <= SB) : (i >= SA || i <= SB);
     const SMID = (SA + Math.round(((SB - SA + N) % N) / 2)) % N;
+    let area2 = 0; for (let i = 0; i < N; i++) { const j = (i + 1) % N; area2 += X[i] * Y[j] - X[j] * Y[i]; }
+    const OUT = area2 > 0 ? -1 : 1;   // lado de fora da pista, em unidades da normal (-sen, cos)
+    const SIDE = OUT > 0 ? 'à direita' : 'à esquerda';
     let callout = 0;
     const gearOf = kmh => kmh < 95 ? 1 : kmh < 135 ? 2 : kmh < 178 ? 3 : kmh < 222 ? 4 : kmh < 268 ? 5 : 6;
 
-    let w = 0, h = 0, visible = false, last = 0, s = LAP * 0.93, lapT = 0, lean = 0;
+    let w = 0, h = 0, visible = false, last = 0, s = LAP * 0.895, lapT = 0, lean = 0;
     function size() { const r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2); w = r.width; h = r.height; cv.width = w * d; cv.height = h * d; ctx.setTransform(d, 0, 0, d, 0, 0); }
 
-    const HALF = 7, KERB = 1.6, EYE = 1.05, AHEAD = 80;
-    const offs = [-(HALF + KERB), -HALF, -HALF + 0.45, HALF - 0.45, HALF, HALF + KERB];
-    const row = () => ({ f: 0, x: new Float32Array(6), y: 0, i: 0 });
+    const HALF = 7, KERB = 1.6, EYE = 1.05, AHEAD = 80, CLUB_H = 5.5;
+    const offs = [-(HALF + KERB), -HALF, -HALF + 0.45, HALF - 0.45, HALF, HALF + KERB, OUT * (HALF + KERB + 4), OUT * (HALF + KERB + 16)];
+    const row = () => ({ f: 0, x: new Float32Array(8), y: 0, i: 0 });
     const rows = Array.from({ length: AHEAD + 2 }, row);
 
     function draw(dt) {
@@ -1033,7 +1065,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
         const dx = X[idx] - cx, dy = Y[idx] - cy;
         r.f = dx * ct + dy * st; r.i = idx;
         const fw = Math.max(r.f, 0.7); r.y = EYE * f / fw;
-        for (let e = 0; e < 6; e++) { const ex = dx + nx * offs[e], ey = dy + ny * offs[e]; const ff = Math.max(ex * ct + ey * st, 0.7); r.x[e] = (-ex * st + ey * ct) * f / ff; }
+        for (let e = 0; e < offs.length; e++) { const ex = dx + nx * offs[e], ey = dy + ny * offs[e]; const ff = Math.max(ex * ct + ey * st, 0.7); r.x[e] = (-ex * st + ey * ct) * f / ff; }
       }
       const quad = (a, b, e0, e1, color) => { ctx.fillStyle = color; ctx.beginPath(); ctx.moveTo(a.x[e0], a.y); ctx.lineTo(a.x[e1], a.y); ctx.lineTo(b.x[e1], b.y); ctx.lineTo(b.x[e0], b.y); ctx.fill(); };
       for (let k = AHEAD - 1; k >= -1; k--) {
@@ -1042,8 +1074,13 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
         const band = Math.floor(a.i / 3) % 2, curve = Math.abs(K[a.i]) > 0.0035;
         if (curve) { const kc = a.i % 2 ? '#f2b46a' : '#f4f2ee'; quad(a, b, 0, 1, kc); quad(a, b, 4, 5, kc); }
         quad(a, b, 1, 4, band ? '#2b2b2f' : '#34343a');
-        const edge = inStretch(a.i) ? '#ffca7f' : 'rgba(244,242,238,.85)';
-        quad(a, b, 1, 2, edge); quad(a, b, 3, 4, edge);
+        quad(a, b, 1, 2, 'rgba(244,242,238,.85)'); quad(a, b, 3, 4, 'rgba(244,242,238,.85)');
+        // o camarote: bloco dourado do lado de fora da pista
+        if (inStretch(a.i) && inStretch(b.i)) {
+          const ya = (EYE - CLUB_H) * f / Math.max(a.f, 0.7), yb = (EYE - CLUB_H) * f / Math.max(b.f, 0.7);
+          ctx.fillStyle = '#ffca7f'; ctx.beginPath(); ctx.moveTo(a.x[6], ya); ctx.lineTo(a.x[7], ya); ctx.lineTo(b.x[7], yb); ctx.lineTo(b.x[6], yb); ctx.fill();
+          ctx.fillStyle = band ? '#c48640' : '#d89b55'; ctx.beginPath(); ctx.moveTo(a.x[6], a.y); ctx.lineTo(a.x[6], ya); ctx.lineTo(b.x[6], yb); ctx.lineTo(b.x[6], b.y); ctx.fill();
+        }
       }
       const haze = ctx.createLinearGradient(0, -2, 0, h * 0.09); haze.addColorStop(0, 'rgba(70,48,26,.95)'); haze.addColorStop(1, 'rgba(70,48,26,0)');
       ctx.fillStyle = haze; ctx.fillRect(-w * 2, -2, w * 4, h * 0.09 + 2);
@@ -1070,7 +1107,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       ctx.textAlign = 'center'; ctx.font = `700 ${12 * u}px "JetBrains Mono", monospace`;
       for (let g = 1; g <= 6; g++) { ctx.fillStyle = g === gear ? '#ffca7f' : 'rgba(255,255,255,.28)'; ctx.fillText(String(g), gx + (g - 3.5) * 17 * u, gy + 74 * u); }
 
-      // minimapa do circuito, com a reta principal em destaque (a mesma marcação da planta)
+      // minimapa do circuito, com o 2Rodas Club marcado em dourado
       const mw = 170 * u, sc = mw / (maxX - minX), mh = (maxY - minY) * sc, mx = w - mw - 16 * u, my = 16 * u;
       const mapX = i => mx + (X[i] - minX) * sc, mapY = i => my + (Y[i] - minY) * sc;
       ctx.fillStyle = 'rgba(0,0,0,.45)'; ctx.fillRect(mx - 9 * u, my - 9 * u, mw + 18 * u, mh + 32 * u);
@@ -1078,9 +1115,12 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       ctx.strokeStyle = 'rgba(255,255,255,.4)'; ctx.lineWidth = 1.5 * u; ctx.beginPath();
       for (let i = 0; i <= N; i += 5) { const j = i % N; i ? ctx.lineTo(mapX(j), mapY(j)) : ctx.moveTo(mapX(j), mapY(j)); }
       ctx.stroke();
-      ctx.strokeStyle = '#ffca7f'; ctx.lineWidth = 3.6 * u; ctx.beginPath();
-      for (let k = 0, len = (SB - SA + N) % N; k <= len; k += 4) { const j = (SA + Math.min(k, len)) % N; k ? ctx.lineTo(mapX(j), mapY(j)) : ctx.moveTo(mapX(j), mapY(j)); }
-      ctx.lineTo(mapX(SB), mapY(SB)); ctx.stroke();
+      const offX = j => mapX(j) + OUT * -Math.sin(TH[j]) * 5 * u, offY = j => mapY(j) + OUT * Math.cos(TH[j]) * 5 * u;
+      ctx.strokeStyle = '#ffca7f'; ctx.lineWidth = 4 * u; ctx.beginPath();
+      for (let k = 0, len = (SB - SA + N) % N; k <= len; k += 3) { const j = (SA + Math.min(k, len)) % N; k ? ctx.lineTo(offX(j), offY(j)) : ctx.moveTo(offX(j), offY(j)); }
+      ctx.lineTo(offX(SB), offY(SB)); ctx.stroke();
+      const ph = (performance.now() / 1000 % 2) / 2;
+      ctx.strokeStyle = `rgba(255,202,127,${0.9 * (1 - ph)})`; ctx.lineWidth = 1.5 * u; ctx.beginPath(); ctx.arc(offX(SMID), offY(SMID), (3 + ph * 12) * u, 0, 7); ctx.stroke();
       ctx.strokeStyle = 'rgba(255,255,255,.95)'; ctx.lineWidth = 1.8 * u; ctx.beginPath();
       for (let t = 60; t >= 0; t -= 5) { const j = (i0 - t + N) % N; t === 60 ? ctx.moveTo(mapX(j), mapY(j)) : ctx.lineTo(mapX(j), mapY(j)); }
       ctx.stroke();
@@ -1089,13 +1129,13 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(dx0, dy0, 3.2 * u, 0, 7); ctx.fill();
       ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = '#ffca7f';
       ctx.font = `700 ${Math.max(8, 8.5 * u)}px "JetBrains Mono", monospace`;
-      ctx.fillText('RETA PRINCIPAL', Math.min(mapX(SMID), mx + mw - 44 * u), my + mh + 16 * u);
+      ctx.fillText('2RODAS CLUB', Math.min(offX(SMID), mx + mw - 34 * u), my + mh + 16 * u);
 
       // aviso quando a moto chega ao trecho onde fica o camarote
       const ahead = (SA - i0 + N) % N, want = inStretch(i0) ? 1 : ahead < 45 ? 1 - ahead / 45 : 0;
       callout += (want - callout) * Math.min(1, dt * 6 || 1);
       if (callout > 0.02) {
-        const cu = Math.max(u, 0.8), l1 = 'RETA PRINCIPAL', l2 = narrow ? 'Camarote próximo daqui' : 'O 2Rodas Club fica próximo daqui';
+        const cu = Math.max(u, 0.8), l1 = '2RODAS CLUB', l2 = narrow ? 'Camarote ' + SIDE : 'O camarote fica ' + SIDE;
         ctx.save(); ctx.globalAlpha = callout; ctx.textAlign = 'left';
         ctx.font = `500 ${13 * cu}px Montserrat, sans-serif`; const tw = ctx.measureText(l2).width;
         const bx = 16 * u - (1 - callout) * 14, by = 16 * u, bw = tw + 30 * cu, bh = 46 * cu;
@@ -1121,6 +1161,94 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     size(); addEventListener('resize', size);
     if (RM) { s = LAP * 0.36; lean = LEAN[Math.floor(s / ds)]; new IntersectionObserver(([e]) => { if (e.isIntersecting) { size(); draw(0); } }).observe(cv); return; }
     new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) { size(); last = performance.now(); requestAnimationFrame(loop); } }).observe(cv);
+  })();
+
+  /* ───────── maquete 3D do autódromo, com o 2Rodas Club em destaque ─────────
+     Projeção própria em canvas 2D, sem biblioteca. Posições aproximadas, a partir do mapa oficial de setores. */
+  (function maquete() {
+    const cv = $('#maquete'), edge = $('#trkEdge'); if (!cv || !edge) return;
+    const ctx = cv.getContext('2d'), geo = circuitGeo(edge), { pts, off, strip, mid } = geo, N = geo.N;
+    const S = [
+      { f: [0.040, 0.136], d: 16, w: 13, lab: 'Setor B' },
+      { f: [0.010, 0.026], d: 16, w: 13, lab: 'Setor A' },
+      { f: [0.968, 0.990], d: 16, w: 13, lab: '' },
+      { f: CLUB_F, d: 16, w: 16, lab: '2Rodas Club', club: true },
+      { f: [0.900, 0.916], d: 16, w: 13, lab: '' },
+      { f: [0.150, 0.168], d: 16, w: 13, lab: 'Setor C' },
+      { f: [0.184, 0.202], d: 16, w: 13, lab: 'Setor D' },
+      { f: [0.222, 0.248], d: 16, w: 13, lab: 'Arq. oficial Diogo Moreira' },
+      { f: [0.705, 0.805], d: 18, w: 11, lab: 'Setor F' },
+    ];
+    const BOX = { f: [0.918, 0.982], d: -34, w: 18, lab: 'Boxes' }, START = 0.974;
+    let minX = 1e9, maxX = -1e9, minY = 1e9, maxY = -1e9;
+    for (const p of pts) { minX = Math.min(minX, p[0]); maxX = Math.max(maxX, p[0]); minY = Math.min(minY, p[1]); maxY = Math.max(maxY, p[1]); }
+    const CX = (minX + maxX) / 2, CY = (minY + maxY) / 2, PITCH = 0.98, SP = Math.sin(PITCH), CP = Math.cos(PITCH);
+    const clubC = mid(CLUB_F[0], CLUB_F[1], 24);
+    let W = 0, H = 0, narrow = false, yaw = 0.34, auto = !RM, drag = null, visible = false, t0 = performance.now(), last = t0, pos = 0, cs = 1, sn = 0, sc = 1, MX = 0, MY = 0;
+    const size = () => { const r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2); W = r.width; H = r.height; narrow = W < 560; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); };
+    const pr = (x, y, z) => { const X = x - CX, Y = y - CY, xr = X * cs - Y * sn, yr = X * sn + Y * cs; return [W / 2 + (xr - MX) * sc, H * 0.64 + (yr - MY) * sc * CP - z * sc * SP, yr]; };
+    const path = (arr, z) => { ctx.beginPath(); arr.forEach((p, i) => { const q = pr(p[0], p[1], z); i ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]); }); };
+    const fillPoly = (arr, z, color, stroke) => { path(arr, z); ctx.closePath(); if (color) { ctx.fillStyle = color; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = 1; ctx.stroke(); } };
+    const line = (arr, z, color, wd, close) => { path(arr, z); if (close) ctx.closePath(); ctx.strokeStyle = color; ctx.lineWidth = wd; ctx.lineJoin = 'round'; ctx.lineCap = 'round'; ctx.stroke(); };
+    const rr = (x, y, w, h, r) => { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); };
+    const ground = []; { const m = 95, r = 120, x0 = minX - m, x1 = maxX + m, y0 = minY - m, y1 = maxY + m; const arc = (cx, cy, a0) => { for (let k = 0; k <= 8; k++) { const a = a0 + Math.PI / 2 * k / 8; ground.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]); } }; arc(x1 - r, y0 + r, -Math.PI / 2); arc(x1 - r, y1 - r, 0); arc(x0 + r, y1 - r, Math.PI / 2); arc(x0 + r, y0 + r, Math.PI); }
+    const blocks = S.map(s => ({ s, poly: strip(s.f[0], s.f[1], s.d, s.w), c: mid(s.f[0], s.f[1], s.d + s.w / 2), h: s.club ? 26 : 13 }));
+    blocks.push({ s: BOX, poly: strip(BOX.f[0], BOX.f[1], BOX.d, BOX.w), c: mid(BOX.f[0], BOX.f[1], BOX.d + BOX.w / 2), h: 16, box: true });
+    function sign(b) {
+      if (!b.s.lab || (narrow && !b.s.club)) return;
+      const u = Math.max(0.72, Math.min(1.15, W / 1100)), base = pr(b.c[0], b.c[1], b.h), top = pr(b.c[0], b.c[1], b.h + (b.s.club ? 80 : 44));
+      ctx.strokeStyle = b.s.club ? '#ffca7f' : 'rgba(255,255,255,.4)'; ctx.lineWidth = b.s.club ? 2 : 1.2; ctx.beginPath(); ctx.moveTo(base[0], base[1]); ctx.lineTo(top[0], top[1]); ctx.stroke();
+      ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+      if (b.s.club) {
+        ctx.font = `800 ${17 * u}px Montserrat, sans-serif`; const w = ctx.measureText('2RODAS CLUB').width + 34 * u, h = 48 * u, x = top[0] - w / 2, y = top[1] - h;
+        ctx.save(); ctx.shadowColor = 'rgba(255,202,127,.55)'; ctx.shadowBlur = 26;
+        const g = ctx.createLinearGradient(x, 0, x + w, 0); g.addColorStop(0, '#cf904a'); g.addColorStop(0.55, '#ffca7f'); g.addColorStop(1, '#d89b55');
+        ctx.fillStyle = g; rr(x, y, w, h, 8 * u); ctx.fill(); ctx.restore();
+        ctx.fillStyle = '#171310'; ctx.fillText('2RODAS CLUB', top[0], y + 24 * u);
+        ctx.font = `700 ${8.5 * u}px "JetBrains Mono", monospace`; ctx.fillText('CAMAROTE', top[0], y + 39 * u);
+      } else {
+        ctx.font = `500 ${10.5 * u}px "JetBrains Mono", monospace`; const txt = b.s.lab.toUpperCase(), w = ctx.measureText(txt).width + 16 * u, h = 22 * u, x = top[0] - w / 2, y = top[1] - h;
+        ctx.fillStyle = 'rgba(20,20,20,.92)'; ctx.strokeStyle = 'rgba(255,255,255,.3)'; ctx.lineWidth = 1; rr(x, y, w, h, 5 * u); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#cfccc6'; ctx.fillText(txt, top[0], y + 15 * u);
+      }
+    }
+    function draw(now, dt) {
+      if (auto) yaw = 0.34 + Math.sin((now - t0) / 1000 * 0.3) * 0.3;
+      cs = Math.cos(yaw); sn = Math.sin(yaw);
+      // escala que faz o circuito inteiro caber na largura, em qualquer ângulo
+      let lx = 1e9, hx = -1e9, ly = 1e9, hy = -1e9;
+      for (let i = 0; i < N; i += 6) { const X = pts[i][0] - CX, Y = pts[i][1] - CY, xr = X * cs - Y * sn, yr = X * sn + Y * cs; lx = Math.min(lx, xr); hx = Math.max(hx, xr); ly = Math.min(ly, yr); hy = Math.max(hy, yr); }
+      MX = (lx + hx) / 2; MY = (ly + hy) / 2;
+      sc = Math.min(W * (narrow ? 0.9 : 0.84) / (hx - lx), H * 0.52 / ((hy - ly) * CP));
+      ctx.clearRect(0, 0, W, H);
+      fillPoly(ground, -16, '#090909'); fillPoly(ground, 0, '#1c1c1e', 'rgba(255,255,255,.14)');
+      for (let x = Math.ceil((minX - 95) / 70) * 70; x < maxX + 95; x += 70) line([[x, minY - 60], [x, maxY + 60]], 0, 'rgba(255,255,255,.03)', 1);
+      line(pts, 0, '#050505', 17 * sc, true); line(pts, 2, 'rgba(255,255,255,.7)', 13.5 * sc, true); line(pts, 2, '#2f2f33', 11 * sc, true);
+      line([off(START, -7), off(START, 7)], 2.5, '#fff', 2.4);
+      pos = (pos + N / 7.5 * dt) % N;
+      for (let k = 0; k < 24; k++) { const i = ((Math.floor(pos) - k) % N + N) % N, j = (i - 1 + N) % N; line([pts[j], pts[i]], 3, `rgba(255,202,127,${1 - k / 24})`, (5 - k * 0.13) * Math.max(0.7, sc)); }
+      const ph = ((now - t0) / 1000 % 2.2) / 2.2, ring = [];
+      for (let k = 0; k < 40; k++) { const an = k / 40 * Math.PI * 2, r = 14 + ph * 58; ring.push([clubC[0] + Math.cos(an) * r, clubC[1] + Math.sin(an) * r]); }
+      if (!RM) line(ring, 1, `rgba(255,202,127,${0.9 * (1 - ph)})`, 2, true);
+      const order = blocks.map(bk => ({ bk, d: pr(bk.c[0], bk.c[1], 0)[2] })).sort((x, y) => x.d - y.d);
+      for (const { bk } of order) {
+        const side = bk.s.club ? '#9a6a35' : bk.box ? '#19191b' : '#2a2a2d', top = bk.s.club ? '#ffca7f' : bk.box ? '#2b2b2f' : '#4a4a50';
+        for (let z = 0; z < bk.h; z += 1.5) fillPoly(bk.poly, z, side);
+        fillPoly(bk.poly, bk.h, top, bk.s.club ? '#fff3dc' : 'rgba(255,255,255,.3)');
+      }
+      for (const { bk } of order) if (!bk.s.club) sign(bk);
+      sign(blocks.find(bk => bk.s.club));
+    }
+    function loop(now) { if (!visible) return; const dt = Math.min(0.05, (now - last) / 1000 || 0); last = now; draw(now, dt); requestAnimationFrame(loop); }
+    size(); addEventListener('resize', () => { size(); if (RM) draw(performance.now(), 0); });
+    cv.addEventListener('pointerdown', e => { drag = { x: e.clientX, yaw }; auto = false; try { cv.setPointerCapture(e.pointerId); } catch (_) {} });
+    cv.addEventListener('pointermove', e => { if (!drag) return; yaw = drag.yaw + (e.clientX - drag.x) * 0.006; if (RM) draw(performance.now(), 0); });
+    const end = () => { drag = null; };
+    cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
+    new IntersectionObserver(([e]) => {
+      if (RM) { if (e.isIntersecting) { size(); draw(performance.now(), 0); } return; }
+      visible = e.isIntersecting; if (visible) { size(); last = performance.now(); requestAnimationFrame(loop); }
+    }).observe(cv);
   })();
 
   /* ───────── sem GSAP (CDN fora do ar): mostra tudo e sai ───────── */
