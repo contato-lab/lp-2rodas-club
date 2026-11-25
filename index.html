@@ -217,56 +217,38 @@ html.is-loading .nav{opacity:0}
 /* experiências */
 .xp-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
 .xp-head .lead{margin:0;max-width:40ch}
-.xp-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:54px;perspective:1600px}
-.xp{position:relative;border-radius:22px;border:1px solid var(--line-2);background:linear-gradient(160deg,#262627,#1a1a1b);overflow:hidden;transform-style:preserve-3d;will-change:transform;--mx:50%;--my:0%}
-.xp::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:inherit;background:radial-gradient(520px circle at var(--mx) var(--my),rgba(232,32,31,.20),transparent 46%);opacity:0;transition:opacity .35s}
-.xp:hover::before{opacity:1}
-.xp--lounge{border-color:rgba(232,32,31,.55);background:linear-gradient(160deg,#2a1212,#141111)}
-.xp__media{position:relative;height:clamp(190px,22vw,280px);overflow:hidden;background:#111}
-.xp__media img{width:100%;height:108%;object-fit:cover;object-position:50% 20%;filter:grayscale(1) contrast(1.08);transform:scale(1.06)}
-.xp--lounge .xp__media{background:var(--stripes-red),linear-gradient(120deg,#3a0f0e,#110b0b)}
-.xp__badge{position:absolute;left:clamp(20px,2.6vw,36px);bottom:26px;z-index:2;font-weight:800;font-style:italic;text-transform:uppercase;font-size:clamp(34px,5vw,74px);line-height:.85;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.2px rgba(255,64,56,.7)}
-.xp__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0) 35%,rgba(26,26,27,.98))}
-.xp--lounge .xp__media::after{background:linear-gradient(180deg,rgba(26,24,23,0) 55%,rgba(27,24,22,.98))}
-.xp__tag{position:absolute;top:16px;left:16px;z-index:2;padding:7px 12px;border-radius:999px;background:rgba(0,0,0,.6);border:1px solid var(--line-2);font-size:11px;backdrop-filter:blur(6px)}
-.xp--lounge .xp__tag{background:var(--acc);color:#fff;border-color:transparent;font-weight:700}
-.xp__body{position:relative;z-index:2;padding:6px clamp(20px,2.6vw,36px) clamp(24px,2.6vw,36px)}
-.xp__name{font-size:clamp(26px,3vw,42px);font-weight:800;text-transform:uppercase;line-height:1;letter-spacing:-.02em}
-.xp__name small{display:block;font-size:.42em;font-weight:500;font-style:italic;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
-.xp__desc{color:#ebe8e2;font-size:16px;margin-top:14px;max-width:40ch}
-.xp__foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px 20px;margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
-.xp__price{display:flex;align-items:baseline;gap:10px;margin:0}
-.xp__price span{font-family:var(--f-mono);color:var(--muted);font-size:15px}
-.xp__price b{font-family:var(--f-mono);font-weight:700;font-size:clamp(34px,4vw,54px);letter-spacing:-.04em;line-height:1}
-.xp__badge small{display:block;margin-top:12px;font-size:.27em;font-weight:500;letter-spacing:.1em;-webkit-text-stroke:0;color:var(--acc-hi)}
-.compare{margin-top:22px;border:1px solid var(--line-2);border-radius:22px;overflow:hidden;background:rgba(0,0,0,.3)}
-.compare table{width:100%;border-collapse:collapse}
-.compare caption{caption-side:top;text-align:left;padding:22px clamp(16px,2.6vw,32px) 6px;color:var(--acc-hi)}
-.compare th,.compare td{padding:16px clamp(12px,2.6vw,32px);text-align:left;border-top:1px solid var(--line);vertical-align:middle}
-.compare thead th,.compare thead td{border-top:0}
-.compare thead th{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;line-height:1.25}
-.compare td,.compare thead th{width:23%}
-.compare tbody th{font-weight:500;font-size:15.5px;line-height:1.35;color:#f2efe9}
-.compare tbody th small{display:block;margin-top:3px;font-weight:400;font-size:13.5px;color:var(--muted)}
-.compare thead th:last-child,.compare td:last-child{background:rgba(232,32,31,.07)}
-.compare tbody tr{transition:background .25s}
-.compare tbody tr:hover{background:rgba(255,255,255,.035)}
-.ok{display:inline-block;width:9px;height:17px;margin:0 0 4px 6px;border:solid var(--acc-hi);border-width:0 3px 3px 0;transform:rotate(42deg)}
-.no{color:var(--dim);font-size:14px}
-.compare__price th{font-weight:700!important;color:var(--text)!important}
-.compare__price td{font-family:var(--f-mono);font-weight:700;font-size:clamp(16px,1.8vw,22px);white-space:nowrap}
-.arq{position:relative;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(20px,4vw,56px);align-items:end;margin-top:22px;padding:clamp(22px,3vw,40px);border:1px solid rgba(232,32,31,.45);border-radius:22px;background:linear-gradient(160deg,#211515,#141212);overflow:hidden}
-.arq::before{content:"";position:absolute;right:-40px;top:-40px;width:260px;height:260px;background:var(--stripes-red);opacity:.12;pointer-events:none}
-.arq__k{color:var(--acc-hi)}
-.arq__name{margin-top:10px;font-size:clamp(24px,2.8vw,38px);font-weight:300;text-transform:uppercase;line-height:1.05;letter-spacing:-.02em}
-.arq__name strong{display:block;font-weight:800}
-.arq__desc{margin-top:12px;color:#ebe8e2;font-size:16px;max-width:52ch}
-.arq__list{margin-top:18px;display:grid;gap:9px}
-.arq__list li{display:grid;grid-template-columns:20px 1fr;gap:8px;color:#efece6;font-size:15px;line-height:1.4}
-.arq__list li::before{content:"";width:9px;height:13px;margin-top:4px;background:var(--acc);transform:skewX(-24deg)}
-.arq__buy{position:relative;display:grid;gap:12px;justify-items:start}
-.arq__buy .btn{white-space:normal;max-width:100%;line-height:1.25;padding-top:12px;padding-bottom:12px}
-.arq__lote{color:var(--dim)}
+.tix{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch;margin-top:54px;perspective:1600px;--furo:#1a1a1b}
+.tk{position:relative;display:flex;flex-direction:column;border-radius:20px;overflow:hidden;border:1px solid var(--line-2);background:linear-gradient(170deg,#212122,#151515);transform-style:preserve-3d;will-change:transform;--mx:50%;--my:0%}
+.tk::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:inherit;background:radial-gradient(480px circle at var(--mx) var(--my),rgba(232,32,31,.18),transparent 46%);opacity:0;transition:opacity .35s}
+.tk:hover::before{opacity:1}
+.tk__faixa{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;height:104px;padding:14px 20px;background:var(--stripes-dark),#262627;overflow:hidden}
+.tk__faixa b{font-weight:800;font-style:italic;text-transform:uppercase;font-size:clamp(30px,3.3vw,46px);line-height:.86;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.2px rgba(255,255,255,.55);white-space:nowrap}
+.tk__lote{align-self:flex-start;flex:none;padding:6px 11px;border-radius:999px;border:1px solid var(--line-2);background:rgba(0,0,0,.55);font-size:10.5px}
+.tk__meio{flex:1;padding:22px 24px 24px}
+.tk__k{font-size:11px;color:var(--muted)}
+.tk__n{margin-top:8px;font-size:clamp(22px,2.2vw,31px);font-weight:800;text-transform:uppercase;line-height:1.03;letter-spacing:-.02em;min-height:2.06em}
+.tk__d{margin-top:10px;font-size:14.5px;color:#ebe8e2;min-height:4.6em}
+.tk__mais{margin-top:16px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--acc-hi)}
+.inc{display:grid;gap:9px;margin-top:16px}
+.tk__mais+.inc{margin-top:10px}
+.inc li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:14.5px;line-height:1.4;color:#efece6}
+.inc li::before{content:"";width:8px;height:14px;margin:1px 0 0 5px;border:solid var(--acc-hi);border-width:0 2.5px 2.5px 0;transform:rotate(42deg)}
+.tk__nao{margin-top:12px;font-size:13px;color:var(--dim)}
+.tk__compra{position:relative;display:grid;gap:12px;padding:22px 24px 24px;border-top:2px dashed rgba(255,255,255,.24);background:rgba(0,0,0,.28)}
+.tk__compra::before,.tk__compra::after{content:"";position:absolute;top:-14px;width:26px;height:26px;border-radius:50%;background:var(--furo);border:1px solid var(--line-2)}
+.tk__compra::before{left:-14px}.tk__compra::after{right:-14px}
+.tk__dias{font-size:11px;color:var(--muted)}
+.tk__preco{display:flex;align-items:baseline;gap:9px;margin:0}
+.tk__preco span{font-family:var(--f-mono);color:var(--muted);font-size:14px}
+.tk__preco b{font-family:var(--f-mono);font-weight:700;font-size:clamp(34px,3.6vw,50px);letter-spacing:-.04em;line-height:1}
+.tk .btn{justify-content:center;white-space:normal;text-align:center;line-height:1.2;padding:12px 14px;font-size:13px;letter-spacing:.04em;min-height:60px}
+.tk--lounge{border-color:rgba(232,32,31,.75);background:linear-gradient(170deg,#2b1010,#141010);box-shadow:0 30px 80px -40px rgba(232,32,31,.6)}
+.tk--lounge .tk__faixa{background:var(--stripes-white),#e8201f}
+.tk--lounge .tk__faixa b{-webkit-text-stroke:0;color:#fff}
+.tk--lounge .tk__lote{background:#fff;color:#c40a0a;border-color:transparent;font-weight:700}
+.tk--lounge .tk__compra::before,.tk--lounge .tk__compra::after{border-color:rgba(232,32,31,.75)}
+.tk--arq{order:-1;background:linear-gradient(170deg,#1a1a1a,#121212)}
+.tk--arq .tk__faixa b{font-size:clamp(24px,2.5vw,34px)}
 .xp-note{margin-top:22px;color:var(--dim);font-size:13.5px;max-width:78ch}
 
 /* diogo */
@@ -360,24 +342,27 @@ html.js:not(.no-intro) [data-reveal]{opacity:0;transform:translateY(34px)}
 html.js:not(.no-intro) .hero [data-intro]{opacity:0}
 
 /* ═══════════ RESPONSIVO ═══════════ */
-/* notebook (tela baixa): cards, tabela e arquibancada encolhem pela altura da tela para caber inteiros */
+/* notebook (tela baixa): os ingressos encolhem pela altura da tela para caber inteiros */
 @media (min-width:1021px) and (max-height:920px){
-  .xp-grid{margin-top:clamp(28px,4.5vh,54px)}
-  .xp__media{height:clamp(150px,25vh,280px)}
-  .xp__badge{bottom:clamp(14px,2.6vh,26px);font-size:clamp(34px,8vh,74px)}
-  .xp__name{font-size:clamp(24px,4.8vh,42px)}
-  .xp__desc{margin-top:clamp(8px,1.5vh,14px);font-size:clamp(14px,2vh,16px)}
-  .xp__foot{margin-top:clamp(12px,2.4vh,24px);padding-top:clamp(12px,2.2vh,22px)}
-  .xp__price b{font-size:clamp(30px,6vh,54px)}
-  .xp__body{padding-bottom:clamp(18px,3vh,36px)}
-  .compare caption{padding-top:clamp(12px,2.2vh,22px)}
-  .compare th,.compare td{padding-top:clamp(6px,1.2vh,16px);padding-bottom:clamp(6px,1.2vh,16px)}
-  .compare tbody th{font-size:clamp(13.5px,1.9vh,15.5px)}
-  .compare tbody th small{font-size:clamp(12px,1.65vh,13.5px);margin-top:1px}
-  .arq{padding-top:clamp(18px,3.4vh,40px);padding-bottom:clamp(18px,3.4vh,40px)}
-  .arq__list{margin-top:clamp(10px,2vh,18px);gap:clamp(5px,1vh,9px)}
+  .tix{margin-top:clamp(26px,4.5vh,54px)}
+  .tk__faixa{height:clamp(58px,9.4vh,104px);padding-top:10px;padding-bottom:clamp(8px,1.5vh,14px)}
+  .tk__faixa b{font-size:clamp(26px,5vh,46px)}
+  .tk--arq .tk__faixa b{font-size:clamp(22px,3.8vh,34px)}
+  .tk__meio{padding-top:clamp(14px,2.2vh,22px);padding-bottom:clamp(14px,2.2vh,24px)}
+  .tk__n{font-size:clamp(20px,3.3vh,31px)}
+  .tk__d{margin-top:clamp(6px,1vh,10px);font-size:clamp(13.5px,1.75vh,14.5px);min-height:4.3em}
+  .inc{gap:clamp(4px,.85vh,9px);margin-top:clamp(10px,1.6vh,16px)}
+  .inc li{font-size:clamp(13.5px,1.75vh,14.5px)}
+  .tk__mais{margin-top:clamp(10px,1.6vh,16px)}
+  .tk__nao{margin-top:clamp(6px,1.1vh,12px);font-size:12.5px}
+  .tk__compra{gap:clamp(7px,1.2vh,12px);padding-top:clamp(13px,2.1vh,22px);padding-bottom:clamp(14px,2.2vh,24px)}
+  .tk__preco b{font-size:clamp(30px,5.2vh,50px)}
+  .tk .btn{min-height:clamp(48px,6.6vh,60px);padding-top:8px;padding-bottom:8px}
 }
 @media (max-width:1020px){
+  .tix{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}
+  .tk--arq{order:0}
+  .tk__n,.tk__d{min-height:0}
   .nav__links{display:none}.burger{display:grid}
   .hero__bottom-inner{grid-template-columns:1fr 1fr}
   .split,.diogo,.local,.faq{grid-template-columns:1fr}
@@ -403,7 +388,6 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   .hero__ctas .btn{flex:1 1 100%;justify-content:center}
   .hero__bottom-inner{grid-template-columns:1fr;gap:18px}
   .countdown{justify-content:space-between}.cd{flex:1;min-width:0}
-  .xp-grid{grid-template-columns:1fr}
   .days{grid-template-columns:1fr}.day{border-right:0;border-bottom:1px solid var(--line-2);display:grid;grid-template-columns:auto 1fr;gap:6px 22px;align-items:center}
   .day:last-child{border-bottom:0}.day__n{grid-row:span 2;font-size:92px}.day__w{margin-top:0;align-self:end}.day__m{align-self:start}
   .stats{grid-template-columns:1fr}
@@ -413,17 +397,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   .footer{padding-bottom:110px}
   .buybar{display:flex}
   .buybar .btn{flex:none;width:auto;min-height:46px;padding:0 16px;font-size:12px;white-space:nowrap}
-  .arq{grid-template-columns:1fr}
-  .arq__buy .btn{width:100%;justify-content:center}
-  .compare th,.compare td{padding:13px 10px}
-  .compare thead th{font-size:10.5px;letter-spacing:.03em}
-  .compare td,.compare thead th{width:22%}
-  .compare tbody th{font-size:14px}
-  .compare tbody th small{font-size:12.5px}
-  .compare caption{padding:18px 10px 4px}
-  .ok{margin-left:14px}
   .faq__item p{padding-right:0}
-  .xp__foot .btn{width:100%;justify-content:center}
   .hero__map canvas{aspect-ratio:3/2}
   .maquete canvas{aspect-ratio:3/2}
   .maquete__hint{display:none}
@@ -671,73 +645,57 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
         <p class="mono section__label"><b>02</b> Ingressos</p>
         <h2 class="h2" id="t-ingressos" data-split>Uma escolha, <strong class="acc">duas experiências.</strong></h2>
       </div>
-      <p class="lead" data-reveal>Os dois ingressos valem para os três dias e incluem open bar e open food premium. O Lounge soma a varanda para a pista, o meet &amp; greet com o Diogo Moreira e a camisa oficial do fã-clube.</p>
+      <p class="lead" data-reveal>Todos os ingressos valem para os três dias, de 02 a 04 de abril de 2027. Os dois camarotes incluem open bar e open food premium.</p>
     </div>
 
-    <div class="xp-grid">
-      <article class="xp" data-tilt data-reveal>
-        <div class="xp__media"><img src="img/motos.jpg" alt="Duas motos esportivas inclinadas em uma curva" width="560" height="330" loading="lazy" decoding="async"><span class="mono xp__tag">2º lote</span></div>
-        <div class="xp__body">
-          <h3 class="xp__name"><small>Camarote</small>2Rodas Club</h3>
-          <p class="xp__desc">O camarote da revista Duas Rodas, próximo da reta principal, com vista exclusiva do autódromo.</p>
-          <div class="xp__foot">
-            <p class="xp__price"><span>R$</span><b data-count="7390">7.390</b><span>preço único</span></p>
-            <a class="btn btn--ghost" href="https://ig.me/m/2rodasclub.br" target="_blank" rel="noopener">Garanta seu ingresso <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
-          </div>
+    <div class="tix">
+      <article class="tk" data-tilt data-reveal aria-labelledby="t-tk-club">
+        <div class="tk__faixa"><b aria-hidden="true">Camarote</b><span class="mono tk__lote">2º lote</span></div>
+        <div class="tk__meio">
+          <p class="mono tk__k">Camarote</p>
+          <h3 class="tk__n" id="t-tk-club">2Rodas Club</h3>
+          <p class="tk__d">O camarote da revista Duas Rodas, próximo da reta principal, com vista exclusiva do autódromo.</p>
+          <ul class="inc"><li>Acesso ao camarote, próximo da reta principal</li><li>Vista exclusiva do Autódromo de Goiânia</li><li>Open bar e open food premium, com bebidas alcoólicas a partir das 11h</li><li>Acesso à Fanzone, com produtos licenciados, entretenimento e shows</li><li>Ingresso válido para os três dias</li></ul>
+        </div>
+        <div class="tk__compra">
+          <p class="mono tk__dias">02 a 04 abr 2027 · Goiânia</p>
+          <p class="tk__preco"><span>R$</span><b data-count="7390">7.390</b><span>preço único</span></p>
+          <a class="btn btn--ghost" href="https://ig.me/m/2rodasclub.br" target="_blank" rel="noopener">Garanta seu ingresso <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
         </div>
       </article>
 
-      <article class="xp xp--lounge" data-tilt data-reveal>
-        <div class="xp__media"><span class="xp__badge" aria-hidden="true">Lounge<small>Diogo Moreira</small></span><span class="mono xp__tag">2º lote</span></div>
-        <div class="xp__body">
-          <h3 class="xp__name"><small>2Rodas Club</small>Lounge Diogo Moreira</h3>
-          <p class="xp__desc">Uma experiência dentro da experiência: área exclusiva para 250 pessoas, com varanda para a pista, meet &amp; greet com o Diogo Moreira e a camisa oficial do fã-clube.</p>
-          <div class="xp__foot">
-            <p class="xp__price"><span>R$</span><b data-count="8900">8.900</b><span>preço único</span></p>
-            <a class="btn btn--primary" data-magnet href="https://ig.me/m/2rodasclub.br" target="_blank" rel="noopener">Garanta seu lugar no Lounge <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
-          </div>
+      <article class="tk tk--lounge" data-tilt data-reveal aria-labelledby="t-tk-lounge">
+        <div class="tk__faixa"><b aria-hidden="true">Lounge</b><span class="mono tk__lote">2º lote</span></div>
+        <div class="tk__meio">
+          <p class="mono tk__k">2Rodas Club · o mais completo</p>
+          <h3 class="tk__n" id="t-tk-lounge">Lounge Diogo Moreira</h3>
+          <p class="tk__d">Uma experiência dentro da experiência, no camarote oficial do piloto brasileiro.</p>
+          <p class="tk__mais">Tudo do 2Rodas Club, e mais:</p>
+          <ul class="inc"><li>Área exclusiva para 250 pessoas</li><li>Varanda exclusiva para a pista</li><li>Meet &amp; greet com o Diogo Moreira</li><li>Camisa oficial do fã-clube do Diogo Moreira</li></ul>
+        </div>
+        <div class="tk__compra">
+          <p class="mono tk__dias">02 a 04 abr 2027 · Goiânia</p>
+          <p class="tk__preco"><span>R$</span><b data-count="8900">8.900</b><span>preço único</span></p>
+          <a class="btn btn--primary" data-magnet href="https://ig.me/m/2rodasclub.br" target="_blank" rel="noopener">Garanta seu lugar no Lounge <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+        </div>
+      </article>
+
+      <article class="tk tk--arq" id="arquibancada" data-tilt data-reveal aria-labelledby="t-arq">
+        <div class="tk__faixa"><b aria-hidden="true">Arquibancada</b><span class="mono tk__lote">2º lote</span></div>
+        <div class="tk__meio">
+          <p class="mono tk__k">Arquibancada oficial · também à venda</p>
+          <h3 class="tk__n" id="t-arq"><span class="sr">Arquibancada Oficial </span>Diogo Moreira</h3>
+          <p class="tk__d">A arquibancada coberta da torcida do piloto brasileiro.</p>
+          <ul class="inc"><li>Arquibancada coberta, com visão para a curva Bico de Pato</li><li>Telão</li><li>Camiseta oficial do fã-clube, uma por ingresso, do PP ao 3G</li><li>Acesso à Fanzone, com pontos de venda de alimentação e bebidas</li><li>Ingresso válido para os três dias</li></ul>
+          <p class="tk__nao">Não dá acesso ao camarote. Comida e bebida não estão incluídas.</p>
+        </div>
+        <div class="tk__compra">
+          <p class="mono tk__dias">02 a 04 abr 2027 · Goiânia</p>
+          <p class="tk__preco"><span>R$</span><b data-count="2250">2.250</b><span>preço único</span></p>
+          <a class="btn btn--ghost" href="https://ig.me/m/2rodasclub.br" target="_blank" rel="noopener">Garanta seu lugar<span class="sr"> na arquibancada</span> <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
         </div>
       </article>
     </div>
-
-    <div class="compare" data-reveal>
-      <table>
-        <caption class="mono">O que cada ingresso inclui</caption>
-        <thead><tr><td></td><th scope="col">2Rodas Club</th><th scope="col">Lounge Diogo Moreira</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Acesso ao camarote, próximo da reta principal</th><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
-          <tr><th scope="row">Vista exclusiva do Autódromo de Goiânia</th><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
-          <tr><th scope="row">Open bar e open food premium<small>Bebidas alcoólicas a partir das 11h</small></th><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
-          <tr><th scope="row">Acesso à Fanzone<small>Produtos licenciados, entretenimento e shows</small></th><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
-          <tr><th scope="row">Ingresso válido para os três dias</th><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
-          <tr><th scope="row">Área exclusiva para 250 pessoas</th><td><span class="no">Não inclui</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
-          <tr><th scope="row">Varanda exclusiva para a pista</th><td><span class="no">Não inclui</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
-          <tr><th scope="row">Meet &amp; greet com o Diogo Moreira</th><td><span class="no">Não inclui</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
-          <tr><th scope="row">Camisa oficial do fã-clube do Diogo Moreira</th><td><span class="no">Não inclui</span></td><td><span class="ok" aria-hidden="true"></span><span class="sr">Incluso</span></td></tr>
-          <tr class="compare__price"><th scope="row">Preço único, 2º lote</th><td>R$ 7.390</td><td>R$ 8.900</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <article class="arq" id="arquibancada" data-reveal aria-labelledby="t-arq">
-      <div class="arq__info">
-        <p class="mono arq__k">Também à venda</p>
-        <h3 class="arq__name" id="t-arq">Arquibancada Oficial <strong class="acc">Diogo Moreira</strong></h3>
-        <p class="arq__desc">A arquibancada coberta da torcida do piloto brasileiro, com visão para a curva Bico de Pato. Não dá acesso ao camarote.</p>
-        <ul class="arq__list">
-          <li>Arquibancada coberta, com visão para a curva Bico de Pato</li>
-          <li>Telão</li>
-          <li>Camiseta oficial do fã-clube do Diogo Moreira, uma por ingresso, do PP ao 3G, com o tamanho escolhido na compra</li>
-          <li>Acesso à Fanzone, com pontos de venda de alimentação, bebidas, produtos licenciados, entretenimento e shows</li>
-          <li>Ingresso válido para os três dias</li>
-        </ul>
-      </div>
-      <div class="arq__buy">
-        <p class="mono arq__lote">2º lote</p>
-        <p class="xp__price"><span>R$</span><b data-count="2250">2.250</b><span>preço único</span></p>
-        <a class="btn btn--primary" data-magnet href="https://ig.me/m/2rodasclub.br" target="_blank" rel="noopener">Garanta seu lugar na arquibancada <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
-      </div>
-    </article>
     <p class="xp-note" data-reveal>Valores do 2º lote, com impostos incluídos. Ingressos limitados, sujeitos à disponibilidade. A compra é feita pelo Direct do Instagram <a href="https://www.instagram.com/2rodasclub.br/" target="_blank" rel="noopener">@2rodasclub.br</a>.</p>
   </div>
 </section>
