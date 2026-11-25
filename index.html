@@ -1148,16 +1148,18 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     blocks.push({ s: BOX, poly: strip(BOX.f[0], BOX.f[1], BOX.d, BOX.w), c: mid(BOX.f[0], BOX.f[1], BOX.d + BOX.w / 2), h: 16, box: true });
     function sign(b) {
       if (!b.s.lab || (narrow && !b.s.club)) return;
-      const u = Math.max(0.72, Math.min(1.15, W / 1100)), base = pr(b.c[0], b.c[1], b.h), top = pr(b.c[0], b.c[1], b.h + (b.s.club ? 80 : 44));
+      const u = Math.max(0.72, Math.min(1.15, W / 1100)), base = pr(b.c[0], b.c[1], b.h), top = pr(b.c[0], b.c[1], b.h + (b.s.club ? 68 : 44));
       ctx.strokeStyle = b.s.club ? '#ffca7f' : 'rgba(255,255,255,.4)'; ctx.lineWidth = b.s.club ? 2 : 1.2; ctx.beginPath(); ctx.moveTo(base[0], base[1]); ctx.lineTo(top[0], top[1]); ctx.stroke();
       ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
       if (b.s.club) {
-        ctx.font = `800 ${17 * u}px Montserrat, sans-serif`; const w = ctx.measureText('2RODAS CLUB').width + 34 * u, h = 48 * u, x = top[0] - w / 2, y = top[1] - h;
-        ctx.save(); ctx.shadowColor = 'rgba(255,202,127,.55)'; ctx.shadowBlur = 26;
+        // placa menor e translúcida, para não esconder a pista atrás dela
+        ctx.font = `800 ${14 * u}px Montserrat, sans-serif`; const w = ctx.measureText('2RODAS CLUB').width + 24 * u, h = 38 * u, x = top[0] - w / 2, y = top[1] - h;
+        ctx.save(); ctx.shadowColor = 'rgba(255,202,127,.35)'; ctx.shadowBlur = 16; ctx.globalAlpha = 0.68;
         const g = ctx.createLinearGradient(x, 0, x + w, 0); g.addColorStop(0, '#cf904a'); g.addColorStop(0.55, '#ffca7f'); g.addColorStop(1, '#d89b55');
-        ctx.fillStyle = g; rr(x, y, w, h, 8 * u); ctx.fill(); ctx.restore();
-        ctx.fillStyle = '#171310'; ctx.fillText('2RODAS CLUB', top[0], y + 24 * u);
-        ctx.font = `700 ${8.5 * u}px "JetBrains Mono", monospace`; ctx.fillText('CAMAROTE', top[0], y + 39 * u);
+        ctx.fillStyle = g; rr(x, y, w, h, 7 * u); ctx.fill(); ctx.restore();
+        ctx.strokeStyle = 'rgba(255,243,220,.75)'; ctx.lineWidth = 1; rr(x, y, w, h, 7 * u); ctx.stroke();
+        ctx.fillStyle = '#171310'; ctx.fillText('2RODAS CLUB', top[0], y + 19.5 * u);
+        ctx.font = `700 ${7.5 * u}px "JetBrains Mono", monospace`; ctx.fillText('CAMAROTE', top[0], y + 31 * u);
       } else {
         ctx.font = `500 ${10.5 * u}px "JetBrains Mono", monospace`; const txt = b.s.lab.toUpperCase(), w = ctx.measureText(txt).width + 16 * u, h = 22 * u, x = top[0] - w / 2, y = top[1] - h;
         ctx.fillStyle = 'rgba(20,20,20,.92)'; ctx.strokeStyle = 'rgba(255,255,255,.3)'; ctx.lineWidth = 1; rr(x, y, w, h, 5 * u); ctx.fill(); ctx.stroke();
