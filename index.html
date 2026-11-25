@@ -289,6 +289,13 @@ html.is-loading .nav{opacity:0}
 /* local */
 .local{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:clamp(24px,5vw,80px);align-items:end}
 .local__info{padding-bottom:6px}
+.maquete{grid-column:1/-1;position:relative;margin:clamp(8px,2vw,24px) 0 0;border:1px solid var(--line-2);border-radius:22px;background:radial-gradient(ellipse at 50% 45%,#1d1a16,#0c0c0c 70%);overflow:hidden}
+.maquete canvas{display:block;width:100%;aspect-ratio:2/1;cursor:grab;touch-action:pan-y}
+.maquete canvas:active{cursor:grabbing}
+.maquete__hint{position:absolute;right:18px;top:16px;color:var(--dim);font-size:10.5px;pointer-events:none}
+.maquete__key{position:absolute;left:18px;top:14px;display:flex;align-items:center;gap:10px;color:var(--amber-hi);font-size:10.5px;pointer-events:none}
+.maquete__key i{width:16px;height:9px;border-radius:2px;background:linear-gradient(100deg,#cf904a,#ffca7f,#d89b55)}
+.maquete figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:13px 18px;border-top:1px solid var(--line);color:var(--dim);font-size:11px}
 .local__info .addr{margin:0 0 22px}
 .plan__note{margin:0 0 18px;color:#d6d3cd;font-size:16px}
 .faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(30px,6vw,90px);align-items:start}
@@ -381,6 +388,8 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   .faq__item p{padding-right:0}
   .xp__foot .btn{width:100%;justify-content:center}
   .hero__map canvas{aspect-ratio:3/2}
+  .maquete canvas{aspect-ratio:3/2}
+  .maquete__hint{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   .grain,.hud__dot,.sim::before{animation:none}
@@ -737,6 +746,12 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       <address class="addr">Rodovia GO 020, Km 04<br>Goiânia, Goiás</address>
       <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&query=Aut%C3%B3dromo+Internacional+de+Goi%C3%A2nia+Ayrton+Senna" target="_blank" rel="noopener">Abrir no Google Maps <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
     </div>
+    <figure class="maquete" data-reveal>
+      <canvas id="maqueteLocal" role="img" aria-label="Maquete do Autódromo Internacional de Goiânia com os setores. O 2Rodas Club aparece em dourado, na reta principal, do lado de fora da pista, perto da largada e dos boxes."></canvas>
+      <span class="mono maquete__key" aria-hidden="true"><i></i>2Rodas Club</span>
+      <span class="mono maquete__hint" aria-hidden="true">Arraste para girar</span>
+      <figcaption class="mono"><span>Posições aproximadas, a partir do mapa oficial de setores</span><span>Traçado · 3,835 km</span></figcaption>
+    </figure>
   </div>
 </section>
 
@@ -1101,8 +1116,8 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
 
   /* ───────── maquete 3D do autódromo, com o 2Rodas Club em destaque ─────────
      Projeção própria em canvas 2D, sem biblioteca. Posições aproximadas, a partir do mapa oficial de setores. */
-  (function maquete() {
-    const cv = $('#maquete'), edge = $('#trkEdge'); if (!cv || !edge) return;
+  function maquete(cv, hud) {
+    const edge = $('#trkEdge'); if (!cv || !edge) return;
     const ctx = cv.getContext('2d'), geo = circuitGeo(edge), { pts, off, strip, mid } = geo, N = geo.N;
     const S = [
       { f: [0.040, 0.136], d: 16, w: 13, lab: 'Setor B' },
@@ -1120,7 +1135,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     for (const p of pts) { minX = Math.min(minX, p[0]); maxX = Math.max(maxX, p[0]); minY = Math.min(minY, p[1]); maxY = Math.max(maxY, p[1]); }
     const CX = (minX + maxX) / 2, CY = (minY + maxY) / 2, PITCH = 0.98, SP = Math.sin(PITCH), CP = Math.cos(PITCH);
     const clubC = mid(CLUB_F[0], CLUB_F[1], 24);
-    const km = $('#hudKm'), lapEl = $('#hudLap'); let laps = 1;
+    const km = hud ? $('#hudKm') : null, lapEl = hud ? $('#hudLap') : null; let laps = 1;
     let W = 0, H = 0, narrow = false, yaw = 0.34, auto = !RM, drag = null, visible = false, t0 = performance.now(), last = t0, pos = 0, cs = 1, sn = 0, sc = 1, MX = 0, MY = 0;
     const size = () => { const r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2); W = r.width; H = r.height; narrow = W < 560; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); };
     const pr = (x, y, z) => { const X = x - CX, Y = y - CY, xr = X * cs - Y * sn, yr = X * sn + Y * cs; return [W / 2 + (xr - MX) * sc, H * 0.64 + (yr - MY) * sc * CP - z * sc * SP, yr]; };
@@ -1166,7 +1181,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       for (let x = Math.ceil((minX - 95) / 70) * 70; x < maxX + 95; x += 70) line([[x, minY - 60], [x, maxY + 60]], 0, 'rgba(255,255,255,.03)', 1);
       line(pts, 0, '#050505', 17 * sc, true); line(pts, 2, 'rgba(255,255,255,.7)', 13.5 * sc, true); line(pts, 2, '#2f2f33', 11 * sc, true);
       line([off(START, -7), off(START, 7)], 2.5, '#fff', 2.4);
-      if (lap.ready) {
+      if (lap.ready || !hud) {
         pos += N / 7.5 * dt * lap.speed * (0.6 + flow.boost * 0.4);
         if (pos >= N) { pos -= N; laps++; }
         if (km) { km.textContent = (pos / N * TRACK_KM).toFixed(3).replace('.', ','); lapEl.textContent = String(laps).padStart(2, '0'); }
@@ -1194,7 +1209,9 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       if (RM) { if (e.isIntersecting) { size(); draw(performance.now(), 0); } return; }
       visible = e.isIntersecting; if (visible) { size(); last = performance.now(); requestAnimationFrame(loop); }
     }).observe(cv);
-  })();
+  }
+  maquete($('#maquete'), true);
+  maquete($('#maqueteLocal'), false);
 
   /* ───────── sem GSAP (CDN fora do ar): mostra tudo e sai ───────── */
   function showEverything() {
