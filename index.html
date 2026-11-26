@@ -245,12 +245,21 @@ html.is-loading .nav{opacity:0}
 .tk__preco b{font-family:var(--f-mono);font-weight:700;font-size:clamp(34px,3.6vw,50px);letter-spacing:-.04em;line-height:1}
 .tk .btn{justify-content:center;white-space:normal;text-align:center;line-height:1.2;padding:12px 14px;font-size:13px;letter-spacing:.04em;min-height:60px}
 .tk--lounge{border-color:rgba(232,32,31,.75);background:linear-gradient(170deg,#2b1010,#141010);box-shadow:0 30px 80px -40px rgba(232,32,31,.6)}
-.tk--lounge .tk__faixa{background:var(--stripes-white),#e8201f;--ch:4.3}
+.tk--lounge .tk__faixa{background:var(--stripes-white),#e8201f}
 .tk--lounge .tk__faixa b{-webkit-text-stroke:0;color:#fff}
 .tk--lounge .tk__lote{background:#fff;color:#c40a0a;border-color:transparent;font-weight:700}
 .tk--lounge .tk__compra::before,.tk--lounge .tk__compra::after{border-color:rgba(232,32,31,.75)}
 .tk--arq{background:linear-gradient(170deg,#1a1a1a,#121212)}
 .tk--arq .tk__faixa{--ch:8.4}
+.tk--wide{grid-column:1/-1}
+.tk--wide .tk__faixa{--ch:4.3}
+.tk--wide .tk__d{min-height:0}
+@media (min-width:1021px){
+  .tk--wide{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
+  .tk--wide .tk__faixa{grid-column:1/-1}
+  .tk--wide .tk__compra{border-top:0;border-left:2px dashed rgba(255,255,255,.24);align-content:center}
+  .tk--wide .tk__compra::before,.tk--wide .tk__compra::after{display:none}
+}
 .xp-note{margin-top:22px;color:var(--dim);font-size:13.5px;max-width:78ch}
 
 /* diogo */
@@ -488,14 +497,14 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
    {
     "@type": "Offer",
     "name": "2Rodas Club (2º lote)",
-    "price": "7390.00",
+    "price": "6920.00",
     "priceCurrency": "BRL",
     "url": "https://contato-lab.github.io/lp-2rodas-club/#ingressos",
     "validFrom": "2026-10-08T12:00:00-03:00"
    },
    {
     "@type": "Offer",
-    "name": "2Rodas Club - Lounge Diogo Moreira (2º lote)",
+    "name": "Camarote Diogo Moreira (2º lote)",
     "price": "8900.00",
     "priceCurrency": "BRL",
     "url": "https://contato-lab.github.io/lp-2rodas-club/#ingressos",
@@ -528,7 +537,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     "name": "O que está incluso no camarote?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "2Rodas Club: acesso ao camarote na reta principal, próximo à largada e aos boxes, com vista privilegiada da pista, Open Bar e Open Food premium, telões de transmissão e DJs nos intervalos, com bebidas alcoólicas a partir das 11h, além de acesso à Fanzone, transfer até o Autódromo e mais benefícios exclusivos. Lounge Diogo Moreira: além da estrutura premium e dos benefícios do 2Rodas Club, o Lounge oferece uma área exclusiva para apenas 250 pessoas, com varanda voltada para a pista, possibilidade de Meet & Greet com Diogo Moreira e camiseta oficial do fã-clube inclusa."
+     "text": "2Rodas Club: acesso ao camarote na reta principal, próximo à largada e aos boxes, com vista privilegiada da pista, Open Bar e Open Food premium, telões de transmissão e DJs nos intervalos, com bebidas alcoólicas a partir das 11h, além de acesso à Fanzone, transfer até o Autódromo e mais benefícios exclusivos. Camarote Diogo Moreira: além da estrutura premium e dos benefícios do 2Rodas Club, o Camarote Diogo Moreira oferece uma área exclusiva para apenas 100 pessoas, com varanda voltada para a pista, possibilidade de Meet & Greet com Diogo Moreira e camiseta oficial do fã-clube inclusa."
     }
    },
    {
@@ -536,7 +545,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     "name": "Quanto custa cada ingresso?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "No 2º lote, o 2Rodas Club custa R$ 7.390, o Lounge Diogo Moreira custa R$ 8.900 e a Arquibancada Oficial Diogo Moreira custa R$ 2.250, em preço único. Os valores incluem impostos."
+     "text": "No 2º lote, o 2Rodas Club custa R$ 6.920, o Camarote Diogo Moreira custa R$ 8.900 e a Arquibancada Oficial Diogo Moreira custa R$ 2.250, em preço único. Os valores incluem impostos. O Lounge 2Rodas Club, exclusivo para 30 ingressos dentro do Camarote 2Rodas Club, custa R$ 195.000 e é vendido pela equipe."
     }
    },
    {
@@ -544,7 +553,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     "name": "O que inclui a Arquibancada Oficial Diogo Moreira?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Lugar na arquibancada coberta, com visão para a curva Bico de Pato, telão e acesso à Fanzone, com pontos de venda de alimentação, bebidas, produtos licenciados, entretenimento e shows. Cada ingresso dá direito a uma camiseta oficial do fã-clube do Diogo Moreira, do PP ao 3G, com o tamanho escolhido no ato da compra. Comida e bebida não estão incluídas. A Arquibancada não dá acesso ao camarote 2Rodas Club nem ao Lounge Diogo Moreira."
+     "text": "Lugar na arquibancada coberta, com visão para a curva Bico de Pato, telão e acesso à Fanzone, com pontos de venda de alimentação, bebidas, produtos licenciados, entretenimento e shows. Cada ingresso dá direito a uma camiseta oficial do fã-clube do Diogo Moreira, do PP ao 3G, com o tamanho escolhido no ato da compra. Comida e bebida não estão incluídas. A Arquibancada não dá acesso ao camarote 2Rodas Club nem ao Camarote Diogo Moreira."
     }
    },
    {
@@ -578,7 +587,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   <div class="container nav__inner">
     <a href="#top" aria-label="2Rodas Club, início"><img class="logo" src="img/logo-2rodasclub-500.png" alt="2Rodas Club" width="500" height="184"></a>
     <nav class="nav__links mono" aria-label="Principal">
-      <a href="#camarote">O camarote</a><a href="#ingressos">Ingressos</a><a href="#lounge">Lounge</a><a href="#temporada">2027</a><a href="#local">Local</a><a href="#duvidas">Dúvidas</a>
+      <a href="#camarote">O camarote</a><a href="#ingressos">Ingressos</a><a href="#lounge">Diogo Moreira</a><a href="#temporada">2027</a><a href="#local">Local</a><a href="#duvidas">Dúvidas</a>
     </nav>
     <div class="nav__right">
       <a class="btn btn--primary btn--sm" data-magnet href="#ingressos">Comprar<span class="sr"> ingresso</span> <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
@@ -588,11 +597,11 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
 </header>
 <div class="menu" id="menu" data-open="false">
   <button class="menu__close" id="menuClose" aria-label="Fechar menu">×</button>
-  <a href="#camarote">O camarote</a><a href="#ingressos">Ingressos</a><a href="#lounge">Lounge</a><a href="#temporada">2027</a><a href="#local">Local</a><a href="#duvidas">Dúvidas</a>
+  <a href="#camarote">O camarote</a><a href="#ingressos">Ingressos</a><a href="#lounge">Diogo Moreira</a><a href="#temporada">2027</a><a href="#local">Local</a><a href="#duvidas">Dúvidas</a>
 </div>
 
 <div class="buybar" id="buybar" aria-hidden="true">
-  <p><span class="mono">Camarote a partir de</span><b>R$ 7.390</b></p>
+  <p><span class="mono">Camarote a partir de</span><b>R$ 6.920</b></p>
   <a class="btn btn--primary" href="#ingressos" tabindex="-1">Garanta seu ingresso <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
 </div>
 <div id="smooth-wrapper"><div id="smooth-content">
@@ -633,7 +642,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     <div class="container hero__bottom-inner" data-calm="0.15">
       <div><p class="mono fact__k">Quando</p><p class="fact__v">02 a 04 de abril de 2027<br>sexta-feira a domingo</p></div>
       <div><p class="mono fact__k">Onde</p><p class="fact__v">Autódromo Internacional de Goiânia Ayrton Senna</p></div>
-      <div><p class="mono fact__k">Camarote</p><p class="fact__v">A partir de R$ 7.390<br>2º lote</p></div>
+      <div><p class="mono fact__k">Camarote</p><p class="fact__v">A partir de R$ 6.920<br>2º lote</p></div>
       <div>
         <p class="mono fact__k">Contagem para sexta-feira, 02/04/2027</p>
         <div class="countdown" role="timer" aria-label="Contagem regressiva para 02/04/2027">
@@ -694,37 +703,6 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     </div>
 
     <div class="tix">
-      <article class="tk" data-tilt data-reveal aria-labelledby="t-tk-club">
-        <div class="tk__faixa"><b aria-hidden="true">Camarote</b><span class="mono tk__lote">2º lote</span></div>
-        <div class="tk__meio">
-          <p class="mono tk__k">Camarote</p>
-          <h3 class="tk__n" id="t-tk-club">2Rodas Club</h3>
-          <p class="tk__d">O camarote da Revista Duas Rodas, próximo da reta principal, com vista exclusiva do autódromo.</p>
-          <ul class="inc"><li>Vista privilegiada na reta principal</li><li>Experiência exclusiva no Autódromo de Goiânia</li><li>Open Bar e Open Food Premium</li><li>Acesso à Fanzone</li><li>Transfer até o Autódromo</li><li>Telões de transmissão e DJs nos intervalos das corridas</li><li>Um ingresso para os três dias</li><li>E muito mais</li></ul>
-        </div>
-        <div class="tk__compra">
-          <p class="mono tk__dias">02 a 04 abr 2027 · Goiânia</p>
-          <p class="tk__preco"><span>R$</span><b data-count="7390">7.390</b><span>preço único</span></p>
-          <a class="btn btn--ghost" href="https://www.2rodasclub.com/event-details/camarote-2rodas-club-na-motogp-brasil-2027?ingresso=2rodas" target="_top">Garanta seu ingresso <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
-        </div>
-      </article>
-
-      <article class="tk tk--lounge" data-tilt data-reveal aria-labelledby="t-tk-lounge">
-        <div class="tk__faixa"><b aria-hidden="true">Lounge</b><span class="mono tk__lote">2º lote</span></div>
-        <div class="tk__meio">
-          <p class="mono tk__k">2Rodas Club · o mais completo</p>
-          <h3 class="tk__n" id="t-tk-lounge">Lounge Diogo Moreira</h3>
-          <p class="tk__d">Uma experiência dentro da experiência, no camarote oficial do piloto brasileiro.</p>
-          <p class="tk__mais">Tudo do 2Rodas Club, e mais:</p>
-          <ul class="inc"><li>Vista privilegiada na reta principal</li><li>Experiência exclusiva no Autódromo de Goiânia</li><li>Transfer até o Autódromo</li><li>Área exclusiva para 250 pessoas</li><li>Varanda exclusiva para a pista</li><li>Possibilidade de Meet &amp; Greet com o Diogo Moreira</li><li>Camiseta oficial do fã-clube do Diogo Moreira</li></ul>
-        </div>
-        <div class="tk__compra">
-          <p class="mono tk__dias">02 a 04 abr 2027 · Goiânia</p>
-          <p class="tk__preco"><span>R$</span><b data-count="8900">8.900</b><span>preço único</span></p>
-          <a class="btn btn--primary" data-magnet href="https://www.2rodasclub.com/event-details/camarote-2rodas-club-na-motogp-brasil-2027?ingresso=lounge" target="_top">Garanta seu lugar no Lounge <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
-        </div>
-      </article>
-
       <article class="tk tk--arq" id="arquibancada" data-tilt data-reveal aria-labelledby="t-arq">
         <div class="tk__faixa"><b aria-hidden="true">Arquibancada</b><span class="mono tk__lote">2º lote</span></div>
         <div class="tk__meio">
@@ -740,12 +718,57 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
           <a class="btn btn--ghost" href="https://www.2rodasclub.com/event-details/camarote-2rodas-club-na-motogp-brasil-2027?ingresso=arquibancada" target="_top">Garanta seu lugar<span class="sr"> na arquibancada</span> <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
         </div>
       </article>
+
+      <article class="tk" data-tilt data-reveal aria-labelledby="t-tk-club">
+        <div class="tk__faixa"><b aria-hidden="true">Camarote</b><span class="mono tk__lote">2º lote</span></div>
+        <div class="tk__meio">
+          <p class="mono tk__k">Camarote</p>
+          <h3 class="tk__n" id="t-tk-club">2Rodas Club</h3>
+          <p class="tk__d">O camarote da Revista Duas Rodas, próximo da reta principal, com vista exclusiva do autódromo.</p>
+          <ul class="inc"><li>Vista privilegiada na reta principal</li><li>Experiência exclusiva no Autódromo de Goiânia</li><li>Open Bar e Open Food Premium</li><li>Acesso à Fanzone</li><li>Transfer até o Autódromo</li><li>Telões de transmissão e DJs nos intervalos das corridas</li><li>Um ingresso para os três dias</li><li>E muito mais</li></ul>
+        </div>
+        <div class="tk__compra">
+          <p class="mono tk__dias">02 a 04 abr 2027 · Goiânia</p>
+          <p class="tk__preco"><span>R$</span><b data-count="6920">6.920</b><span>preço único</span></p>
+          <a class="btn btn--ghost" href="https://www.2rodasclub.com/event-details/camarote-2rodas-club-na-motogp-brasil-2027?ingresso=2rodas" target="_top">Garanta seu ingresso <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+        </div>
+      </article>
+
+      <article class="tk tk--lounge" data-tilt data-reveal aria-labelledby="t-tk-lounge">
+        <div class="tk__faixa"><b aria-hidden="true">Camarote</b><span class="mono tk__lote">2º lote</span></div>
+        <div class="tk__meio">
+          <p class="mono tk__k">2Rodas Club · o mais completo</p>
+          <h3 class="tk__n" id="t-tk-lounge"><span class="sr">Camarote </span>Diogo Moreira</h3>
+          <p class="tk__d">Uma experiência dentro da experiência, no camarote oficial do piloto brasileiro.</p>
+          <p class="tk__mais">Tudo do 2Rodas Club, e mais:</p>
+          <ul class="inc"><li>Vista privilegiada na reta principal</li><li>Experiência exclusiva no Autódromo de Goiânia</li><li>Transfer até o Autódromo</li><li>Área exclusiva para 100 pessoas</li><li>Varanda exclusiva para a pista</li><li>Possibilidade de Meet &amp; Greet com o Diogo Moreira</li><li>Camiseta oficial do fã-clube do Diogo Moreira</li></ul>
+        </div>
+        <div class="tk__compra">
+          <p class="mono tk__dias">02 a 04 abr 2027 · Goiânia</p>
+          <p class="tk__preco"><span>R$</span><b data-count="8900">8.900</b><span>preço único</span></p>
+          <a class="btn btn--primary" data-magnet href="https://www.2rodasclub.com/event-details/camarote-2rodas-club-na-motogp-brasil-2027?ingresso=lounge" target="_top">Garanta seu lugar<span class="sr"> no Camarote Diogo Moreira</span> <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+        </div>
+      </article>
+
+      <article class="tk tk--wide" data-tilt data-reveal aria-labelledby="t-tk-l2r">
+        <div class="tk__faixa"><b aria-hidden="true">Lounge</b></div>
+        <div class="tk__meio">
+          <p class="mono tk__k">Dentro do Camarote 2Rodas Club</p>
+          <h3 class="tk__n" id="t-tk-l2r">Lounge 2Rodas Club</h3>
+          <p class="tk__d">Lounge exclusivo para 30 ingressos dentro do Camarote 2Rodas Club.</p>
+        </div>
+        <div class="tk__compra">
+          <p class="mono tk__dias">02 a 04 abr 2027 · Goiânia</p>
+          <p class="tk__preco"><span>R$</span><b data-count="195000">195.000</b><span>por lounge</span></p>
+          <a class="btn btn--ghost" href="https://ig.me/m/2rodasclub.br" target="_blank" rel="noopener">Fale com a equipe <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+        </div>
+      </article>
     </div>
-    <p class="xp-note" data-reveal>Valores do 2º lote, com impostos incluídos. Ingressos limitados, sujeitos à disponibilidade. A compra é feita aqui no site.</p>
+    <p class="xp-note" data-reveal>Valores do 2º lote, com impostos incluídos. Ingressos limitados, sujeitos à disponibilidade. A compra é feita aqui no site; o Lounge 2Rodas Club é vendido pela equipe.</p>
   </div>
 </section>
 
-<!-- ═══════════ LOUNGE DIOGO MOREIRA ═══════════ -->
+<!-- ═══════════ CAMAROTE DIOGO MOREIRA ═══════════ -->
 <section class="section" id="lounge" data-flow="0.4" aria-labelledby="t-lounge">
   <div class="container diogo">
     <div class="diogo__photo" data-reveal data-speed="1.06">
@@ -753,14 +776,14 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       <div class="diogo__cap mono"><span>Diogo Moreira</span><span>Brasil · Honda</span></div>
     </div>
     <div data-calm="0.12">
-      <p class="mono section__label"><b>03</b> Lounge Diogo Moreira</p>
+      <p class="mono section__label"><b>03</b> Camarote Diogo Moreira</p>
       <h2 class="h2" id="t-lounge" data-split>O camarote oficial <strong class="acc">do Diogo Moreira.</strong></h2>
-      <p class="lead" data-reveal>O Lounge Diogo Moreira é o camarote oficial do piloto brasileiro no MotoGP™ Grande Prêmio do Brasil. Uma área exclusiva para apenas 250 pessoas, com varanda para a pista, possibilidade de Meet &amp; Greet com Diogo Moreira, camiseta oficial do fã-clube inclusa e todos os benefícios e acessos do 2Rodas Club.</p>
+      <p class="lead" data-reveal>O Camarote Diogo Moreira é o camarote oficial do piloto brasileiro no MotoGP™ Grande Prêmio do Brasil. Uma área exclusiva para apenas 100 pessoas, com varanda para a pista, possibilidade de Meet &amp; Greet com Diogo Moreira, camiseta oficial do fã-clube inclusa e todos os benefícios e acessos do 2Rodas Club.</p>
       <div class="stats" data-reveal>
         <div class="stat"><b>2ª temporada</b><span>Em 2027, Diogo corre o segundo ano na categoria principal do motociclismo mundial, pela Honda.</span></div>
         <div class="stat"><b>Melhor tempo</b><span>Fez a melhor marca, não oficial, nos testes da Pirelli em Spielberg, na Áustria, em setembro.</span></div>
       </div>
-      <a class="btn btn--primary" data-magnet href="https://www.2rodasclub.com/event-details/camarote-2rodas-club-na-motogp-brasil-2027?ingresso=lounge" target="_top">Garanta seu lugar no Lounge <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+      <a class="btn btn--primary" data-magnet href="https://www.2rodasclub.com/event-details/camarote-2rodas-club-na-motogp-brasil-2027?ingresso=lounge" target="_top">Garanta seu lugar<span class="sr"> no Camarote Diogo Moreira</span> <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
     </div>
   </div>
 </section>
@@ -828,9 +851,9 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     </div>
     <div class="faq__list">
       <details class="faq__item" data-reveal><summary><h3>O ingresso vale para os três dias?</h3><i aria-hidden="true"></i></summary><p>Sim. Os ingressos do MotoGP™ Grande Prêmio do Brasil 2027 são vendidos apenas para os três dias. Você assiste aos treinos de sexta-feira e sábado e à corrida de domingo.</p></details>
-      <details class="faq__item" data-reveal><summary><h3>O que está incluso no camarote?</h3><i aria-hidden="true"></i></summary><p><strong>2Rodas Club:</strong> acesso ao camarote na reta principal, próximo à largada e aos boxes, com vista privilegiada da pista, Open Bar e Open Food premium, telões de transmissão e DJs nos intervalos, com bebidas alcoólicas a partir das 11h, além de acesso à Fanzone, transfer até o Autódromo e mais benefícios exclusivos.</p><p><strong>Lounge Diogo Moreira:</strong> além da estrutura premium e dos benefícios do 2Rodas Club, o Lounge oferece uma área exclusiva para apenas 250 pessoas, com varanda voltada para a pista, possibilidade de Meet &amp; Greet com Diogo Moreira e camiseta oficial do fã-clube inclusa.</p></details>
-      <details class="faq__item" data-reveal><summary><h3>Quanto custa cada ingresso?</h3><i aria-hidden="true"></i></summary><p>No 2º lote, o 2Rodas Club custa R$ 7.390, o Lounge Diogo Moreira custa R$ 8.900 e a Arquibancada Oficial Diogo Moreira custa R$ 2.250, em preço único. Os valores incluem impostos.</p></details>
-      <details class="faq__item" data-reveal><summary><h3>O que inclui a Arquibancada Oficial Diogo Moreira?</h3><i aria-hidden="true"></i></summary><p>Lugar na arquibancada coberta, com visão para a curva Bico de Pato, telão e acesso à Fanzone, com pontos de venda de alimentação, bebidas, produtos licenciados, entretenimento e shows. Cada ingresso dá direito a uma camiseta oficial do fã-clube do Diogo Moreira, do PP ao 3G, com o tamanho escolhido no ato da compra. Comida e bebida não estão incluídas. A Arquibancada não dá acesso ao camarote 2Rodas Club nem ao Lounge Diogo Moreira.</p></details>
+      <details class="faq__item" data-reveal><summary><h3>O que está incluso no camarote?</h3><i aria-hidden="true"></i></summary><p><strong>2Rodas Club:</strong> acesso ao camarote na reta principal, próximo à largada e aos boxes, com vista privilegiada da pista, Open Bar e Open Food premium, telões de transmissão e DJs nos intervalos, com bebidas alcoólicas a partir das 11h, além de acesso à Fanzone, transfer até o Autódromo e mais benefícios exclusivos.</p><p><strong>Camarote Diogo Moreira:</strong> além da estrutura premium e dos benefícios do 2Rodas Club, o Camarote Diogo Moreira oferece uma área exclusiva para apenas 100 pessoas, com varanda voltada para a pista, possibilidade de Meet &amp; Greet com Diogo Moreira e camiseta oficial do fã-clube inclusa.</p></details>
+      <details class="faq__item" data-reveal><summary><h3>Quanto custa cada ingresso?</h3><i aria-hidden="true"></i></summary><p>No 2º lote, o 2Rodas Club custa R$ 6.920, o Camarote Diogo Moreira custa R$ 8.900 e a Arquibancada Oficial Diogo Moreira custa R$ 2.250, em preço único. Os valores incluem impostos. O Lounge 2Rodas Club, exclusivo para 30 ingressos dentro do Camarote 2Rodas Club, custa R$ 195.000 e é vendido pela equipe.</p></details>
+      <details class="faq__item" data-reveal><summary><h3>O que inclui a Arquibancada Oficial Diogo Moreira?</h3><i aria-hidden="true"></i></summary><p>Lugar na arquibancada coberta, com visão para a curva Bico de Pato, telão e acesso à Fanzone, com pontos de venda de alimentação, bebidas, produtos licenciados, entretenimento e shows. Cada ingresso dá direito a uma camiseta oficial do fã-clube do Diogo Moreira, do PP ao 3G, com o tamanho escolhido no ato da compra. Comida e bebida não estão incluídas. A Arquibancada não dá acesso ao camarote 2Rodas Club nem ao Camarote Diogo Moreira.</p></details>
       <details class="faq__item" data-reveal><summary><h3>Crianças e adolescentes podem entrar?</h3><i aria-hidden="true"></i></summary><p>Sim, e todos precisam de ingresso. Até 11 anos, a entrada é somente com pai, mãe ou responsável legal. De 12 a 17 anos, com pai, mãe, responsável legal ou outro maior de 18 anos, com a documentação exigida. Alguns setores podem ter restrição de idade, então vale conferir os termos do evento.</p></details>
     </div>
   </div>
@@ -841,7 +864,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   <div class="final__big" aria-hidden="true"><span id="finalBig">Vendas <em>abertas</em> · Vendas <em>abertas</em> ·</span></div>
   <div class="container" data-calm="0.1">
     <h2 class="sr">Garanta seu ingresso para o 2Rodas Club</h2>
-    <p data-reveal>2Rodas Club e Lounge Diogo Moreira, de 02 a 04 de abril de 2027, em Goiânia. Os ingressos são limitados.</p>
+    <p data-reveal>2Rodas Club e Camarote Diogo Moreira, de 02 a 04 de abril de 2027, em Goiânia. Os ingressos são limitados.</p>
     <a class="btn btn--primary" data-magnet data-reveal href="#ingressos">Garanta seu ingresso <svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
     <div class="slashes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
@@ -856,7 +879,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
       <p>2Rodas Club, o camarote da Revista Duas Rodas no MotoGP™ Grande Prêmio do Brasil 2027. De 02 a 04 de abril de 2027, no Autódromo Internacional de Goiânia Ayrton Senna.</p>
     </div>
     <nav class="footer__nav" aria-label="Rodapé">
-      <a href="#camarote">O camarote</a><a href="#ingressos">Ingressos</a><a href="#lounge">Lounge Diogo Moreira</a><a href="#duvidas">Dúvidas</a><a href="#ingressos">Comprar ingresso</a>
+      <a href="#camarote">O camarote</a><a href="#ingressos">Ingressos</a><a href="#lounge">Camarote Diogo Moreira</a><a href="#duvidas">Dúvidas</a><a href="#ingressos">Comprar ingresso</a>
     </nav>
     <p class="footer__legal"><a href="https://www.instagram.com/2rodasclub.br/" target="_blank" rel="noopener">@2rodasclub.br</a> no Instagram. MotoGP™ é marca registrada de seu titular. Traçado do circuito: © colaboradores do OpenStreetMap.</p>
   </div>
