@@ -431,11 +431,12 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   .split,.diogo,.local,.faq{grid-template-columns:1fr}
   .local{align-items:start}
   .monitor{position:relative;top:0}
-  .hud{display:none}
+  .hud{order:2;position:relative;top:22px;right:auto;height:0;width:100%;max-width:680px;margin:0 auto;padding:0 var(--pad);box-sizing:border-box;gap:3px;font-size:9px;letter-spacing:.1em;z-index:3}
+  .hud__dot{width:5px;height:5px;margin-right:6px}
   .hero__content{order:1;pointer-events:auto}
-  .hero__map{order:2;position:relative;right:auto;top:auto;width:100%;max-width:680px;transform:none;margin:10px auto 0}
+  .hero__map{order:3;position:relative;right:auto;top:auto;width:100%;max-width:680px;transform:none;margin:10px auto 0}
   .hero__map-cap{margin:2px var(--pad) 0;flex-direction:column;align-items:center;gap:4px;text-align:center}
-  .hero__bottom{order:3;margin-top:14px}
+  .hero__bottom{order:4;margin-top:14px}
   .trk-label,.trk-tick{display:none}
   .trk-edge{stroke-width:3.6}.trk-comet{stroke-width:9}.trk-glow{stroke-width:26}.trk-pit{stroke-width:2.8}
   .trk-dot{r:11px}
