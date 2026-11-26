@@ -565,14 +565,6 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
 <div class="lapbar" aria-hidden="true"><i></i></div>
 
 <!-- LARGADA: as cinco luzes acendem enquanto a página carrega e apagam para liberar o site -->
-<div class="boot" data-boot role="status" aria-live="polite" aria-label="Carregando o site">
-  <div class="boot__inner">
-    <img class="boot__logo" src="img/logo-2rodasclub-500.png" alt="2Rodas Club" width="500" height="184" fetchpriority="high" decoding="async">
-    <div class="lights" aria-hidden="true"><i class="light"></i><i class="light"></i><i class="light"></i><i class="light"></i><i class="light"></i></div>
-    <div class="boot__row"><span class="boot__pct" data-pct>0</span><span class="mono boot__status" data-status>alinhando no grid</span></div>
-  </div>
-</div>
-
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="ico-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -1348,7 +1340,7 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
   /* ───────── largada: luzes acendem com o carregamento, apagam e liberam ───────── */
   function boot() {
     const el = $('[data-boot]');
-    if (!el) return Promise.resolve();
+    if (!el) { clearTimeout(window.__bootFailsafe); root.classList.remove('is-loading'); return Promise.resolve(); }
     clearTimeout(window.__bootFailsafe);
     if (RM) { el.remove(); root.classList.remove('is-loading'); return Promise.resolve(); }
     const lights = $$('.light', el), pct = $('[data-pct]', el), status = $('[data-status]', el);
