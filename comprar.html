@@ -82,6 +82,15 @@ h1,h2,p{margin:0}
 .campo .erro{display:none;margin-top:6px;font-size:12.5px;color:var(--acc-hi)}
 .campo input[aria-invalid="true"] + .erro{display:block}
 .isca{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.campo input:-webkit-autofill,.campo input:-webkit-autofill:hover,.campo input:-webkit-autofill:focus{-webkit-text-fill-color:var(--text);caret-color:var(--text);-webkit-box-shadow:0 0 0 1000px var(--surface) inset;box-shadow:0 0 0 1000px var(--surface) inset;transition:background-color 9999s}
+.campo .opc{font-weight:400;color:var(--dim)}
+.gen{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;border:0;margin:0;padding:0;min-width:0}
+@media (min-width:560px){.gen{grid-template-columns:repeat(4,1fr)}}
+.gen legend{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px;padding:0}
+.gen label{position:relative;display:flex;align-items:center;justify-content:center;min-height:48px;padding:0 10px;border-radius:12px;border:1.5px solid var(--line-2);background:var(--surface);font-size:14px;text-align:center;cursor:pointer;line-height:1.2}
+.gen input{position:absolute;opacity:0;pointer-events:none}
+.gen label:has(input:checked){border-color:var(--acc);background:#1d1312}
+.gen label:has(input:focus-visible){outline:2px solid var(--acc-hi);outline-offset:2px}
 
 .aceite{display:flex;gap:12px;align-items:flex-start;margin-top:18px;font-size:13.5px;color:var(--muted);cursor:pointer}
 .aceite input{width:22px;height:22px;flex:none;margin:0;accent-color:var(--acc)}
@@ -149,13 +158,20 @@ h1,h2,p{margin:0}
         <div class="campo full"><label for="email">E-mail</label><input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="voce@email.com" required maxlength="64"><p class="erro" id="email-e">Confira o e-mail. O ingresso chega nele.</p></div>
         <div class="campo"><label for="telefone">Celular com DDD</label><input id="telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(11) 98765-4321" required maxlength="16"><p class="erro" id="telefone-e">Confira o celular com DDD.</p></div>
         <div class="campo"><label for="cpf">CPF</label><input id="cpf" name="cpf" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" required maxlength="14"><p class="erro" id="cpf-e">Confira o CPF.</p></div>
+        <div class="campo"><label for="nascimento">Data de nascimento</label><input id="nascimento" name="nascimento" inputmode="numeric" autocomplete="bday" placeholder="dd/mm/aaaa" required maxlength="10"><p class="erro" id="nascimento-e">Confira a data de nascimento.</p></div>
+        <fieldset class="gen full"><legend>Gênero <span class="opc">(opcional)</span></legend>
+          <label><input type="radio" name="genero" value="Feminino">Feminino</label>
+          <label><input type="radio" name="genero" value="Masculino">Masculino</label>
+          <label><input type="radio" name="genero" value="Outro">Outro</label>
+          <label><input type="radio" name="genero" value="Prefiro não dizer">Prefiro não dizer</label>
+        </fieldset>
       </div>
       <div class="isca" aria-hidden="true"><label>Site <input name="site" tabindex="-1" autocomplete="off"></label></div>
       <label class="aceite"><input type="checkbox" id="aceite"> <span>Li e concordo com o uso dos meus dados para esta compra, como explicado abaixo.</span></label>
       <details class="priv">
         <summary>Como usamos seus dados</summary>
         <div>
-          <p>Usamos nome, e-mail, celular e CPF só para processar a compra, enviar a confirmação e entregar as credenciais no evento.</p>
+          <p>Usamos nome, e-mail, celular, CPF, data de nascimento e gênero só para processar a compra, enviar a confirmação e entregar as credenciais no evento.</p>
           <p>O pagamento é feito no ambiente do Pagar.me. Os dados do cartão não passam por este site.</p>
           <p>Seus dados não são vendidos nem compartilhados para outros fins.</p>
         </div>
@@ -235,6 +251,14 @@ h1,h2,p{margin:0}
   function mascara(el, fn) { el.addEventListener('input', function () { var p = el.selectionStart === el.value.length; el.value = fn(el.value); if (p) el.setSelectionRange(el.value.length, el.value.length); el.removeAttribute('aria-invalid'); }); }
   mascara($('cpf'), function (v) { var d = v.replace(/\D/g, '').slice(0, 11); return d.replace(/^(\d{3})(\d)/, '$1.$2').replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3').replace(/\.(\d{3})(\d{1,2})$/, '.$1-$2'); });
   mascara($('telefone'), function (v) { var d = v.replace(/\D/g, '').slice(0, 11); if (d.length <= 2) return d.length ? '(' + d : ''; if (d.length <= 6) return '(' + d.slice(0, 2) + ') ' + d.slice(2); var c = d.length === 11 ? 7 : 6; return '(' + d.slice(0, 2) + ') ' + d.slice(2, c) + '-' + d.slice(c); });
+  mascara($('nascimento'), function (v) { var d = v.replace(/\D/g, '').slice(0, 8); return d.replace(/^(\d{2})(\d)/, '$1/$2').replace(/^(\d{2})\/(\d{2})(\d)/, '$1/$2/$3'); });
+  function nascOk(v) {
+    var m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(v); if (!m) return false;
+    var d = new Date(+m[3], +m[2] - 1, +m[1]);
+    if (d.getFullYear() !== +m[3] || d.getMonth() !== +m[2] - 1 || d.getDate() !== +m[1]) return false;
+    var idade = (Date.now() - d.getTime()) / 31557600000;
+    return idade >= 12 && idade <= 110;
+  }
   ['nome', 'sobrenome', 'email'].forEach(function (id) { $(id).addEventListener('input', function () { $(id).removeAttribute('aria-invalid'); }); });
 
   function cpfOk(c) {
@@ -250,6 +274,7 @@ h1,h2,p{margin:0}
     marca('email', /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test($('email').value.trim()));
     marca('telefone', /^[1-9]{2}9?\d{8}$/.test($('telefone').value.replace(/\D/g, '')));
     marca('cpf', cpfOk($('cpf').value.replace(/\D/g, '')));
+    marca('nascimento', nascOk($('nascimento').value));
     return erros;
   }
   function aviso(t) { $('aviso').textContent = t || ''; $('aviso').classList.toggle('on', !!t); }
@@ -265,7 +290,8 @@ h1,h2,p{margin:0}
     var g = atual();
     var corpo = {
       ingresso: g.id, qtd: qtd, nome: $('nome').value.trim(), sobrenome: $('sobrenome').value.trim(), email: $('email').value.trim(),
-      telefone: $('telefone').value, cpf: $('cpf').value, aceite: true, site: document.querySelector('[name=site]').value
+      telefone: $('telefone').value, cpf: $('cpf').value, nascimento: $('nascimento').value,
+      genero: (document.querySelector('[name=genero]:checked') || {}).value || '', aceite: true, site: document.querySelector('[name=site]').value
     };
     if (!/^https?:|^\.teste\//.test(API)) { aviso('Página de teste: o servidor ainda não foi ligado.'); return; }
     enviando = true; $('ir').setAttribute('aria-busy', 'true'); $('ir').textContent = 'Abrindo o pagamento';
