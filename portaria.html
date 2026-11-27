@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portaria | 2Rodas Club</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Montserrat:wght@400..800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0b;--bg-2:#121212;--surface:#181818;--elev:#222;--line:rgba(255,255,255,.10);--line-2:rgba(255,255,255,.18);--text:#f4f2ee;--muted:#dad7d1;--dim:#bdbab4;--acc:#e8201f;--acc-hi:#ff4038;--ok:#3ccf7a;--f-display:"Montserrat",system-ui,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text)}
+body{font-family:var(--f-display);line-height:1.45;-webkit-font-smoothing:antialiased;min-height:100dvh}
+button,input{font:inherit;color:inherit}
+h1,h2,p{margin:0}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--acc-hi);outline-offset:2px}
+.topo{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:rgba(11,11,11,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topo img{width:110px;height:auto}
+.topo small{font-size:12px;color:var(--dim)}
+.topo button{min-height:40px;padding:0 12px;border-radius:10px;border:1px solid var(--line-2);background:none;font-size:13px;cursor:pointer}
+main{max-width:640px;margin:0 auto;padding:16px 16px 60px}
+.entrar{display:grid;gap:14px;margin-top:12vh;text-align:center}
+.entrar h1{font-size:22px;font-weight:800;text-transform:uppercase}
+.entrar p{color:var(--dim);font-size:14px}
+.pin{width:100%;height:64px;border-radius:14px;border:1.5px solid var(--line-2);background:var(--surface);text-align:center;font-family:var(--f-mono);font-size:28px;letter-spacing:.4em}
+.pin:focus,.busca:focus{outline:none;border-color:var(--acc-hi)}
+.btn{min-height:56px;border:0;border-radius:14px;background:linear-gradient(100deg,#c80707 0%,#e8201f 55%,#d40d0b 100%);color:#fff;font-weight:800;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;touch-action:manipulation}
+.btn:disabled{opacity:.5}
+.msg{min-height:20px;font-size:14px;color:var(--acc-hi)}
+.placar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.placar div{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.placar b{display:block;font-family:var(--f-mono);font-size:22px}
+.placar span{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+.busca{width:100%;height:58px;padding:0 16px;border-radius:14px;border:1.5px solid var(--line-2);background:var(--surface);font-size:17px}
+.dica{margin:8px 2px 14px;font-size:12.5px;color:var(--dim)}
+.lista{display:grid;gap:10px}
+.item{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:16px}
+.item.ok{border-color:rgba(60,207,122,.5)}
+.l1{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.l1 b{font-size:17px;font-weight:800;line-height:1.2}
+.tag{flex:none;font-family:var(--f-mono);font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid var(--line-2);color:var(--muted)}
+.info{margin-top:6px;font-size:13.5px;color:var(--muted)}
+.info code{font-family:var(--f-mono);color:var(--text)}
+.cont{display:flex;align-items:center;gap:12px;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line-2)}
+.cont .n{flex:1;font-size:14px}
+.cont .n b{font-family:var(--f-mono);font-size:20px}
+.cont .n.ok{color:var(--ok)}
+.acoes{display:flex;gap:8px}
+.acoes button{min-height:48px;min-width:48px;padding:0 14px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface);font-weight:700;cursor:pointer;touch-action:manipulation}
+.acoes .ent{background:var(--acc);border-color:var(--acc);color:#fff}
+.acoes button:disabled{opacity:.35;cursor:not-allowed}
+.vazio{padding:28px 10px;text-align:center;color:var(--dim);font-size:14px}
+</style>
+</head>
+<body>
+<header class="topo">
+  <img src="img/logo-2rodasclub-500.png" alt="2Rodas Club" width="500" height="183">
+  <div id="quem" hidden><small id="quemNome"></small> <button type="button" id="sair">Sair</button></div>
+</header>
+<main>
+  <form class="entrar" id="fEntrar">
+    <h1>Portaria</h1>
+    <p>Digite o PIN de 6 dígitos que você recebeu.</p>
+    <label class="sr" for="pin" style="position:absolute;left:-9999px">PIN</label>
+    <input class="pin" id="pin" inputmode="numeric" autocomplete="one-time-code" maxlength="6" required>
+    <button class="btn" type="submit" id="bEntrar">Entrar</button>
+    <p class="msg" id="mEntrar" role="alert"></p>
+  </form>
+
+  <section id="painel" hidden>
+    <div class="placar" aria-live="polite">
+      <div><b id="sPed">–</b><span>Pedidos</span></div>
+      <div><b id="sCred">–</b><span>Credenciais</span></div>
+      <div><b id="sEnt">–</b><span>Entregues</span></div>
+    </div>
+    <label for="q" style="position:absolute;left:-9999px">Buscar</label>
+    <input class="busca" id="q" type="search" placeholder="Código, nome, e-mail ou CPF" autocomplete="off" autocapitalize="characters" enterkeyhint="search">
+    <p class="dica">CPF só encontra compras feitas no site próprio. Compras do Wix: busque por nome, e-mail ou número do pedido.</p>
+    <p class="msg" id="mPainel" role="alert"></p>
+    <div class="lista" id="lista" aria-live="polite"></div>
+  </section>
+</main>
+<script>
+(function () {
+  'use strict';
+  var API = 'https://script.google.com/macros/s/AKfycbwDkKteJVq8lTRBd9ZE1NkHeqhgDBiXNEQ-QjF9sa6pwPqRV-FLnkFruDkT4xvZNBx0/exec'; // endereço da CÓPIA separada do servidor (não é o script das vendas do Wix); preencher depois de implantar
+  var qs = new URLSearchParams(location.search);
+  if (qs.get('api')) API = qs.get('api'); // só para teste local
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var sessao = '', itens = [];
+  try { sessao = sessionStorage.getItem('pt:s') || ''; } catch (x) {}
+
+  function chamar(corpo) {
+    return fetch(API + '?acao=portaria', { method: 'POST', body: JSON.stringify(corpo) }).then(function (r) { return r.json(); });
+  }
+  function entrou(nome) {
+    $('fEntrar').hidden = true; $('painel').hidden = false; $('quem').hidden = false;
+    if (nome) $('quemNome').textContent = nome;
+    resumo(); $('q').focus();
+  }
+  function sair(msg) {
+    sessao = ''; try { sessionStorage.removeItem('pt:s'); sessionStorage.removeItem('pt:n'); } catch (x) {}
+    $('fEntrar').hidden = false; $('painel').hidden = true; $('quem').hidden = true; $('lista').innerHTML = ''; $('q').value = '';
+    $('mEntrar').textContent = msg || ''; $('pin').value = ''; $('pin').focus();
+  }
+  function trata(j) { if (j && j.sair) { sair(j.erro); return null; } return j; }
+
+  $('fEntrar').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var pin = $('pin').value.replace(/\D/g, '');
+    if (pin.length !== 6) { $('mEntrar').textContent = 'O PIN tem 6 dígitos.'; return; }
+    $('bEntrar').disabled = true; $('mEntrar').textContent = '';
+    chamar({ op: 'entrar', pin: pin }).then(function (j) {
+      $('bEntrar').disabled = false;
+      if (!j.ok) { $('mEntrar').textContent = j.erro || 'Não foi possível entrar.'; return; }
+      sessao = j.sessao; try { sessionStorage.setItem('pt:s', sessao); sessionStorage.setItem('pt:n', j.nome); } catch (x) {}
+      entrou(j.nome);
+    }).catch(function () { $('bEntrar').disabled = false; $('mEntrar').textContent = 'Sem conexão. Confira a internet.'; });
+  });
+  $('sair').addEventListener('click', function () { sair(''); });
+
+  function resumo() {
+    chamar({ op: 'resumo', sessao: sessao }).then(trata).then(function (j) {
+      if (!j || !j.ok) return;
+      $('sPed').textContent = j.pedidos; $('sCred').textContent = j.credenciais; $('sEnt').textContent = j.entregues;
+    }).catch(function () {});
+  }
+
+  var timer, ultima = '';
+  $('q').addEventListener('input', function () {
+    clearTimeout(timer);
+    var q = $('q').value.trim();
+    if (q.replace(/\s/g, '').length < 3) { $('lista').innerHTML = ''; return; }
+    timer = setTimeout(function () { buscar(q); }, 450);
+  });
+  function buscar(q) {
+    ultima = q; $('mPainel').textContent = '';
+    chamar({ op: 'buscar', sessao: sessao, q: q }).then(trata).then(function (j) {
+      if (!j || q !== ultima) return;
+      if (!j.ok) { $('mPainel').textContent = j.erro || 'Erro na busca.'; return; }
+      itens = j.itens; desenhar();
+    }).catch(function () { $('mPainel').textContent = 'Sem conexão. Tente de novo.'; });
+  }
+  function desenhar() {
+    if (!itens.length) { $('lista').innerHTML = '<p class="vazio">Nenhuma compra paga encontrada.</p>'; return; }
+    $('lista').innerHTML = itens.map(function (x, i) {
+      var falta = x.credenciais - x.entregues, ok = falta <= 0;
+      return '<article class="item' + (ok ? ' ok' : '') + '">' +
+        '<div class="l1"><b>' + esc(x.nome) + '</b><span class="tag">' + esc(x.origem) + '</span></div>' +
+        '<p class="info"><code>' + esc(x.codigo) + '</code> · ' + esc(x.ingresso) + '</p>' +
+        '<p class="info">' + esc(x.email) + '</p>' +
+        '<div class="cont"><p class="n' + (ok ? ' ok' : '') + '"><b>' + x.entregues + '</b> de ' + x.credenciais + ' entregues' + (ok ? ' · completo' : '') + '</p>' +
+        '<div class="acoes">' +
+        '<button type="button" data-i="' + i + '" data-n="-1" aria-label="Desfazer uma entrega"' + (x.entregues <= 0 ? ' disabled' : '') + '>−1</button>' +
+        '<button type="button" class="ent" data-i="' + i + '" data-n="1"' + (ok ? ' disabled' : '') + '>Entregar 1</button>' +
+        (falta > 1 ? '<button type="button" class="ent" data-i="' + i + '" data-n="' + falta + '">Todas (' + falta + ')</button>' : '') +
+        '</div></div></article>';
+    }).join('');
+  }
+  $('lista').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-n]'); if (!b) return;
+    var x = itens[+b.dataset.i], n = +b.dataset.n;
+    if (n < 0 && !confirm('Desfazer uma entrega de ' + x.nome + '?')) return;
+    Array.prototype.forEach.call($('lista').querySelectorAll('button'), function (bt) { bt.disabled = true; });
+    chamar({ op: 'entregar', sessao: sessao, codigo: x.codigo, n: n }).then(trata).then(function (j) {
+      if (!j) return;
+      if (!j.ok) { $('mPainel').textContent = j.erro; desenhar(); return; }
+      x.entregues = j.entregues; desenhar(); resumo();
+    }).catch(function () { $('mPainel').textContent = 'Sem conexão. A entrega pode não ter sido registrada: busque de novo para conferir.'; desenhar(); });
+  });
+
+  if (sessao) entrou(sessionStorage.getItem('pt:n') || ''); else $('pin').focus();
+})();
+</script>
+</body>
+</html>

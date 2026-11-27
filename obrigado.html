@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pedido | 2Rodas Club no MotoGP Brasil 2027</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Montserrat:wght@300..800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0b;--bg-2:#121212;--surface:#181818;--line:rgba(255,255,255,.10);--line-2:rgba(255,255,255,.18);--text:#f4f2ee;--muted:#dad7d1;--dim:#bdbab4;--acc:#e8201f;--acc-hi:#ff4038;--ok:#3ccf7a;--btn-grad:linear-gradient(100deg,#c80707 0%,#e8201f 55%,#d40d0b 100%);--f-display:"Montserrat",system-ui,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text)}
+body{font-family:var(--f-display);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100dvh;display:flex;flex-direction:column}
+h1,p{margin:0}
+.topo{display:flex;justify-content:center;padding:22px 16px}
+.topo img{width:150px;height:auto}
+main{flex:1;width:100%;max-width:560px;margin:0 auto;padding:8px 16px 48px}
+.card{background:var(--bg-2);border:1px solid var(--line);border-radius:20px;padding:28px 22px;text-align:center}
+.selo{width:64px;height:64px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.06)}
+.selo svg{width:30px;height:30px}
+.gira{width:34px;height:34px;border-radius:50%;border:3px solid rgba(255,255,255,.18);border-top-color:var(--acc-hi);animation:g 1s linear infinite}
+@keyframes g{to{transform:rotate(360deg)}}
+.mono{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc-hi)}
+h1{margin-top:8px;font-size:clamp(24px,6vw,32px);line-height:1.15;font-weight:800;text-transform:uppercase;letter-spacing:-.01em}
+.txt{margin-top:12px;color:var(--muted);font-size:15px}
+.cod{margin:22px 0 4px;padding:18px;border:2px dashed var(--line-2);border-radius:14px}
+.cod small{display:block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.cod b{display:block;margin-top:6px;font-family:var(--f-mono);font-size:32px;letter-spacing:.06em}
+dl{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;margin:18px 0 0;text-align:left;font-size:14px}
+dt{color:var(--dim)}dd{margin:0;font-weight:600;text-align:right}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;margin-top:22px;padding:0 24px;border-radius:14px;background:var(--btn-grad);color:#fff;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:14px;text-decoration:none}
+.fino{margin-top:18px;font-size:12.5px;color:var(--dim)}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){.gira{animation:none}}
+</style>
+</head>
+<body>
+<header class="topo"><img src="img/logo-2rodasclub-500.png" alt="2Rodas Club" width="500" height="183"></header>
+<main>
+  <section class="card" aria-live="polite">
+    <div id="esperando">
+      <div class="selo"><div class="gira" aria-hidden="true"></div></div>
+      <p class="mono">Pedido <span id="c1"></span></p>
+      <h1>Confirmando seu pagamento</h1>
+      <p class="txt" id="tEsp">Isso leva alguns segundos. Não feche esta página.</p>
+    </div>
+
+    <div id="pago" hidden>
+      <div class="selo" style="background:rgba(60,207,122,.14)"><svg viewBox="0 0 24 24" fill="none" stroke="#3ccf7a" stroke-width="3" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <p class="mono">Compra confirmada</p>
+      <h1>Seu lugar está garantido, <span id="pNome"></span></h1>
+      <div class="cod"><small>Código do pedido</small><b id="c2"></b></div>
+      <dl>
+        <dt>Ingresso</dt><dd id="pIng"></dd>
+        <dt>Credenciais</dt><dd id="pCred"></dd>
+        <dt>Datas</dt><dd>02 a 04 de abril de 2027</dd>
+        <dt>Local</dt><dd>Autódromo Internacional de Goiânia</dd>
+      </dl>
+      <p class="txt" id="pEmail"></p>
+      <p class="fino">No evento, a equipe do 2Rodas Club confere este código e entrega as credenciais.</p>
+    </div>
+
+    <div id="expirado" hidden>
+      <div class="selo"><svg viewBox="0 0 24 24" fill="none" stroke="#ff4038" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <p class="mono">Pedido <span id="c3"></span></p>
+      <h1>O prazo de pagamento acabou</h1>
+      <p class="txt">Nenhuma cobrança foi feita. Se quiser, comece a compra de novo.</p>
+      <a class="btn" href="comprar.html">Comprar de novo</a>
+    </div>
+
+    <div id="erro" hidden>
+      <div class="selo"><svg viewBox="0 0 24 24" fill="none" stroke="#ff4038" stroke-width="2.5" aria-hidden="true"><path d="M12 8v5M12 16.5v.5"/><circle cx="12" cy="12" r="9"/></svg></div>
+      <h1>Pedido não encontrado</h1>
+      <p class="txt">Confira o link. Se você pagou, o e-mail de confirmação chega em alguns minutos.</p>
+    </div>
+  </section>
+</main>
+<script>
+(function () {
+  'use strict';
+  var API = 'https://script.google.com/macros/s/AKfycbwDkKteJVq8lTRBd9ZE1NkHeqhgDBiXNEQ-QjF9sa6pwPqRV-FLnkFruDkT4xvZNBx0/exec'; // endereço da CÓPIA separada do servidor (não é o script das vendas do Wix); preencher depois de implantar
+  var qs = new URLSearchParams(location.search);
+  if (qs.get('api')) API = qs.get('api'); // só para teste local
+  var c = (qs.get('c') || '').toUpperCase(), t = qs.get('t') || '';
+  var $ = function (id) { return document.getElementById(id); };
+  var mostra = function (id) { ['esperando', 'pago', 'expirado', 'erro'].forEach(function (x) { $(x).hidden = x !== id; }); };
+  ['c1', 'c3'].forEach(function (id) { $(id).textContent = c; });
+  if (!/^2R-[A-Z0-9]{6}$/.test(c) || !t) { mostra('erro'); return; }
+
+  var tentativas = 0, inicio = Date.now();
+  function consultar() {
+    tentativas++;
+    fetch(API + '?acao=status&cod=' + encodeURIComponent(c) + '&t=' + encodeURIComponent(t))
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (!j || !j.ok) { mostra('erro'); return; }
+        if (j.situacao === 'pago') {
+          $('pNome').textContent = j.nome; $('c2').textContent = j.codigo;
+          $('pIng').textContent = j.qtd + 'x ' + j.ingresso; $('pCred').textContent = j.credenciais;
+          $('pEmail').textContent = 'Enviamos a confirmação para ' + j.email + '. Se não aparecer, olhe também o spam.';
+          mostra('pago'); return;
+        }
+        if (j.situacao === 'expirado' && Date.now() - inicio > 20000) { mostra('expirado'); return; }
+        if (Date.now() - inicio > 90000) $('tEsp').textContent = 'Pagamento por Pix pode levar alguns minutos. Você pode fechar esta página: o e-mail com o ingresso chega assim que o pagamento for confirmado.';
+        setTimeout(consultar, tentativas < 10 ? 3000 : 8000);
+      })
+      .catch(function () { setTimeout(consultar, 8000); });
+  }
+  consultar();
+})();
+</script>
+</body>
+</html>
