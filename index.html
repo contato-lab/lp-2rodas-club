@@ -342,6 +342,13 @@ html.is-loading .nav{opacity:0}
 .footer__nav{display:grid;gap:10px;justify-items:start;font-size:14px;color:var(--muted)}
 .footer__nav a{transition:color .25s}
 .footer__nav a:hover{color:var(--acc-hi)}
+.footer__real{grid-column:1/-1;display:flex;align-items:center;flex-wrap:wrap;gap:16px 28px;padding-top:22px;border-top:1px solid var(--line)}
+.footer__real-t{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.footer__real-logos{display:flex;align-items:center;gap:26px}
+.footer__real-logos img{display:block;width:auto}
+.footer__real-dr{height:22px}
+.footer__real-ad{height:40px}
+.footer__real-sep{width:1px;height:30px;background:var(--line-2)}
 .footer .footer__legal{grid-column:1/-1;max-width:none;margin:0;padding-top:20px;border-top:1px solid var(--line)}
 .buybar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(15,15,15,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line-2);transform:translateY(110%);transition:transform .45s var(--ease)}
 .buybar.is-on{transform:none}
@@ -900,6 +907,14 @@ html.js:not(.no-intro) .hero [data-intro]{opacity:0}
     <nav class="footer__nav" aria-label="Rodapé">
       <a href="#camarote">O camarote</a><a href="#ingressos">Ingressos</a><a href="#lounge">Camarote Diogo Moreira</a><a href="#duvidas">Dúvidas</a><a href="#ingressos">Comprar ingresso</a>
     </nav>
+    <div class="footer__real">
+      <span class="footer__real-t">Realização</span>
+      <div class="footer__real-logos">
+        <img class="footer__real-dr" src="img/realizacao-duasrodas.png" alt="Revista Duas Rodas" width="640" height="83" loading="lazy" decoding="async">
+        <span class="footer__real-sep" aria-hidden="true"></span>
+        <img class="footer__real-ad" src="img/realizacao-ad78.png" alt="AD78 Latin America" width="322" height="128" loading="lazy" decoding="async">
+      </div>
+    </div>
     <p class="footer__legal"><a href="https://www.instagram.com/2rodasclub.br/" target="_blank" rel="noopener">@2rodasclub.br</a> no Instagram. MotoGP™ é marca registrada de seu titular. Traçado do circuito: © colaboradores do OpenStreetMap.</p>
   </div>
 </footer>
